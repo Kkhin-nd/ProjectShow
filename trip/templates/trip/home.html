@@ -397,7 +397,10 @@
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.classList.remove('hidden');
-            document.body.style.overflow = 'hidden'; 
+            document.body.style.overflow = 'hidden';
+            // Modal ပွင့်လာတဲ့အခါ Header ကို အောက်သို့ရောက်စေရန် z-index ကို ဖြုတ်/လျှော့ချသည်
+            const header = document.querySelector('header');
+            if (header) header.style.zIndex = '10';
         }
     }
 
@@ -405,10 +408,12 @@
         const modal = document.getElementById(modalId);
         if (modal) {
             modal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; 
+            document.body.style.overflow = 'auto';
+            // Modal ပိတ်သွားရင် Header ကို မူလ z-index (50) ပြန်ပေးသည်
+            const header = document.querySelector('header');
+            if (header) header.style.zIndex = '50';
         }
     }
-
     function openAuthModal() {
         openModal('authModal'); 
     }
