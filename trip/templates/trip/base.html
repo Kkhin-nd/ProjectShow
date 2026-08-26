@@ -18,16 +18,16 @@
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
             <!-- Logo & Brand Name -->
-            <div class="flex items-center space-x-1.5 sm:space-x-3 shrink-0">
+            <div class="flex items-center space-x-1 sm:space-x-3 shrink-0">
                 <a href="{% url 'home' %}" class="flex items-center space-x-1.5">
-                    <img src="{% static 'trip/sticker.webp' %}" alt="Travel Bot Myanmar Logo" class="w-9 h-9 sm:w-12 sm:h-12 object-contain rounded-full shadow-sm">
-                    <span class="text-base sm:text-2xl font-bold tracking-tight">
-                        <span style="color: #0b132b;">Travel</span><span class="text-[#f97316]">Bot</span>
+                    <img src="{% static 'trip/sticker.webp' %}" alt="Travel Bot Myanmar Logo" class="w-8 h-8 sm:w-12 sm:h-12 object-contain rounded-full shadow-sm">
+                    <span class="text-sm sm:text-2xl font-bold tracking-tight">
+                        <span style="color: #0b132b;">Travel</span><span class="text-[#f97316]">Bot Myanmar</span>
                     </span>
                 </a>
             </div>
             
-            <!-- Menu Links (Desktop Only) -->
+            <!-- Menu Links -->
             <nav class="hidden md:flex space-x-8 text-sm font-medium">
                 <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Home" %}</a>
                 <a href="{% url 'tours' %}" class="{% if request.path == '/tours/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Tours" %}</a>
@@ -61,10 +61,9 @@
                     </form>
                 </div>
 
-                <!-- User Login / Profile -->
                 {% if request.user.is_authenticated %}
-                    <div class="flex items-center">
-                        <a href="{% url 'profile' %}" class="flex items-center text-xs sm:text-sm font-bold text-slate-800 hover:text-[#f97316] transition">
+                    <div class="flex items-center space-x-2">
+                        <a href="{% url 'profile' %}" class="flex items-center gap-1 sm:gap-2 text-xs sm:text-sm font-bold text-slate-800 hover:text-[#f97316] transition">
                             {% if request.user.userprofile and request.user.userprofile.profile_picture %}
                                 <img src="{{ request.user.userprofile.profile_picture.url }}" class="w-7 h-7 sm:w-8 sm:h-8 rounded-full object-cover border border-[#f97316]">
                             {% else %}
@@ -72,17 +71,17 @@
                                     {{ request.user.username|slice:":1"|upper }}
                                 </div>
                             {% endif %}
+                            <span class="hidden md:inline">{{ request.user.first_name|default:request.user.username }}</span>
                         </a>
                     </div>
                 {% else %}
-                    <button onclick="openAuthModal()" class="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#f97316] transition whitespace-nowrap px-1">
-                        {% trans "Login" %}
+                    <button onclick="openAuthModal()" class="text-xs sm:text-sm font-semibold text-slate-700 hover:text-[#f97316] transition whitespace-nowrap">
+                        {% trans "User Login" %}
                     </button>
                 {% endif %}
 
-                <!-- Plan Trip Button -->
-                <a href="{% url 'plan_trip' %}" class="px-3 sm:px-5 py-1.5 sm:py-2.5 bg-[#f97316] text-white text-xs sm:text-sm font-bold rounded-full hover:bg-orange-600 transition-all duration-300 whitespace-nowrap shadow-sm">
-                    {% trans "Plan Trip" %}
+                <a href="{% url 'plan_trip' %}" class="px-2.5 sm:px-5 py-1.5 sm:py-2.5 bg-[#f97316] text-white text-xs sm:text-sm font-bold rounded-full hover:bg-orange-600 transition-all duration-300 whitespace-nowrap shadow-sm">
+                    {% trans "Plan My Trip" %}
                 </a>
             </div>
         </div>
