@@ -77,7 +77,7 @@ WSGI_APPLICATION = 'Travel.wsgi.application'
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 import pymysql
-pymysql.install_as_mysql()
+pymysql.install_as_MySQLdb()
 
 DATABASES = {
     'default': {
