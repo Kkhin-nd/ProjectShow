@@ -15,79 +15,77 @@
 <body class="min-h-screen flex flex-col bg-slate-50">
 
     <!-- 1. Navigation Bar -->
-<header class="bg-white shadow-sm sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        <!-- Logo & Brand Name -->
-        <div class="flex items-center space-x-3">
-            <a href="{% url 'home' %}" class="flex items-center space-x-2">
-                <img src="{% static 'trip/sticker.webp' %}" alt="Travel Bot Myanmar Logo" class="w-12 h-12 object-contain rounded-full shadow-sm">
-                <span class="text-2xl font-bold">
-    <span style="color: #0b132b;">Travel</span><span class="text-[#f97316]">Bot Myanmar</span>
-</span>
-            </a>
-        </div>
-        
-        <!-- Menu Links -->
-        <nav class="hidden md:flex space-x-8 text-sm font-medium">
-            <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Home" %}</a>
-            <a href="{% url 'tours' %}" class="{% if request.path == '/tours/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Tours" %}</a>
-            <a href="{% url 'travel_styles' %}" class="{% if request.path == '/travel-styles/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Travel Styles" %}</a>
-            <a href="{% url 'agents' %}" class="{% if request.path == '/agents/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Travel Agencies" %}</a>
-            <a href="{% url 'seasonal_trips' %}" class="{% if request.path == '/seasonal-trips/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Seasonal Trips" %}</a>
-        </nav>
-        
-        <!-- Right Actions -->
-        <div class="flex items-center space-x-4">
-            
-           <!-- Language Switcher Dropdown -->
-            <div class="relative" x-data="{ open: false }">
-                <form action="{% url 'set_language' %}" method="post" id="langForm">
-                    {% csrf_token %}
-                    <input name="next" type="hidden" value="{{ request.get_full_path }}">
-                    
-                    <button type="button" @click="open = !open" class="flex items-center space-x-1 text-sm font-semibold text-slate-700 hover:text-[#f97316] transition px-2 py-1 rounded-lg border border-slate-200 bg-white shadow-xs">
-                        <span>{% if request.LANGUAGE_CODE == 'my' %}မြန်မာ{% else %}EN{% endif %}</span>
-                        <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
-                    </button>
-
-                    <!-- Dropdown Menu -->
-                    <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-28 bg-white border border-slate-100 rounded-xl shadow-lg py-1 z-50 text-sm">
-                        <button type="submit" name="language" value="en" class="w-full text-left px-4 py-2 hover:bg-orange-50 hover:text-[#f97316] font-medium {% if request.LANGUAGE_CODE == 'en' %}text-[#f97316] font-bold bg-orange-50/50{% else %}text-slate-700{% endif %}">
-                            English
-                        </button>
-                        <button type="submit" name="language" value="my" class="w-full text-left px-4 py-2 hover:bg-orange-50 hover:text-[#f97316] font-medium {% if request.LANGUAGE_CODE == 'my' %}text-[#f97316] font-bold bg-orange-50/50{% else %}text-slate-700{% endif %}">
-                            မြန်မာ
-                        </button>
-                    </div>
-                </form>
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Logo & Brand Name -->
+            <div class="flex items-center space-x-3">
+                <a href="{% url 'home' %}" class="flex items-center space-x-2">
+                    <img src="{% static 'trip/sticker.webp' %}" alt="Travel Bot Myanmar Logo" class="w-12 h-12 object-contain rounded-full shadow-sm">
+                    <span class="text-2xl font-bold">
+                        <span style="color: #0b132b;">Travel</span><span class="text-[#f97316]">Bot Myanmar</span>
+                    </span>
+                </a>
             </div>
+            
+            <!-- Menu Links -->
+            <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                <a href="{% url 'home' %}" class="{% if request.path == '/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Home" %}</a>
+                <a href="{% url 'tours' %}" class="{% if request.path == '/tours/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Tours" %}</a>
+                <a href="{% url 'travel_styles' %}" class="{% if request.path == '/travel-styles/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Travel Styles" %}</a>
+                <a href="{% url 'agents' %}" class="{% if request.path == '/agents/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Travel Agencies" %}</a>
+                <a href="{% url 'seasonal_trips' %}" class="{% if request.path == '/seasonal-trips/' %}text-[#f97316] font-bold{% else %}hover:text-[#f97316]{% endif %}">{% trans "Seasonal Trips" %}</a>
+            </nav>
+            
+            <!-- Right Actions -->
+            <div class="flex items-center space-x-4">
+                <!-- Language Switcher Dropdown -->
+                <div class="relative" x-data="{ open: false }">
+                    <form action="{% url 'set_language' %}" method="post" id="langForm">
+                        {% csrf_token %}
+                        <input name="next" type="hidden" value="{{ request.get_full_path }}">
+                        
+                        <button type="button" @click="open = !open" class="flex items-center space-x-1 text-sm font-semibold text-slate-700 hover:text-[#f97316] transition px-2 py-1 rounded-lg border border-slate-200 bg-white shadow-xs">
+                            <span>{% if request.LANGUAGE_CODE == 'my' %}မြန်မာ{% else %}EN{% endif %}</span>
+                            <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </button>
 
-            {% if request.user.is_authenticated %}
-                <div class="flex items-center space-x-2">
-                    <a href="{% url 'profile' %}" class="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-[#f97316] transition">
-                        {% if request.user.userprofile and request.user.userprofile.profile_picture %}
-                            <img src="{{ request.user.userprofile.profile_picture.url }}" class="w-8 h-8 rounded-full object-cover border border-[#f97316]">
-                        {% else %}
-                            <div class="w-8 h-8 rounded-full bg-orange-100 text-[#f97316] flex items-center justify-center text-xs font-bold">
-                                {{ request.user.username|slice:":1"|upper }}
-                            </div>
-                        {% endif %}
-                        <span>{{ request.user.first_name|default:request.user.username }}</span>
-                    </a>
+                        <!-- Dropdown Menu -->
+                        <div x-show="open" @click.away="open = false" class="absolute right-0 mt-2 w-28 bg-white border border-slate-100 rounded-xl shadow-lg py-1 z-50 text-sm">
+                            <button type="submit" name="language" value="en" class="w-full text-left px-4 py-2 hover:bg-orange-50 hover:text-[#f97316] font-medium {% if request.LANGUAGE_CODE == 'en' %}text-[#f97316] font-bold bg-orange-50/50{% else %}text-slate-700{% endif %}">
+                                English
+                            </button>
+                            <button type="submit" name="language" value="my" class="w-full text-left px-4 py-2 hover:bg-orange-50 hover:text-[#f97316] font-medium {% if request.LANGUAGE_CODE == 'my' %}text-[#f97316] font-bold bg-orange-50/50{% else %}text-slate-700{% endif %}">
+                                မြန်မာ
+                            </button>
+                        </div>
+                    </form>
                 </div>
-            {% else %}
-                <button onclick="openAuthModal()" class="text-sm font-semibold text-slate-700 hover:text-[#f97316] transition">
-                    {% trans "User Login" %}
-                </button>
-            {% endif %}
 
-            <a href="{% url 'plan_trip' %}" class="px-5 py-2.5 bg-[#f97316] text-white font-bold rounded-full hover:bg-orange-600 transition-all duration-300">
-                {% trans "Plan My Trip" %}
-            </a>
+                {% if request.user.is_authenticated %}
+                    <div class="flex items-center space-x-2">
+                        <a href="{% url 'profile' %}" class="flex items-center gap-2 text-sm font-bold text-slate-800 hover:text-[#f97316] transition">
+                            {% if request.user.userprofile and request.user.userprofile.profile_picture %}
+                                <img src="{{ request.user.userprofile.profile_picture.url }}" class="w-8 h-8 rounded-full object-cover border border-[#f97316]">
+                            {% else %}
+                                <div class="w-8 h-8 rounded-full bg-orange-100 text-[#f97316] flex items-center justify-center text-xs font-bold">
+                                    {{ request.user.username|slice:":1"|upper }}
+                                </div>
+                            {% endif %}
+                            <span>{{ request.user.first_name|default:request.user.username }}</span>
+                        </a>
+                    </div>
+                {% else %}
+                    <button onclick="openAuthModal()" class="text-sm font-semibold text-slate-700 hover:text-[#f97316] transition">
+                        {% trans "User Login" %}
+                    </button>
+                {% endif %}
+
+                <a href="{% url 'plan_trip' %}" class="px-5 py-2.5 bg-[#f97316] text-white font-bold rounded-full hover:bg-orange-600 transition-all duration-300">
+                    {% trans "Plan My Trip" %}
+                </a>
+            </div>
         </div>
-
-    </div>
-</header>
+    </header>
 
     <!-- Main Content Area -->
     <main class="flex-grow">
@@ -118,12 +116,12 @@
             </div>
             <div>
                 <h4 class="text-white font-semibold mb-3 text-sm">{% trans "Top Destinations" %}</h4>
-                <div class="space-y-2 text-xs">
-    <li><a href="#" class="hover:text-white">{% trans "Bagan" %}</a></li>
-    <li><a href="#" class="hover:text-white">{% trans "Yangon" %}</a></li>
-    <li><a href="#" class="hover:text-white">{% trans "Inle Lake" %}</a></li>
-    <li><a href="#" class="hover:text-white">{% trans "Ngapali" %}</a></li>
-</div>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="#" class="hover:text-white">{% trans "Bagan" %}</a></li>
+                    <li><a href="#" class="hover:text-white">{% trans "Yangon" %}</a></li>
+                    <li><a href="#" class="hover:text-white">{% trans "Inle Lake" %}</a></li>
+                    <li><a href="#" class="hover:text-white">{% trans "Ngapali" %}</a></li>
+                </ul>
             </div>
         </div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 border-t border-slate-800 mt-8 pt-6 text-center text-xs text-gray-500">
@@ -131,10 +129,8 @@
         </div>
     </footer>
 
-
-    <!-- AI Chat Box Modal (တခြား Page တွေမှာ နှိပ်မှ ပွင့်ရန် hidden ထည့်ထားသည်) -->
+    <!-- AI Chat Box Modal -->
     <div id="aiChatBox" class="fixed bottom-20 right-6 z-50 hidden w-80 sm:w-[480px] bg-white rounded-3xl shadow-2xl border border-gray-200 overflow-hidden transition-all duration-300 flex flex-col h-[520px]">
-        
         <!-- Chat Header -->
         <div class="bg-orange-600 text-white p-4 flex justify-between items-center shrink-0">
             <div class="flex items-center space-x-2">
@@ -145,7 +141,6 @@
                 </div>
             </div>
             
-            <!-- Minimize, Maximize & Close ခလုတ်များ -->
             <div class="flex items-center space-x-1.5">
                 <button onclick="minimizeChat()" class="text-white hover:text-gray-200 font-bold text-sm cursor-pointer px-1.5 py-0.5 rounded transition" title="Minimize">🗕</button>
                 <button onclick="maximizeChat()" id="max-btn" class="text-white hover:text-gray-200 font-bold text-sm cursor-pointer px-1.5 py-0.5 rounded transition" title="Maximize">🗖</button>
@@ -169,12 +164,10 @@
         </form>
     </div>
 
-    <!-- Floating AI Chat Button (ညာဘက်အောက်ထောင့်တွင် အမြဲပေါ်နေမည့် Bot အရုပ်လေး) -->
-    <!-- Floating AI Chat Button (Gradient နောက်ခံ၊ ပိုမိုလှပသော Shadow နှင့် Animation များဖြင့်) -->
+    <!-- Floating AI Chat Button -->
     <button onclick="toggleChat()" class="fixed bottom-6 right-6 z-40 bg-gradient-to-tr from-orange-600 to-amber-500 hover:from-orange-700 hover:to-amber-600 text-white w-20 h-20 rounded-full shadow-[0_10px_25px_rgba(234,88,12,0.4)] flex items-center justify-center text-3xl transition-all duration-300 transform hover:scale-110 active:scale-95 cursor-pointer border-4 border-white ring-4 ring-orange-100" title="Chat with AI Assistant">
         🤖
     </button>
-
 
     <!-- AUTH MODAL -->
     <div id="authModal" class="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 backdrop-blur-sm hidden px-4">
@@ -185,6 +178,7 @@
                 <h2 id="modalTitle" class="text-2xl font-extrabold text-slate-900 mt-1">Welcome Back</h2>
                 <p id="modalDesc" class="text-sm text-slate-500 mt-1">Log in to your account to continue</p>
             </div>
+            
             <form id="loginForm" method="POST" action="{% url 'login' %}" class="space-y-4">
                 {% csrf_token %}
                 <div>
@@ -200,6 +194,7 @@
                     Don't have an account? <button type="button" onclick="switchToRegister()" class="text-orange-600 font-semibold hover:underline">Create an account</button>
                 </p>
             </form>
+
             <form id="registerForm" method="POST" action="{% url 'register' %}" class="space-y-3 hidden">
                 {% csrf_token %}
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -244,7 +239,7 @@
         </div>
     </div>
 
-   <!-- JavaScript for Modal Control -->
+    <!-- JavaScript for UI Controls & Chat Functionality -->
     <script>
         function openAuthModal() {
             document.getElementById('authModal').classList.remove('hidden');
@@ -265,7 +260,7 @@
             document.getElementById('modalDesc').innerText = "Log in to your account to continue";
         }
 
-        // Chat Box ဖွင့်/ပိတ် လုပ်ရန်
+        // Chat Box Toggle
         function toggleChat() {
             const chatBox = document.getElementById('aiChatBox');  
             if(chatBox) { chatBox.classList.toggle('hidden'); }
@@ -274,7 +269,7 @@
         let isMinimized = false;
         let isMaximizedHeight = false;
 
-        // Minimize (အသေးချုံ့ရန်)
+        // Minimize Chat
         function minimizeChat() {
             const chatBox = document.getElementById('aiChatBox');
             const chatBody = document.getElementById('chat-body');
@@ -295,7 +290,7 @@
             }
         }
 
-        // Maximize Height (အလျား အပြည့်ချဲ့ရန် - Width မပြောင်းပါ)
+        // Maximize Height
         function maximizeChat() {
             const chatBox = document.getElementById('aiChatBox');
             const maxBtn = document.getElementById('max-btn');
@@ -319,12 +314,10 @@
             }
         }
 
-        // ==========================================
-        // Chat History သိမ်းဆည်းရန် Array
-        // ==========================================
+        // Chat History Array
         let chatHistory = [];
 
-        // AI ဆီသို့ မက်ဆေ့ဂျ်နှင့် History ပို့ခြင်း
+        // Send Message to AI backend
         async function sendUserMessage(event) {
             event.preventDefault(); 
             const inputField = document.getElementById('chat-input');
@@ -332,13 +325,13 @@
             const userMessage = inputField.value.trim();
             if (!userMessage) return; 
 
-            // ၁။ User ၏ မက်ဆေ့ဂျ်ကို UI တွင် ပြသရန်
+            // 1. Display User Message in UI
             const userBubble = document.createElement('div');
             userBubble.className = "bg-orange-600 text-white p-3 rounded-2xl shadow-sm max-w-[80%] ml-auto text-right break-words";
             userBubble.textContent = userMessage;
             chatBody.appendChild(userBubble);
 
-            // ၂။ chatHistory ထဲသို့ User ၏ စကားကို ထည့်ခြင်း
+            // 2. Push User Message to chatHistory
             chatHistory.push({ role: "user", content: userMessage });
 
             inputField.value = '';
@@ -352,11 +345,11 @@
             chatBody.scrollTop = chatBody.scrollHeight;
 
             try {
-                // ၃။ Backend သို့ messages (history အပြည့်အစုံ) ကို ပို့ခြင်း
+                // 3. Post to Backend with full history
                 const response = await fetch('/ai-chat-api/', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ messages: chatHistory }) // <--- ဒီနေရာမှာ history ကို ပို့ပါသည်
+                    body: JSON.stringify({ messages: chatHistory })
                 });
                 const data = await response.json();
                 const loadingElem = document.getElementById('loading-bubble');
@@ -366,18 +359,12 @@
                 aiBubble.className = "bg-white p-3 rounded-2xl shadow-sm max-w-[80%] border border-gray-100 text-gray-800 break-words";
                 
                 if (data.status === 'success') {
-    // ၁။ * များကို ဖြတ်ထုတ်မည်
-    let cleanedReply = data.reply.replace(/\*/g, '');
-    
-    // ၂။ HTML အနေဖြင့် ထည့်သွင်းမည် (AI က ပို့လာသည့် \n လိုင်းအသစ်များကို <br> သို့ တိုက်ရိုက်ပြောင်းပေးမည်)
-    aiBubble.innerHTML = cleanedReply.replace(/\n/g, '<br>');
-    
-    chatHistory.push({ role: "assistant", content: data.reply });
-}
-                else {
+                    let cleanedReply = data.reply.replace(/\*/g, '');
+                    aiBubble.innerHTML = cleanedReply.replace(/\n/g, '<br>');
+                    chatHistory.push({ role: "assistant", content: data.reply });
+                } else {
                     aiBubble.textContent = "ဝမ်းနည်းပါတယ်၊ အမှားအယွင်းខ្លះ ဖြစ်ပေါ်သွားပါသည်။ ထပ်မံကြိုးစားပေးပါ။";
                 }
-
 
                 chatBody.appendChild(aiBubble);
                 chatBody.scrollTop = chatBody.scrollHeight;
