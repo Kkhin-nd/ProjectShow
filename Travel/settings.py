@@ -143,3 +143,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://projectshow-production.up.railway.app',
+]
