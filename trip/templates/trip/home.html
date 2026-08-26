@@ -398,7 +398,7 @@
         if (modal) {
             modal.classList.remove('hidden');
             document.body.style.overflow = 'hidden';
-            // Modal ပွင့်လာတဲ့အခါ Header ကို အောက်သို့ရောက်စေရန် z-index ကို ဖြုတ်/လျှော့ချသည်
+
             const header = document.querySelector('header');
             if (header) header.style.zIndex = '10';
         }
@@ -409,31 +409,47 @@
         if (modal) {
             modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
-            // Modal ပိတ်သွားရင် Header ကို မူလ z-index (50) ပြန်ပေးသည်
+
             const header = document.querySelector('header');
             if (header) header.style.zIndex = '50';
         }
     }
+
     function openAuthModal() {
         openModal('authModal'); 
     }
 
     function closeAuthModal() {
-        const modal = document.getElementById('authModal'); 
-        if (modal) {
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto';
+        closeModal('authModal');
+    }
+
+    // Login နဲ့ Register Form အချင်းချင်း ပြောင်းလဲပေးသည့် Function များ
+    function switchToRegister() {
+        const loginSection = document.getElementById('loginSection');
+        const registerSection = document.getElementById('registerSection');
+        
+        if (loginSection && registerSection) {
+            loginSection.classList.add('hidden');
+            registerSection.classList.remove('hidden');
+        }
+    }
+
+    function switchToLogin() {
+        const loginSection = document.getElementById('loginSection');
+        const registerSection = document.getElementById('registerSection');
+        
+        if (loginSection && registerSection) {
+            registerSection.classList.add('hidden');
+            loginSection.classList.remove('hidden');
         }
     }
 
     function toggleChat() {
-        const chatBox = document.getElementById('aiChatBox'); 
+        const chatBox = document.getElementById('aiChatBox');
         if(chatBox) {
             chatBox.classList.toggle('hidden');
         }
     }
-
-    let chatHistory = [];
 
     async function sendUserMessage(event) {
         event.preventDefault(); 
@@ -449,7 +465,9 @@
         userBubble.textContent = userMessage;
         chatBody.appendChild(userBubble);
 
-        chatHistory.push({ role: "user", content: userMessage });
+        if (typeof chatHistory !== 'undefined') {
+            chatHistory.push({ role: "user", content: userMessage });
+        }
 
         inputField.value = '';
         chatBody.scrollTop = chatBody.scrollHeight;
@@ -457,9 +475,8 @@
         const loadingBubble = document.createElement('div');
         loadingBubble.id = "loading-bubble"; 
         loadingBubble.className = "bg-white p-3 rounded-2xl shadow-sm max-w-[80%] border border-gray-100 text-gray-400";
-        loadingBubble.textContent = "....";
+        loadingBubble.textContent = "စဉ်းစားနေသည်...";
         chatBody.appendChild(loadingBubble);
-        chatBody.scrollTop = chatBody.scrollHeight;
 
         try {
             const response = await fetch('/ai-chat-api/', {
@@ -467,7 +484,7 @@
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ messages: chatHistory }) 
+                body: JSON.stringify({ messages: typeof chatHistory !== 'undefined' ? chatHistory : [] }) 
             });
 
             const data = await response.json();
@@ -482,16 +499,15 @@
                 let rawReply = data.reply;
                 let formattedReply = rawReply.replace(/(\d+[\.\。）]\s*)/g, '\n\n$1');
 
-                // /package/ID/ ဆိုပြီး ဂျင်ုနီဗာ အတုပါလာရင် လင့်ခ်မပြောင်းဘဲ ဖယ်ရှားရန် သို့မဟုတ် မှန်ကန်သော ID ပါမှ လင့်ခ်ပြောင်းရန်
                 formattedReply = formattedReply.replace(
                     /\/package\/(?!ID\/)([a-zA-Z0-9_-]+)\//g, 
                     '<a href="/package/$1/" class="text-orange-600 underline font-bold hover:text-orange-800">ဒီမှာ နှိပ်ပြီး အသေးစိတ်ကြည့်ရန်</a>'
                 );
 
-               formattedReply = formattedReply.replace(
-        /\[([^\]]+)\]\(([^)]+)\)/g,
-        '<a href="$2" class="text-orange-600 underline font-bold hover:text-orange-800" target="_blank">$1</a>'
-    );
+                formattedReply = formattedReply.replace(
+                    /\[([^\]]+)\]\(([^)]+)\)/g,
+                    '<a href="$2" class="text-orange-600 underline font-bold hover:text-orange-800" target="_blank">$1</a>'
+                );
 
                 formattedReply = formattedReply.replace(/\n/g, '<br>');
                 aiBubble.innerHTML = formattedReply;
@@ -515,11 +531,12 @@
         }
     }
 
-    if (typeof isMinimized === 'undefined') {
-        var isMinimized = false;
+    // ထပ်တလဲလဲ ကြေညာခြင်း မဖြစ်စေရန် စစ်ဆေးခြင်း
+    if (typeof window.isMinimized === 'undefined') {
+        window.isMinimized = false;
     }
-    if (typeof isMaximizedHeight === 'undefined') {
-        var isMaximizedHeight = false;
+    if (typeof window.isMaximizedHeight === 'undefined') {
+        window.isMaximizedHeight = false;
     }
 
     function minimizeChat() {
@@ -527,18 +544,17 @@
         const chatBody = document.getElementById('chat-body');
         const chatForm = document.getElementById('chat-form');
 
-        if (!isMinimized) {
+        if (!window.isMinimized) {
             chatBox.style.height = '64px';
             chatBody.classList.add('hidden');
             chatForm.classList.add('hidden');
-            isMinimized = true;
+            window.isMinimized = true;
         } else {
             chatBox.style.height = '520px';
             chatBody.classList.remove('hidden');
             chatForm.classList.remove('hidden');
-            isMinimized = false;
-            isMaximizedHeight = false;
-            document.getElementById('max-btn').textContent = '🗖';
+            window.isMinimized = false;
+            window.isMaximizedHeight = false;
         }
     }
 
@@ -546,22 +562,21 @@
         const chatBox = document.getElementById('aiChatBox');
         const maxBtn = document.getElementById('max-btn');
 
-        if (isMinimized) {
-            chatBox.style.height = '520px';
+        if (window.isMinimized) {
             document.getElementById('chat-body').classList.remove('hidden');
             document.getElementById('chat-form').classList.remove('hidden');
-            isMinimized = false;
+            window.isMinimized = false;
         }
 
-        if (!isMaximizedHeight) {
+        if (!window.isMaximizedHeight) {
             chatBox.style.height = '97vh';
             chatBox.style.bottom = '10px'; 
-            maxBtn.textContent = '🗗'; 
-            isMaximizedHeight = true;
+            if (maxBtn) maxBtn.textContent = '🗗'; 
+            window.isMaximizedHeight = true;
         } else {
             chatBox.style.height = '520px';
-            maxBtn.textContent = '🗖';
-            isMaximizedHeight = false;
+            if (maxBtn) maxBtn.textContent = '🗖';
+            window.isMaximizedHeight = false;
         }
     }
 
