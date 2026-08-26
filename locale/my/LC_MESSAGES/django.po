@@ -1,0 +1,701 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-08-12 10:13+0630\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: .\trip\templates\trip\base.html:8
+msgid "Discover Myanmar, Your Way"
+msgstr "မြန်မာပြည်ရဲ့ အလှကို ခံစားလိုက်ပါ"
+
+#: .\trip\templates\trip\base.html:26
+msgid "Home"
+msgstr "ပင်မစာမျက်နှာ"
+
+#: .\trip\templates\trip\base.html:27
+msgid "Tours"
+msgstr "ခရီးများ"
+
+#: .\trip\templates\trip\base.html:28
+msgid "Travel Styles"
+msgstr "ခရီးစတိုင်များ"
+
+#: .\trip\templates\trip\base.html:29
+msgid "Travel Agencies"
+msgstr "ခရီးသွားအေဂျင်စီများ"
+
+#: .\trip\templates\trip\base.html:30
+msgid "Seasonal Trips"
+msgstr "ရာသီအလိုက်ခရီးစဉ်"
+
+#: .\trip\templates\trip\base.html:74
+msgid "User Login"
+msgstr "အကောင့်ဝင်ရန်"
+
+#: .\trip\templates\trip\base.html:79
+msgid "Plan My Trip"
+msgstr "ခရီးစဉ်ပြုလုပ်ရန်"
+
+#: .\trip\templates\trip\base.html:97
+msgid ""
+"Your trusted travel partner in Myanmar. We create unforgettable journeys "
+"with authentic experiences."
+msgstr ""
+"မြန်မာနိုင်ငံရှိ သင်၏ယုံကြည်စိတ်ချရသော ခရီးသွားလုပ်ဖော်ကိုင်ဖက်။ "
+"ကျွန်ုပ်တို့သည် စစ်မှန်သောအတွေ့အကြုံများနှင့်အတူ မမေ့နိုင်သော ခရီးစဉ်များကို ဖန်တီးပေးပါသည်"
+
+#: .\trip\templates\trip\base.html:100
+msgid "For Travellers"
+msgstr "ခရီးသွားများအတွက်"
+
+#: .\trip\templates\trip\base.html:102
+msgid "Travel Planning"
+msgstr "ခရီးစဉ်ပြုလုပ်ရန်"
+
+#: .\trip\templates\trip\base.html:103
+msgid "Travel Style"
+msgstr "ခရီးစတိုင်များ"
+
+
+#: .\trip\templates\trip\base.html:109
+msgid "About Us"
+msgstr "ကျွန်ုပ်တို့အကြောင်း"
+
+#: .\trip\templates\trip\base.html:110
+msgid "Terms & Conditions"
+msgstr "စည်းကမ်းချက်များနှင့် စည်းကမ်းများ"
+
+#: .\trip\templates\trip\base.html:114
+msgid "Top Destinations"
+msgstr "ထိပ်တန်း ခရီးည့်နေရာများ"
+
+#: .\trip\templates\trip\base.html:116
+msgid "Bagan"
+msgstr "ပုဂံ"
+
+#: .\trip\templates\trip\base.html:117
+msgid "Yangon"
+msgstr "ရန်ကုန်"
+
+#: .\trip\templates\trip\base.html:118
+msgid "Inle Lake"
+msgstr "အင်းလေး"
+
+#: .\trip\templates\trip\base.html:119
+msgid "Ngapali"
+msgstr "ငပလီ"
+
+#: .\trip\templates\trip\season.html:13
+msgid "Seasonal Trips Ideas"
+msgstr "ရာသီဥတုအလိုက် ခရီးသွားအကြံပြုချက်များ"
+
+#: .\trip\templates\trip\season.html:28
+msgid "(Transitional Shoulder Season - October to November)"
+msgstr "(ရာသီဥတုပြောင်းလဲချိန် - အောက်တိုဘာနှင့် နိုဝင်ဘာ)"
+
+#: .\trip\templates\trip\season.html:31
+msgid "As the monsoon winds down and the crisp breeze of the changing season approaches, destinations like Naypyitaw, Yangon, Sagaing, and Bagan offer the perfect balance of mild weather, clear skies, and lush post-monsoon greenery, making it an ideal time for urban exploration, sightseeing, and cultural heritage tours."
+msgstr ""
+"မုတ်သုံရာသီ ကုန်ဆုံးပြီး ရာသီဥတုအေးမြလာတာနဲ့အမျှ နေပြည်တော်၊ ရန်ကုန်၊ စစ်ကိုင်းနဲ့ "
+"ပုဂံစတဲ့ နေရာတွေဟာ မုတ်သုံအလွန် စိမ်းလန်းစိုပြည်တဲ့ သဘာဝအလှအပတွေ၊ သာယာတဲ့ရာသီဥတုနဲ့ "
+"ကြည်လင်တဲ့ကောင်းကင်တို့ကို ပိုင်ဆိုင်ထားပါတော့တယ်။ ဒါကြောင့် မြို့ပြလေ့လာရေး၊ "
+"အလည်အပတ်ခရီးနဲ့ ယဉ်ကျေးမှုအမွေအနှစ် ခရီးစဉ်တွေအတွက် အကောင်းဆုံး အချိန်အခါတစ်ခု ဖြစ်ပါတယ်။"
+
+#: .\trip\templates\trip\season.html:44
+msgid "Summer (March to May)"
+msgstr "(နွေရာသီ - မတ်လမှ မေလအထိ)"
+
+#: .\trip\templates\trip\season.html:47
+msgid "When the tropical heat reaches its peak, travelers can beat the high temperatures by escaping to the refreshing coastal shores of Chaung Thar, Ngwe Saung, and Ngapali for cool sea breezes and relaxation, or seek refuge in the high-altitude, tree-shaded heights of Pyin Oo Lwin and Kalaw."
+msgstr ""
+"အပူချိန် အမြင့်ဆုံးရောက်တဲ့အခါ ခရီးသွားတွေအနေနဲ့ ချောင်းသာ၊ ငွေဆောင်နဲ့ ငပလီကမ်းခြေတွေဘက်ကို "
+"သွားရောက်ပြီး အေးမြတဲ့ပင်လယ်လေညင်းကို ခံစားကာ အနားယူနိုင်သလို၊ ပင်လယ်ရေမျက်နှာပြင်ထက် "
+"မြင့်မားပြီး သစ်ပင်ရိပ်တွေနဲ့ အေးမြတဲ့ ပြင်ဦးလွင်နဲ့ ကလောမြို့တွေဆီကို သွားရောက် အနားယူနိုင်ပါတယ်။"
+
+#: .\trip\templates\trip\season.html:60
+msgid "Rainy Season (June to October)"
+msgstr "(မိုးရာသီ - ဇွန်လမှ အောက်တိုဘာလအထိ)"
+
+#: .\trip\templates\trip\season.html:63
+msgid "The monsoon season transforms the landscape into a vibrant, emerald-green wonderland characterized by dramatic cloudscapes, active waterfalls, and misty mountain views, making places like Hpa-an, Mount Popa, Pyin Oo Lwin, Bago, and Inle Lake absolute paradises for nature and photography enthusiasts."
+msgstr ""
+"မုတ်သုံရာသီက သဘာဝရှုခင်းတွေကို ရစ်မှိုင်းတဲ့တောင်တန်းတွေ၊ ရေတံခွန်တွေနဲ့ စိမ်းလန်းစိုပြည်တဲ့ "
+"နယ်မြေတစ်ခုအဖြစ် ဖန်တီးပေးပါတယ်။ ဒါကြောင့် ဘားအံ၊ ပုပ္ပားတောင်၊ ပြင်ဦးလွင်၊ ပဲခူးနဲ့ အင်းလေးကန်စတဲ့ "
+"နေရာတွေဟာ သဘာဝအလှအပနဲ့ ဓာတ်ပုံရိုက်ကူးရတာကို နှစ်သက်သူတွေအတွက် အကောင်းဆုံးနေရာတွေ ဖြစ်ပါတယ်။"
+
+#: .\trip\templates\trip\season.html:76
+msgid "Winter (November to February)"
+msgstr "(ဆောင်းရာသီ - နိုဝင်ဘာလမှ ဖေဖော်ဝါရီလအထိ)"
+
+#: .\trip\templates\trip\tours.html:11
+msgid "Myanmar Tours & Holiday Packages"
+msgstr "မြန်မာနိုင်ငံ ခရီးစဉ်များနှင့် အားလပ်ရက် အစီအစဉ်များ"
+
+#: .\trip\templates\trip\tours.html:20
+msgid "Popular Destination"
+msgstr "လူကြိုက်များသော ခရီးသွားလာစရာ နေရာများ"
+
+#: .\trip\templates\trip\tours.html:30
+msgid "Ancient temples & stunning sunrises"
+msgstr "ရှေးဟောင်းဘုရားပုထိုးများနှင့် ရင်သပ်ရှုမောဖွယ် နေထွက်ချိန်"
+
+#: .\trip\templates\trip\tours.html:32
+msgid "Browse"
+msgstr "ရှာဖွေရန်"
+
+#: .\trip\templates\trip\tours.html:41
+msgid "Kalaw"
+msgstr "ကလော"
+
+#: .\trip\templates\trip\tours.html:42
+msgid "Scenic trekking & pine forests"
+msgstr "ရှုခင်းလှလှနဲ့ ထင်းရှူးတောတွေကြားထဲ ခြေလျင်လျှောက်လည်ကြမယ်"
+
+#: .\trip\templates\trip\tours.html:53
+msgid "Ngwe Saung"
+msgstr "ငွေဆောင်"
+
+#: .\trip\templates\trip\tours.html:54
+msgid "Serene waters & unique lifestyle"
+msgstr "ငြိမ်သက်အေးချမ်းတဲ့ ရေပြင်နဲ့ ထူးခြားတဲ့ နေထိုင်မှုပုံစံ"
+
+#: .\trip\templates\trip\tours.html:64
+msgid "Naypyitaw"
+msgstr "နေပြည်တော်"
+
+#: .\trip\templates\trip\tours.html:65
+msgid "Pristine nature & viaduct views"
+msgstr "သဘာဝအလှတရားတွေနဲ့ ရထားသံလမ်းကြီးရဲ့ ရှုခင်းလှလှလေးတွေကို ခံစားမယ်"
+
+#: .\trip\templates\trip\tours.html:76
+msgid "Cultural heritage & golden pagodas"
+msgstr "ယဉ်ကျေးမှုအမွေအနှစ်နဲ့ ဘုရားပုထိုးများ"
+
+#: .\trip\templates\trip\tours.html:88
+msgid "Floating gardens & leg-rowers"
+msgstr "ရေပေါ်ဥယျာဉ်တွေနဲ့ ခြေထောက်နဲ့လှေလှော်နေတဲ့သူတွေကို သွားကြည့်ကြမယ်"
+
+#: .\trip\templates\trip\tours.html:100
+msgid "White sands & crystal clear sea"
+msgstr "သဲဖြူတွေနဲ့ကြည်လင်တဲ့ရေပြင်ကျယ်ကိုခံစားကျမယ်"
+
+#: .\trip\templates\trip\tours.html:111
+msgid "Mandalay"
+msgstr "မန္တလေး"
+
+#: .\trip\templates\trip\tours.html:112
+msgid "Royal palaces & sunset bridges"
+msgstr "တော်ဝင်နန်းတော်များနှင့် နေဝင်ဆည်းဆာ တံတားများ"
+
+#: .\trip\templates\trip\tours.html:123
+msgid "Pyin Oo Lwin"
+msgstr "ပြင်ဦးလွင်"
+
+#: .\trip\templates\trip\tours.html:124
+msgid "Waterfalls & botanical gardens"
+msgstr "ရေတံခွန်များနှင့် ရုက္ခဗေဒဥယျာဉ်များ"
+
+#: .\trip\templates\trip\tours.html:135
+msgid "Hpa-An"
+msgstr "ဘားအံ"
+
+#: .\trip\templates\trip\tours.html:136
+msgid "Mystical caves & limestone karsts"
+msgstr "မှော်ဝင်ဆန်သော ဂူများနှင့် ထုံးကျောက်တောင်တန်းများ"
+
+#: .\trip\templates\trip\tours.html:147
+msgid "Myeik"
+msgstr "မြိတ်"
+
+#: .\trip\templates\trip\tours.html:148
+msgid "Island archipelagos & marine life"
+msgstr "ကျွန်းစုများနှင့် ရေအောက်ပင်လယ် သက်ရှိများ"
+
+#: .\trip\templates\trip\tours.html:159
+msgid "Loikaw"
+msgstr "လွိင်ကော်"
+
+#: .\trip\templates\trip\tours.html:160
+msgid "Unique ethnic cultures & traditions"
+msgstr "ထူးခြားသော တိုင်းရင်းသား ယဉ်ကျေးမှုနှင့် ရိုးရာဓလေ့များ"
+
+#: .\trip\templates\trip\tours.html:171
+msgid "Chaung Tha"
+msgstr "ချောင်းသာ"
+
+#: .\trip\templates\trip\tours.html:172
+msgid "Relaxing beachside getaways"
+msgstr "ပင်လယ်ကမ်းခြေ အနားယူရာနေရာများ"
+
+#: .\trip\templates\trip\tours.html:183
+msgid "Putao"
+msgstr "ပူတာအို"
+
+#: .\trip\templates\trip\tours.html:184
+msgid "Snow-capped mountains & adventures"
+msgstr "နှင်းဖုံးတောင်တန်းများနှင့် စွန့်စားခန်း ခရီးသွားလာမှုများ"
+
+#: .\trip\templates\trip\tours.html:195
+msgid "Kyaiktiyo"
+msgstr "ကျိုက်ထီးရိုး"
+
+#: .\trip\templates\trip\tours.html:196
+msgid "The sacred Golden Rock pagoda"
+msgstr "ဆံတော်ရှင် ကျိုက်ထီးရိုးစေတီတော်မြတ်ကြီး"
+
+#: .\trip\templates\trip\tours.html:207
+msgid "Bago"
+msgstr "ပဲခူး"
+
+#: .\trip\templates\trip\tours.html:208
+msgid "Ancient history & giant buddhas"
+msgstr "ရှေးဟောင်းသမိုင်းဝင် အမွေအနှစ်များနှင့် ဗုဒ္ဓဆင်းတုတော်များ"
+
+#: .\trip\templates\trip\tours.html:219
+msgid "Sagaing"
+msgstr "စစ်ကိုင်း"
+
+#: .\trip\templates\trip\tours.html:231
+msgid "Popa"
+msgstr "ပုပ္ပား"
+
+#: .\trip\templates\trip\tours.html:243
+msgid "Pangwar"
+msgstr "ပန်ဝါ"
+
+#: .\trip\templates\trip\tours.html:255
+msgid "Hakha"
+msgstr "ဟားခါး"
+
+#: .\trip\templates\trip\tours.html:283
+#: .\trip\templates\trip\home.html:232
+msgid "Bagan, located in central Myanmar along the banks of the Ayeyarwady River, is one of Southeast Asia’s most extraordinary historical and cultural destinations. As an ancient UNESCO World Heritage site, it is world-renowned for its vast architectural landscape featuring over 2,000 remarkably preserved temples, pagodas, and stupas dating back to the 9th to 13th centuries. Visitors can explore the ancient complex by bicycle, e-bike, or tuk-tuk, immersing themselves in centuries of Buddhist heritage, intricate mural paintings, and legendary lacquerware craftsmanship. Beyond its rich history, Bagan offers breathtaking sunrise and sunset views across the temple-dotted plains, making it an unforgettable journey for culture enthusiasts, photographers, and travelers seeking a truly magical experience."
+msgstr ""
+"ဧရာဝတီမြစ်ကမ်းနားတွင် တည်ရှိသော ပုဂံဒေသသည် အရှေ့တောင်အာရှ၏ ထင်ရှားသည့် ရှေးဟောင်းယဉ်ကျေးမှု "
+"အမွေအနှစ်နယ်မြေတစ်ခု ဖြစ်ပြီး၊ ကိုးရာစုမှ သဒ္ဓါရာစုအတွင်း တည်ဆောက်ခဲ့သော ဘုရားစေတီပေါင်း "
+"နှစ်ထောင်ကျော်ဖြင့် ကမ္ဘာ့အသိအမှတ်ပြု ယူနက်စကို (UNESCO) အမွေအနှစ်နေရာတစ်ခု အဖြစ် ထင်ရှားကျော်ကြားပါသည်။"
+
+#: .\trip\templates\trip\tours.html:307
+#: .\trip\templates\trip\home.html:263
+msgid "Kalaw, a charming hill station nestled in the Shan State of Myanmar, is famous for its cool climate, pine-scented air, and breathtaking highland landscapes. Originally established as a hill resort during the British colonial era, it offers a peaceful escape filled with colonial-style cottages, vibrant flower gardens, and colorful local markets reflecting the region's rich ethnic diversity. Renowned as Myanmar's premier trekking hub, Kalaw serves as the starting point for popular multi-day hikes to Inle Lake, guiding travelers through scenic tea plantations, rolling hills, and traditional ethnic minority villages."
+msgstr ""
+"ရှမ်းပြည်နယ်တွင် တည်ရှိသော ချစ်စရာကောင်းသည့် ကလောတောင်ပေါ်မြို့လေးသည် အေးမြသော ရာသီဥတု၊ "
+"ထင်းရှူးရနံ့သင်းပျံ့သော လေထုနှင့် ရင်သပ်ရှုမောဖွယ် တောင်ပေါ်ရှုခင်းများကြောင့် ကျော်ကြားပါသည်။ "
+"ဗြိတိသျှကိုလိုနီခေတ်က အပန်းဖြေတောင်ပေါ်စခန်းတစ်ခုအဖြစ် စတင်တည်ထောင်ခဲ့ပြီး၊ ကိုလိုနီခေတ်လက်ရာ "
+"အိမ်ငယ်လေးများ၊ စည်ကားသော ပန်းဥယျာဉ်များနှင့် တိုင်းရင်းသားလူမျိုးစုံတို့၏ ယဉ်ကျေးမှုကို "
+"ထင်ဟပ်စေသော ဒေသန္တရဈေးများဖြင့် ငြိမ်းချမ်းသော အနားယူရာနေရာတစ်ခု ဖြစ်စေပါသည်။ "
+"မြန်မာနိုင်ငံ၏ နာမည်အကြီးဆုံး တောင်တက်ခရီးစဉ် စတင်ရာဒေသဖြစ်သည့်အလျောက် "
+"ကလောမှတဆင့် အင်းလေးကန်သို့ ရက်ရှည်တောင်တက်ခရီးများ ထွက်ခွာနိုင်ပြီး၊ "
+"ခရီးသွားများကို လက်ဖက်ခင်းများ၊ တောင်ကုန်းတောင်စွယ်များနှင့် ရိုးရာတိုင်းရင်းသား "
+"ကျေးရွာများဖြတ်သန်းကာ လှပသည့်သဘာဝအလှများကို ခံစားစေနိုင်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:331
+#: .\trip\templates\trip\home.html:294
+msgid "Ngapali's twin destination on the Bay of Bengal, Ngwe Saung Beach, is one of Myanmar’s premier coastal getaways, famous for its 15-kilometer stretch of white sand, clear blue waters, and laid-back atmosphere. Located in the Ayeyarwady Region just a 5 to 6-hour drive from Yangon, it serves as an accessible retreat where visitors can enjoy fresh seafood, scenic palm-fringed coastlines, and pristine island surroundings."
+msgstr ""
+"ဘင်္ဂလားပင်လယ်အော်ရှိ ငပလီကမ်းခြေ၏ အမွှာခရီးစဉ်တစ်ခုဖြစ်သော ငွေဆောင်ကမ်းခြေသည် မြန်မာနိုင်ငံ၏ "
+"ထင်ရှားသည့် ပင်လယ်ကမ်းခြေ အပန်းဖြေစခန်းတစ်ခုဖြစ်ပြီး၊ ၁၅ ကီလိုမီတာရှည်လျားသည့် ဖြူစင်သောသဲသောင်ပြင်၊ "
+"ကြည်လင်ပြာစင်သော ရေပြင်နှင့် အေးချမ်းသာယာသော လေထုတို့ကြောင့် အထူးကျော်ကြားပါသည်။ "
+"ဧရာဝတီတိုင်းဒေသကြီးအတွင်း ရန်ကုန်မြို့မှ ကားဖြင့် ၅ နာရီမှ ၆ နာရီခန့်သာ မောင်းနှင်သွားရသည့်နေရာတွင် "
+"တည်ရှိပြီး၊ လည်ပတ်သူများအနေဖြင့် လတ်ဆတ်သော ပင်လယ်စာများ၊ အုန်းပင်တန်းများဖြင့် ဝန်းရံထားသည့် "
+"ကမ်းရိုးတန်းအလှများနှင့် သဘာဝအတိုင်း လှပသည့် ကျွန်းပတ်ဝန်းကျင်များကို အလွယ်တကူ "
+"ခံစားအနားယူနိုင်သော အကောင်းဆုံးနေရာတစ်ခု ဖြစ်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:355
+#: .\trip\templates\trip\home.html:325
+msgid "Naypyidaw, the modern capital of Myanmar since 2005, is known for its impressive scale, grand architecture, and peaceful, orderly atmosphere. Built on a vast geographic footprint, the city features wide multi-lane highways, beautifully manicured green spaces, and distinct functional zones, offering visitors a unique contrast to the historical and bustling coastal destinations of the country."
+msgstr ""
+"၂၀၀၅ ခုနှစ်မှစ၍ မြန်မာနိုင်ငံ၏ ခမ်းနားသောမြို့တော်အဖြစ် ရပ်တည်ခဲ့သည့် နေပြည်တော်သည် "
+"ကြီးမားကျယ်ပြန့်သော ပထဝီဝင်အနေအထား၊ ခမ်းနားထည်ဝါသည့် ဗိသုကာလက်ရာများနှင့် တည်ငြိမ်အေးချမ်း၍ "
+"စနစ်ကျသော ပတ်ဝန်းကျင်တို့ကြောင့် ထင်ရှားပါသည်။ ကျယ်ပြန့်လှသည့် မြေမျက်နှာသွင်ပြင်ပေါ်တွင် "
+"တည်ဆောက်ထားပြီး၊ ခမ်းနားကျယ်ဝန်းသည့် လမ်းမကြီးများ၊ သပ်ရပ်စိမ်းလန်းသော ပန်းခြံများနှင့် "
+"သီးသန့်လုပ်ငန်းသုံးဇုန်များဖြင့် ဖွဲ့စည်းထားကာ၊ နိုင်ငံအတွင်းရှိ ရှေးဟောင်းယဉ်ကျေးမှုနှင့် စည်ကားသော "
+"ကမ်းခြေခရီးစဉ်များနှင့် လုံးဝကွဲပြားခြားနားသည့် ထူးခြားသော အတွေ့အကြုံကို ခရီးသွားများအား ပေးစွမ်းနိုင်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:379
+msgid "As Myanmar’s commercial hub and former capital, Yangon is a vibrant metropolis that seamlessly blends rich Buddhist heritage, colonial-era architecture, and energetic city life. Surrounded by lush tropical lakes, bustling street markets, and tree-lined avenues, the city serves as the primary cultural and gateway destination for travelers exploring the country."
+msgstr ""
+"မြန်မာနိုင်ငံ၏ စီးပွားရေးမြို့တော်နှင့် ရှေးဟောင်းမြို့တော်ဟောင်းဖြစ်သည့် ရန်ကုန်မြို့သည် "
+"ဗုဒ္ဓဘာသာယဉ်ကျေးမှု အမွေအနှစ်များ၊ ကိုလိုနီခေတ် ဗိသုကာလက်ရာများနှင့် တက်ကြွလှုပ်ရှားဖွယ် "
+"မြို့ပြဘဝတို့ကို သဟဇာတဖြစ်စွာ ပေါင်းစပ်ထားသော စည်ကားသိုက်မြိုက်သည့် မြို့ကြီးတစ်မြို့ ဖြစ်ပါသည်။ "
+"စိမ်းစိုစိုစွတ်အုံ့ဆိုင်းသော အပူပိုင်းအလှ ရေကန်များ၊ စည်ကားလှသော လမ်းဘေးဈေးများနှင့် သစ်ပင်များဖြင့် "
+"ဝန်းရံထားသော လမ်းမကြီးများဖြင့် ပတ်ဝန်းကျင်ကို ဖန်တီးထားပြီး၊ နိုင်ငံအတွင်းသို့ အလည်အပတ်လာရောက်ကြသည့် "
+"ခရီးသွားများအတွက် အဓိက ယဉ်ကျေးမှုနှင့် ဝင်ပေါက်ခရီးစဉ်အဖြစ် ဝန်ဆောင်မှုပေးနေပါသည်။"
+
+#: .\trip\templates\trip\tours.html:403
+msgid "Nestled in the Shan Hills of Myanmar, Inle Lake is a vast, serene freshwater lake famous for its iconic leg-rowing fishermen, floating gardens, and unique stilt-house villages. Inhabited primarily by the Intha people, the lake region offers a captivating glimpse into rural highland life, traditional handicrafts, and centuries-old Buddhist heritage set against a backdrop of rolling mist-covered mountains."
+msgstr ""
+"မြန်မာနိုင်ငံ ရှမ်းတောင်တန်းများကြားတွင် တည်ရှိသော အင်းလေးကန်သည် ခြေထောက်ဖြင့် လှေလှော်ကြသည့် "
+"နာမည်ကျော် ရေလုပ်သားများ၊ ရေပေါ်စိုက်ခွင်များ (ဖောင်ပျံဥယျာဉ်များ) နှင့် ထူးခြားသည့် တဲအိမ်ရွာများကြောင့် "
+"ကမ္ဘာကျော်ကြားသော ကျယ်ပြန့်အေးချမ်းသည့် ရေချိုကန်ကြီးတစ်ခု ဖြစ်ပါသည်။ အဓိကအားဖြင့် "
+"အင်းသားလူမျိုးများ နေထိုင်ကြပြီး၊ ဤကန်ဒေသသည် မြူခိုးဝေဆာင်းနေသည့် တောင်တန်းရှုခင်းများ နောက်ခံတွင် "
+"ကျေးလက်တောင်ပေါ်ဘဝ၊ ရိုးရာလက်မှုပညာများနှင့် ရာစုနှစ်များစွာကြာပြီဖြစ်သော ဗုဒ္ဓဘာသာ အမွေအနှစ်တို့ကို "
+"ထင်ရှားစွာ မြင်တွေ့ခံစားနိုင်သော နေရာတစ်ခု ဖြစ်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:427
+msgid "Located on the Bay of Bengal near Thandwe in Rakhine State, Ngapali is Myanmar’s premier beach destination, world-renowned for its turquoise waters, miles of soft, white sand, and towering coconut palms. Unlike many heavily commercialized tropical resorts, Ngapali maintains a peaceful, pristine charm where visitors can enjoy luxury beachfront stays, authentic fishing village culture, and exceptionally fresh seafood."
+msgstr ""
+"ရခိုင်ပြည်နယ်၊ သံတွဲမြို့အနီး ဘင်္ဂလားပင်လယ်အော်ကမ်းရိုးတန်းတွင် တည်ရှိသော ငပလီကမ်းခြေသည် "
+"မြန်မာနိုင်ငံ၏ ထိပ်တန်းကမ်းခြေ အပန်းဖြေစခန်းတစ်ခု ဖြစ်ပြီး၊ ပြာလဲ့ကြည်လင်သော ရေပြင်၊ မိုင်ပေါင်းများစွာ "
+"ရှည်လျားသည့် နူးညံ့ဖြူစင်သော သဲသောင်ပြင်နှင့် မိုးထိအောင် မြင့်မားသော အုန်းပင်တန်းများကြောင့် "
+"ကမ္ဘာတစ်ဝန်းတွင် ကျော်ကြားလှပါသည်။ အခြားသော စီးပွားရေးဆန်သည့် ပင်လယ်ကမ်းခြေအပန်းဖြေစခန်းများနှင့် "
+"မတူဘဲ ငပလီသည် တည်ငြိမ်အေးချမ်းပြီး သဘာဝအတိုင်း လှပသည့် ဂုဏ်သတ္တိများကို ထိန်းသိမ်းထားနိုင်သောကြောင့် "
+"လည်ပတ်သူများအနေဖြင့် ဇိမ်ခံကမ်းခြေအပန်းဖြေခန်းများတွင် တည်းခိုရင်း၊ ဒေသခံတံငါသည်ရွာများ၏ "
+"ရိုးရာဓလေ့များကို လေ့လာနိုင်ကာ လတ်ဆတ်လှပသော ပင်လယ်စာများကို အထူးခံစားနိုင်မည် ဖြစ်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:451
+msgid "As the last royal capital of Myanmar, Mandalay is the country’s cultural and spiritual heartland. Situated on the banks of the Ayeyarwady River, the city is renowned for its grand royal history, traditional artisan workshops, and sacred Buddhist pilgrimage sites set against the backdrop of scenic hills."
+msgstr ""
+"မြန်မာနိုင်ငံ၏ နောက်ဆုံးမင်းနေပြည်တော်ဖြစ်သော မန္တလေးမြို့သည် နိုင်ငံ၏ ယဉ်ကျေးမှုနှင့် ဝိညာဉ်ရေးရာ "
+"အချက်အချာဒေသ ဖြစ်ပါသည်။ ဧရာဝတီမြစ်ကမ်းနားတွင် တည်ရှိသည့် ဤမြို့သည် ခမ်းနားထည်ဝါသော "
+"တော်ဝင်ရာဇဝင်သမိုင်း၊ ရိုးရာလက်မှုပညာ အလုပ်ရशालाများနှင့် သဘာဝတောင်တန်းရှုခင်းများကို နောက်ခံထား၍ "
+"တည်ဆောက်ထားသော မြတ်ဗုဒ္ဓ၏ သာသနာရေးဆိုင်ရာ ဖူးမြော်ရာနေရာများကြောင့် ကျော်ကြားပါသည်။"
+
+#: .\trip\templates\trip\tours.html:475
+msgid "Pyin Oo Lwin, a charming hill station nestled in the Shan Hills of Myanmar, is a tranquil escape known for its pleasant weather, scenic beauty, and rich colonial heritage. Situated at an altitude of over 1,000 meters, this picturesque town offers a refreshing breeze and cooler temperatures year-round. Visitors are drawn to its iconic attractions, including the lush National Kandawgyi Gardens, breathtaking waterfalls like Anisakan and Pwe Kauk, and well-preserved colonial-era architecture. Beyond its natural and historical sights, Pyin Oo Lwin is famous for its fresh strawberries, local coffee, and colorful horse-drawn carriages, making it a perfect destination for relaxation and sightseeing."
+msgstr ""
+"မြန်မာနိုင်ငံ ရှမ်းတောင်တန်းများပေါ်တွင် တည်ရှိသော ချစ်စရာကောင်းသည့် တောင်ပေါ်မြို့လေး ပြင်ဦးလွင်သည် "
+"သာယာသော ရာသီဥတု၊ ရင်သပ်ရှုမောဖွယ် သဘာဝအလှများနှင့် ကြွယ်ဝသော ကိုလိုနီခေတ် အမွေအနှစ်များကြောင့် "
+"အထူးအနားယူစရာနေရာတစ်ခု ဖြစ်ပါသည်။ ပင်လယ်ရေမျက်နှာပြင်အထက် ပေ ၁,၀၀၀ ကျော် မြင့်မားသော "
+"အရပ်တွင် တည်ရှိသည့် ဤသာယာလှပသော မြို့လေးသည် တစ်နှစ်ပတ်လုံး လန်းဆတ်သော လေညင်းနှင့် အေးမြသော "
+"အပူချိန်ကို ပေးစွမ်းနိုင်ပါသည်။ လည်ပတ်သူများသည် နာမည်ကြီး အမျိုးသားကန်တော်ကြီးဥျာဉ်၊ အနီးစခန်းနှင့် "
+"ပွဲကောက်ရေတံခွန်များကဲ့သို့သော ရင်သပ်ရှုမောဖွယ် ရေတံခွန်များနှင့် ကောင်းမွန်စွာ ထိန်းသိမ်းထားသော "
+"ကိုလိုနီခေတ် ဗိသုကာလက်ရာများဆီသို့ အထူးဆွဲဆောင်ခံရကြပါသည်။ သဘာဝနှင့် သမိုင်းဝင် ရှုခင်းများအပြင် "
+"ပြင်ဦးလွင်သည် လတ်ဆတ်သော စတော်ဘယ်ရီသီးများ၊ ဒေသထွက် ကော်ဖီများနှင့် ရောင်စုံမြင်းလှည်းများကြောင့် "
+"ကျော်ကြားကာ အနားယူအပန်းဖြေရန်နှင့် လည်ပတ်ရန်အတွက် အကောင်းဆုံးနေရာတစ်ခု ဖြစ်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:499
+msgid "Hpa-An, the serene capital of Kayin State in Myanmar, is a breathtaking destination famed for its dramatic limestone karst mountains, serene rivers, and magnificent natural caves. Rising grandly above the lush countryside, iconic peaks like Mount Zwegabin provide stunning panoramic vistas, while sacred sites such as Kyaut Ka Latt Pagoda—perched dramatically atop a sheer rock formation in the middle of a lake—offer unforgettable sights. Adventure seekers and culture enthusiasts alike are drawn to its vast caverns, including Sadan Cave with its hidden lake and Kawgun Cave filled with seventh-century terracotta Buddha reliefs. With its peaceful rural landscapes, rich ethnic culture, and vibrant local markets, Hpa-An offers an enchanting escape for travelers looking to explore Myanmar's raw natural beauty."
+msgstr ""
+"မြန်မာနိုင်ငံ၊ ကရင်ပြည်နယ်၏ တည်ငြိမ်အေးချမ်းသော မြို့တော် ဘားအံသည် ထူးခြားဆန်းပြားသည့် "
+"ထုံးကျောက်တောင်တန်းများ၊ သာယာငြိမ်းချမ်းသော မြစ်များနှင့် အံ့မခန်းဖွယ် သဘာဝဂူများကြောင့် "
+"နာမည်ကျော်ကြားသော ရင်သပ်ရှုမောဖွယ် ခရီးစဉ်တစ်ခု ဖြစ်ပါသည်။ စိမ်းလန်းစိုပြည်သော ကျေးလက်လယ်ယာမြေများအထက်တွင် "
+"ခမ်းနားစွာ ထိုးထွက်နေသည့် ဇွဲကပင်တောင်ကဲ့သို့သော ထင်ရှားသည့် တောင်ထိပ်များမှနေ၍ ရင်သပ်ရှုမောဖွယ် "
+"ရှုခင်းများကို ခံစားနိုင်ပြီး၊ ရေကန်กลางကျွန်းပေါ်ရှိ မတ်စောက်သော ကျောက်ဆောင်ပေါ်တွင် ထည်ဝါစွာ "
+"တည်ရှိနေသည့် ကျောက်ကလပ်စေတီတော်ကဲ့သို့သော သန့်ရှင်းကြည်ညိုဖွယ် နေရာများသည် မမေ့နိုင်စရာ မြင်ကွင်းများကို "
+"ပေးစွမ်းပါသည်။ သဘာဝစွန့်စားခန်းကို နှစ်သက်သူများနှင့် ယဉ်ကျေးမှုကို လေ့လာသူများအနေဖြင့် "
+"လျှို့ဝှက်ရေကန်ပါရှိသည့် ဆဒ္ဒန်ဂူနှင့် တတိယရာစု သို့မဟုတ် သတ္တမရာစုက တည်ထားခဲ့သော "
+"ရုပ်ပွားတော်များဖြင့် ပြည့်နှက်နေသည့် ကော့ဂွန်းဂူတို့ကဲ့သို့သော ကြီးမားလှသည့် ဂူကြီးများကို "
+"အထူးနှစ်သက်ကြပါသည်။ ငြိမ်းချမ်းသော ကျေးလက်ရှုခင်းများ၊ ကြွယ်ဝသော တိုင်းရင်းသား ယဉ်ကျေးမှုများနှင့် "
+"စည်ကားသော ဒေသန္တရဈေးများဖြင့် ဘားအံသည် မြန်မာနိုင်ငံ၏ သဘာဝအလှတရားများကို စူးစမ်းလေ့လာလိုသည့် "
+"ခရီးသွားများအတွက် စွဲမက်ဖွယ်ကောင်းသော အနားယူရာနေရာတစ်ခု ဖြစ်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:523
+msgid "Myeik is a charming coastal city in southern Myanmar and the gateway to the stunning Mergui Archipelago's 800 tropical islands. Travelers can explore crystal-clear waters, pristine beaches, and vibrant marine life alongside the unique culture of the indigenous Moken sea nomads. On land, the town offers historic colonial architecture, bustling local markets, and world-class fresh seafood like the famous Myeik Kat Kyat noodles."
+msgstr ""
+"မြန်မာနိုင်ငံ အတောင်ပိုင်းရှိ ချစ်စရာကောင်းသော ကမ်းရိုးတန်းမြို့တစ်မြို့ဖြစ်သည့် မြိတ်မြို့သည် "
+"ရင်သပ်ရှုမောဖွယ် ကျွန်းစု ၈၀၀ ပါဝင်သည့် မေရိတ် (မြိတ်) ကျွန်းစုကြီးဆီသို့ သွားရာဝင်ပေါက် ဖြစ်ပါသည်။ "
+"ခရီးသွားများအနေဖြင့် ပင်လယ်ရေကြည်လင်ပြာစင်သော နေရာများ၊ သဘာဝအတိုင်း လှပသည့် ကမ်းခြေများနှင့် "
+"တက်ကြွလှုပ်ရှားနေသော ပင်လယ်ရေအောက် သက်ရှိများကို လေ့လာနိုင်သည့်အပြင် တိုင်းရင်းသား မိုကင် (ဆလုံ) "
+"လူမျိုးများ၏ ထူးခြားသည့် ယဉ်ကျေးမှုကိုလည်း တွေ့ကြုံခံစားနိုင်ပါသည်။ ကုန်းဘက်တွင်မူ သမိုင်းဝင် ကိုလိုနီခေတ် "
+"ဗိသုကာလက်ရာများ၊ စည်ကားသော ဒေသန္တရဈေးများနှင့် နာမည်ကျော် မြိတ်ကတ်ကျေးကဲ့သို့သော "
+"ကမ္ဘာ့အဆင့်မီ လတ်ဆတ်သည့် ပင်လယ်စာများကို မြည်းစမ်းနိုင်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:547
+msgid "Loikaw, the capital of Kayah State, is a picturesque town famed for its dramatic limestone landscapes and rich cultural heritage. Its iconic landmark, Taung Kwe Pagoda, offers stunning panoramic views from atop split limestone crags. Visitors can connect with local ethnic communities, including the iconic Kayan people known for their traditional brass neck rings. Beyond its unique cultural appeal, Loikaw features serene spots like Seven Stages Lake and delicious local specialties like authentic Kayah sausage."
+msgstr ""
+"ကယားပြည်နယ်၏ မြို့တော် လွိုင်ကော်သည် ရင်သပ်ရှုမောဖွယ် ထုံးကျောက်တောင် ရှုခင်းများနှင့် ကြွယ်ဝသော "
+"ယဉ်ကျေးမှု အမွေအနှစ်များကြောင့် နာမည်ကျော်ကြားသော လှပသည့် မြို့လေးတစ်မြို့ ဖြစ်ပါသည်။ ၎င်း၏ အထင်ကရနေရာတစ်ခုဖြစ်သော "
+"တောင်ကွဲစေတီတော်သည် ကွဲအက်နေသော ထုံးကျောက်တောင်ခေါင်ပေါ်မှနေ၍ ရင်သပ်ရှုမောဖွယ် ရှုခင်းများကို "
+"ဖော်ပြပေးနေပါသည်။ လည်ပတ်သူများအနေဖြင့် ရိုးရာကြေးခွေလည်ဆွဲများ ဝတ်ဆင်ကြသည့် ထင်ရှားသော "
+"ကယား (ပဒေါင်) တိုင်းရင်းသားများအပါအဝင် ဒေသခံတိုင်းရင်းသား လူ့အသိုင်းအဝိုင်းများနှင့် ဆက်သွယ်မိတ်ဖွဲ့နိုင်ပါသည်။ "
+"ဤထူးခြားသော ယဉ်ကျေးမှု ရေပန်းစားမှုအပြင် လွိုင်ကော်တွင် ခုနစ်ဆင့်ကန်ကဲ့သို့သော အေးချမ်းသည့် နေရာများနှင့် "
+"စစ်မှန်သော ကယားဝက်အူချောင်းကဲ့သို့သော အရသာရှိသော ဒေသထွက် အစားအစာများကိုလည်း ခံစားနိုင်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:571
+msgid "Chaung Tha is one of Myanmar's most popular coastal getaways, famous for its long sandy beach, lively atmosphere, and easy accessibility from Yangon. Visitors can enjoy fresh seafood, scenic boat trips to nearby islands like Pokala Island, and fun beach activities ranging from horse riding to speedboating. It is an ideal, budget-friendly destination for travelers looking for a quick tropical seaside escape."
+msgstr ""
+"ရန်ကုန်မြို့မှ သွားလာရလွယ်ကူပြီး မြန်မာနိုင်ငံ၏ လူကြိုက်အများဆုံး ပင်လယ်ကမ်းခြေ အပန်းဖြေစခန်းတစ်ခုဖြစ်သည့် "
+"ချောင်းသာကမ်းခြေသည် ရှည်လျားသော သဲသောင်ပြင်၊ ပျော်ရွှင်စရာကောင်းသော ပတ်ဝန်းကျင်နှင့် နာမည်ကျော်ကြားလှပါသည်။ "
+"လည်ပတ်သူများသည် လတ်ဆတ်သော ပင်လယ်စာများကို မြည်းစမ်းနိုင်ပြီး၊ ပုကလေးကျွန်း ကဲ့သို့သော အနီးအနားရှိ "
+"ကျွန်းများသို့ လှေဖြင့် လည်ပတ်ခြင်း၊ မြင်းစီးခြင်းမှသည် စက်လှေစီးခြင်းအထိ ပျော်ရွှင်စရာ ပင်လယ်ကမ်းခြေ "
+"လှုပ်ရှားမှုများကို ပြုလုပ်နိုင်ပါသည်။ အပူပိုင်းဒေသ ပင်လယ်ကမ်းခြေသို့ အချိန်တိုအတွင်း အလည်အပတ်သွားရောက်လိုသူများအတွက် "
+"စရိတ်သက်သာပြီး အကောင်းဆုံးနေရာတစ်ခု ဖြစ်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:595
+msgid "Putao, located in northernmost Kachin State, is a tranquil town framed by the majestic snow-capped Himalayas. Famous for its untouched wilderness, pristine rivers, and rare flora like the Black Orchid, it is Myanmar's ultimate haven for trekking and white-water rafting. Visitors can explore vibrant local ethnic villages and experience a serene, off-the-grid mountain adventure."
+msgstr ""
+"မြန်မာနိုင်ငံ၏ အစွန်ဆုံးမြောက်ဘက် ကချင်ပြည်နယ်တွင် တည်ရှိသော ပူတာအိုသည် နှင်းဆီဖြူ တောင်တန်းကြီးများက "
+"ဝန်းရံထားသည့် အေးချမ်းသာယာသော မြို့လေးတစ်မြို့ ဖြစ်ပါသည်။ မထိတွေ့ရသေးသော သဘာဝတောရိုင်းများ၊ "
+"ကြည်လင်သန့်ရှင်းသော မြစ်များ၊ နှင့် ရှားပါးမျိုးစိတ်ဖြစ်သော ဇဝါနက် (မဲဇလီနက် / ရှားပါးပန်းပွင့်) "
+"ကဲ့သို့သော သစ်ပင်ပန်းမန်များကြောင့် နာမည်ကျော်ကြားပြီး၊ ၎င်းသည် မြန်မာနိုင်ငံ၏ တောင်တန်းခြေလျင်ခရီးနှင့် "
+"ရေစီးသန်မြစ်များတွင် သစ်ခက်လှေ (រ៉ាហ្វတင်) စီးနင်းရန်အတွက် အကောင်းဆုံးနေရာတစ်ခု ဖြစ်ပါသည်။ "
+"လည်ပတ်သူများသည် စည်ကားသော ဒေသခံတိုင်းရင်းသား ကျေးရွာများကို လေ့လာနိုင်ပြီး၊ လျှပ်စစ်မီးနှင့် "
+"အင်တာနက် အဆက်အသွယ်ကင်းစင်ကာ တိတ်ဆိတ်အေးချမ်းသော တောင်ပေါ်စွန့်စားခန်းကို ခံစားနိုင်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:619
+msgid "Kyaiktiyo, famous for the iconic Golden Rock, is one of Myanmar's most sacred Buddhist pilgrimage sites perched dramatically atop Mount Kyaiktiyo. The massive gold-leaf-covered boulder balances precariously on a cliff edge, defying gravity and attracting travelers and pilgrims from around the world. Surrounded by breathtaking mountain views and vibrant night-time chanting rituals, it offers an unforgettable spiritual and scenic adventure."
+msgstr ""
+"ထင်ရှားသော ကျိုက်ထီးရိုးသည် ကျိုက်ထီးရိုးတောင်ထိပ်ပေါ်တွင် ထည်ဝါစွာ တည်ရှိနေသည့် မြန်မာနိုင်ငံ၏ "
+"အထွတ်အမြတ်ထားဆုံး ဗုဒ္ဓဘာသာ ဘုရားဖူးနေရာများထဲမှ တစ်ခု ဖြစ်ပါသည်။ ရွှေရောင် တဖိတ်ဖိတ်တောက်နေသော "
+"ကြီးမားသည့် ကျောက်တ้อนကြီးသည် ကမ်းပါးစွန်းတွင် ယိမ်းယိုင်နေသကဲ့သို့ တည်ရှိနေပြီး၊ ဆွဲငင်အားကို ဆန့်ကျင်ကာ "
+"ကမ္ဘာတစ်ဝန်းမှ ခရီးသွားများနှင့် ဘုရားဖူးများကို ဆွဲဆောင်လျက် ရှိပါသည်။ ရင်သပ်ရှုမောဖွယ် တောင်တန်းရှုခင်းများနှင့် "
+"ညအချိန် ပဌာန်းရွတ်ဆိုပူဇော်မှုများ ဝန်းရံထားသောကြောင့် ဤနေရာသည် မမေ့နိုင်စရာ ဝိညာဉ်ရေးရာနှင့် ရှုခင်းဆိုင်ရာ "
+"စွန့်စားခန်းတစ်ခုကို ပေးစွမ်းနိုင်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:643
+msgid "Bago, a historic city rich in ancient Mon heritage, is famous for its massive sacred monuments and lush greenery just north of Yangon. Visitors can marvel at the giant Shwethalyaung Reclining Buddha, the soaring Shwemawdaw Pagoda, and the reconstructed 16th-century Kanbawzathadi Palace. Its close proximity to the capital makes it a fascinating, easily accessible destination for culture and history enthusiasts."
+msgstr ""
+"ရှေးဟောင်းမွန်ယဉ်ကျေးမှု အမွေအနှစ်များဖြင့် ပြည့်နှက်နေသော သမိုင်းဝင်မြို့ကြီး ပဲခူးသည် ရန်ကုန်မြို့၏ "
+"မြောက်ဘက်တွင် တည်ရှိပြီး ကြီးမားလှသော မြင့်မြတ်သည့် အထိမ်းအမှတ် အဆောက်အအုံများနှင့် စိမ်းလန်းစိုပြည်သော "
+"သဘာဝရှုခင်းများကြောင့် နာမည်ကျော်ကြားပါသည်။ လည်ပတ်သူများသည် ဧရာမ သာလျောင်းလျောင်းတော်မူနေသော "
+"ရွှေသာလျောင်း ဗုဒ္ဓရုပ်ပွားတော်ကြီး၊ မိုးထိအောင် မြင့်မားသော ရွှေမောဓောစေတီတော်ကြီးနှင့် ပြန်လည်တည်ဆောက်ထားသည့် "
+"၁၆ ရာစုလက်ရာ ကမ္ဘောဇသာဒီနန်းတော်ကြီးတို့ကို လေ့လာကြည့်ရှုနိုင်ပါသည်။ ရန်ကုန်မြို့နှင့် နီးကပ်စွာ "
+"တည်ရှိနေခြင်းကြောင့် ယဉ်ကျေးမှုနှင့် သမိုင်းကို မြတ်နိုးသူများအတွက် စိတ်ဝင်စားဖွယ်ကောင်းပြီး သွားလာရလွယ်ကူသော "
+"ခရီးစဉ်တစ်ခု ဖြစ်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:666
+msgid "Sagaing is a peaceful spiritual hill-town along the Ayeyarwady River, dotted with hundreds of white and gold pagodas. Visitors can enjoy sweeping river views from Sagaing Hill and explore remarkable sites like the giant Kaunghmudaw Pagoda and U Min Thonze's 45 Buddha statues. Located right next to Mandalay, it is a perfect short trip for history, architecture, and tranquil views."
+msgstr ""
+"ဧရာဝတီမြစ်ဘေးတွင် တည်ရှိပြီး အဖြူရောင်နှင့် ရွှေရောင် စေတီတော်ပေါင်း ရာနှင့်ချီ၍ ဝန်းရံထားသည့် စစ်ကိုင်းမြို့သည် "
+"အေးချမ်းသာယာသော ဝိညာဉ်ရေးရာ မြို့လေးတစ်မြို့ ဖြစ်ပါသည်။ လည်ပတ်သူများသည် စစ်ကိုင်းတောင်ပေါ်မှနေ၍ "
+"မြစ်ကမ်းတစ်လျှောက် ရှုခင်းများကို ခံစားနိုင်ပြီး၊ ဧရာမ ကောင်းမှုတော်စေတီနှင့် ဘုရားဆင်းတုတော် ၄၅ ဆူရှိသည့် "
+"ဥမင်သုံးဆယ်ဘုရားကဲ့သို့သော ထင်ရှားသည့် နေရာများကို လေ့လာနိုင်ပါသည်။ မန္တလေးမြို့နှင့် ကပ်လျက် တည်ရှိနေသောကြောင့် "
+"သမိုင်း၊ ဗိသုကာလက်ရာများနှင့် တည်ငြိမ်အေးချမ်းသော ရှုခင်းများကို ကြိုက်နှစ်သက်သူများအတွက် အချိန်တိုအတွင်း "
+"သွားရောက်လည်ပတ်ရန် အကောင်းဆုံးနေရာတစ်ခု ဖြစ်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:690
+msgid "Mount Popa is a dramatic extinct volcano famous for Taung Kalat, a steep volcanic plug topped with a sacred monastery. Perched high above the Myingyan plains, it is the spiritual home of Myanmar's 37 traditional Nat spirits and a major pilgrimage site. Visitors can climb the 777 covered steps—shared with resident monkeys—for breathtaking panoramic views of the surrounding countryside."
+msgstr ""
+"ပုပ္ပားတောင်သည် သန့်ရှင်းကြည်ညိုဖွယ် ဘုန်းကြီးကျောင်း တည်ရှိရာ မတ်စောက်သည့် မီးတောင်ချွန် တောင်ကလပ်ကြောင့် "
+"ကျော်ကြားသော ငြိမ်းသွားပြီဖြစ်သည့် မီးတောင်တစ်ခု ဖြစ်ပါသည်။ မြင်းခြံလွင်ပြင်အထက်တွင် မြင့်မားစွာ တည်ရှိနေပြီး၊ "
+"မြန်မာနိုင်ငံ၏ ရိုးရာ နတ် ၃၇ ပါးတို့၏ ဝိညာဉ်ရေးရာ နေအိမ်နှင့် အဓိက ဘုရားဖူးနေရာတစ်ခု ဖြစ်ပါသည်။ "
+"လည်ပတ်သူများသည် ၎င်းတောင်ပေါ်သို့ အတက် လှေကားထစ် ၇၇၇ ထစ်ကို တက်ရောက်နိုင်ပြီး၊ လမ်းတစ်လျှောက်တွင် "
+"နေထိုင်ကြသော မျောက်များနှင့်အတူ သဘာဝရှုခင်းများကို ကြည့်ရှုရင်း တောင်ခြေပတ်ဝန်းကျင်၏ ရင်သပ်ရှုမောဖွယ် "
+"ရှုခင်းများကို ခံစားနိုင်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:595
+msgid "Pang Wa (Pangwar) is a scenic highland border town in northern Kachin State, sitting along the Chinese frontier. Famed for its cool climate, misty pine-covered hills, and mountain views, it offers a unique frontier charm. Visitors can experience a fascinating mix of local ethnic cultures, cross-border markets, and peaceful mountain scenery."
+msgstr ""
+"မြန်မာနိုင်ငံ၏ မြောက်ဘက်အစွန်ဆုံး ကချင်ပြည်နယ်တွင် တည်ရှိပြီး တရုတ်နယ်စပ်တစ်လျှောက်တွင် တည်ရှိသော "
+"ပန်ဝါမြို့သည် ရှုခင်းသာယာလှပသည့် တောင်ပေါ်မြို့လေး ဖြစ်ပါသည်။ အေးမြသော ရာသီဥတု၊ မြူနှင်းများ ဖုံးလွှမ်းနေသည့် "
+"ထင်းရှူးတောများရှိသော တောင်တန်းများနှင့် တောင်ပေါ်ရှုခင်းများကြောင့် နာမည်ကျော်ကြားပြီး၊ ထူးခြားသော "
+"နယ်စပ်မြို့လေး၏ ဂုဏ်သတ္တိများကို ပိုင်ဆိုင်ထားပါသည်။ လည်ပတ်သူများသည် ဒေသခံတိုင်းရင်းသားများ၏ ယဉ်ကျေးမှုများ၊ "
+"နယ်စပ်ဖြတ်ကျော် ဈေးများ၊ နှင့် တိတ်ဆိတ်အေးချမ်းသော တောင်ပေါ်ရှုခင်းများ၏ စွဲမက်ဖွယ်ကောင်းသည့် "
+"ပေါင်းစပ်မှုကို ခံစားနိုင်ပါသည်။"
+
+#: .\trip\templates\trip\tours.html:737
+msgid "Hakha, the capital of Chin State, is a picturesque town nestled high in the Chin Hills at over 6,000 feet above sea level. Renowned for its cool mountain air, vibrant rhododendron blossoms, and rich tribal heritage, it offers travelers stunning pine-covered landscapes and warm Chin hospitality. It serves as an exceptional gateway for exploring traditional Chin culture, colorful handwoven textiles, and scenic highland trekking."
+msgstr ""
+"ချင်းပြည်နယ်၏ မြို့တော် ဟားခါးသည် ပင်လယ်ရေမျက်နှာပြင်အထက် ပေ ၆,၀၀၀ ကျော် မြင့်မားသော "
+"ချင်းတောင်တန်းများပေါ်တွင် တည်ရှိသည့် သာယာလှပသော တောင်ပေါ်မြို့လေး ဖြစ်ပါသည်။ အေးမြသော "
+"တောင်ပေါ်လေညင်း၊ အရောင်အသွေးစုံလင်သည့် သစ်အယ်ပင် (Rhododendron) ပန်းများ၊ နှင့် ကြွယ်ဝသော "
+"လူမျိုးစု အမွေအနှစ်များကြောင့် နာမည်ကျော်ကြားပြီး၊ လည်ပတ်သူများအတွက် ထင်းရှူးတောများဖြင့် ဖုံးလွှမ်းနေသည့် "
+"ရင်သပ်ရှုမောဖွယ် ရှုခင်းများနှင့် နွေးထွေးသော ချင်းတိုင်းရင်းသားတို့၏ ဧည့်ဝတ်ကျေပွန်မှုကို ခံစားရစေပါသည်။ "
+"ဤမြို့သည် ရိုးရာ ချင်းယဉ်ကျေးမှုများ၊ အရောင်အသွေးစုံလင်သော လက်ရက်ကန်းထည်များနှင့် တောင်ပေါ်ဒေသ၏ "
+"ရှုခင်းသာယာသော ခြေလျင်ခရီးများကို လေ့လာစူးစမ်းရန်အတွက် ထူးခြားကောင်းမွန်သော ဝင်ပေါက်တစ်ခု ဖြစ်ပါသည်။"
+
+#: templates/trip/contact.html:14
+msgid "Contact us"
+msgstr "ဆက်သွယ်ရန်"
+
+#: templates/trip/contact.html:16
+msgid "Explore Myanmar with us and plan your next unforgettable journey."
+msgstr "မြန်မာနိုင်ငံကို ကျွန်ုပ်တို့နှင့်အတူ လှည့်လည်ကြည့်ရှုပြီး သင်၏နောက်ထပ် မမေ့နိုင်သောခရီးစဉ်ကို စီစဉ်လိုက်ပါ။"
+
+#: templates/trip/contact.html:28
+msgid "Get in touch"
+msgstr "ဆက်သွယ်ရန် အချက်အလက်များ"
+
+#: templates/trip/contact.html:30
+msgid "Feel free to reach out to us through any of the channels below for any travel inquiries or support."
+msgstr "ခရီးသွားလာရေးဆိုင်ရာ မေးမြန်းမှုများ သို့မဟုတ် အကူအညီများအတွက် အောက်ပါလမ်းကြောင်းများမှတစ်ဆင့် ကျွန်ုပ်တို့ထံ ဆက်သွယ်နိုင်ပါသည်။"
+
+#: templates/trip/contact.html:42
+msgid "Head Office"
+msgstr "ပင်မရုံးချုပ်"
+
+#: templates/trip/contact.html:43
+msgid "Maubin, Ayeyarwady Region"
+msgstr "မအူပင်၊ ဧရာဝတီတိုင်းဒေသကြီး"
+
+#: templates/trip/contact.html:43
+msgid "Myanmar"
+msgstr "မြန်မာနိုင်ငံ"
+
+#: templates/trip/contact.html:53
+msgid "Email Us"
+msgstr "အီးမေးလ် ပို့ရန်"
+
+#: templates/trip/contact.html:67
+msgid "Call Us"
+msgstr "ဖုန်းခေါ်ဆိုရန်"
+
+#: templates/trip/contact.html:69
+msgid "Phone :"
+msgstr "ဖုန်းနံပါတ် :"
+
+#: templates/trip/contact.html:70
+msgid "Fax :"
+msgstr "ဖက်စ် :"
+
+#: templates/trip/contact.html:78
+msgid "Follow our social media"
+msgstr "ကျွန်ုပ်တို့၏ လူမှုကွန်ရက်စာမျက်နှာများကို လိုက်နာရန်"
+
+#: templates/trip/contact.html:90
+msgid "Our Location"
+msgstr "ကျွန်ုပ်တို့၏ တည်နေရာ"
+
+#: templates/trip/index.html:21
+msgid "Explore destinations, curate packages, and travel with trusted local partners."
+msgstr "ခရီးစဉ်များကို လေ့လာပါ၊ ပက်ကေ့ဂျ်များကို စီစဉ်ပါ၊ ယုံကြည်စိတ်ချရသော ဒေသခံလုပ်ဖော်ကိုင်ဖက်များနှင့် ခရီးသွားပါ။"
+
+#: templates/trip/index.html:28
+msgid "Hi! I'm Myanmar Travel Bot 🤖"
+msgstr "မင်္ဂလာပါ! ကျွန်ုပ်သည် မြန်မာခရီးသွား ဘော့တ် ဖြစ်ပါသည် 🤖"
+
+#: templates/trip/index.html:29
+msgid "Ask me anything about destinations, hotels, tours..."
+msgstr "ခရီးစဉ်များ၊ ဟိုတယ်များ၊ ခရီးစဉ်များအကြောင်း မည်သည့်အရာကိုမဆို မေးမြန်းနိုင်ပါသည်..."
+
+#: templates/trip/index.html:30
+msgid "Chat with AI"
+msgstr "AI နှင့် စကားပြောရန်"
+
+#: templates/trip/index.html:41
+msgid "Quick Access"
+msgstr "အမြန်ဝင်ရောက်ရန်"
+
+#: templates/trip/index.html:46
+msgid "AI Assistant"
+msgstr "AI အကူအညီပေးသူ"
+
+#: templates/trip/index.html:50
+msgid "Custom Trip"
+msgstr "စိတ်ကြိုက်ခရီးစဉ်"
+
+#: templates/trip/index.html:54
+msgid "Customer Reviews"
+msgstr "ခရီးသွားများ၏မှတ်ချက်များ"
+
+#: templates/trip/index.html:58
+msgid "Travel Agents"
+msgstr "ခရီးသွားကိုယ်စားလှယ်များ"
+
+#: templates/trip/index.html:66
+msgid "Popular Destinations"
+msgstr "လူကြိုက်များသော ခရီးသည်များ"
+
+#: templates/trip/index.html:67
+msgid "View all styles →"
+msgstr "ပုံစံအားလုံးကို ကြည့်ရန် →"
+
+#: templates/trip/index.html:101
+msgid "Pristine beaches & relaxation"
+msgstr "သန့်စင်သောကမ်းခြေများနှင့် အနားယူအပန်းဖြေခြင်း"
+
+#: templates/trip/index.html:112
+msgid "Modern capital & grand landmarks"
+msgstr "ခေတ်မီမြို့တော်နှင့် ခမ်းနားသော အထိမ်းအမှတ်နေရာများ"
+
+#: templates/trip/index.html:125
+msgid "Featured Travel Packages"
+msgstr "ထင်ရှားသော ခရီးသွားပက်ကေ့ဂျ်များ"
+
+#: templates/trip/index.html:160
+msgid "View Package"
+msgstr "ပက်ကေ့ဂျ်ကို ကြည့်ရန်"
+
+#: templates/trip/index.html:154
+msgid "Trusted Travel Partners"
+msgstr "ယုံကြည်စိတ်ချရသော ခရီးသွားမိတ်ဖက်များ"
+
+#: templates/trip/about.html:11
+msgid "About us"
+msgstr "အကြောင်းအရာ"
+
+#: templates/trip/about.html:13
+msgid "At TravelNest Myanmar, we make travel effortless. From seasonal guides and exclusive packages to instant bookings and a 24/7 AI chatbot, we bring everything you need into one smart platform."
+msgstr "TravelNest Myanmar တွင် ခရီးသွားလာမှုကို လွယ်ကူစေပါသည်။ ရာသီအလိုက် လမ်းညွှန်များနှင့် သီးသန့်ပက်ကေ့ဂျ်များမှစ၍ ချက်ချင်းဘွတ်ကင်လုပ်ခြင်းနှင့် 24/7 AI ချတ်ဘော့အထိ လိုအပ်သမျှကို စမတ်ပလပ်ဖောင်းတစ်ခုတည်းတွင် စုစည်းပေးထားပါသည်။"
+
+#: templates/trip/about.html:47
+msgid "Our Mission & Vision"
+msgstr "ကျွန်ုပ်တို့၏ ရည်မှန်းချက်နှင့် မျှော်မှန်းချက်"
+
+#: templates/trip/about.html:51
+msgid "Our Mission: To revolutionize the way people travel by providing an all-in-one, AI-powered platform that simplifies planning, booking, and discovering breathtaking destinations."
+msgstr "ကျွန်ုပ်တို့၏ ရည်မှန်းချက်- အားလုံးပါဝင်ပြီး AI စွမ်းဆောင်ထားသည့် ပလပ်ဖောင်းတစ်ခုဖြင့် ခရီးစဉ်ဆွဲခြင်း၊ ဘွတ်ကင်လုပ်ခြင်းနှင့် ရင်သပ်ရှုမောဖွယ် ခရီးည်များကို ရှာဖွေခြင်းတို့ကို လွယ်ကူစေခြင်းဖြင့် လူတို့၏ ခရီးသွားလာပုံကို ပြောင်းလဲရန်။"
+
+#: templates/trip/about.html:54
+msgid "Our Vision: To be the most trusted and comprehensive travel ecosystem where travelers can effortlessly explore, connect, and book unforgettable experiences worldwide."
+msgstr "ကျွန်ုပ်တို့၏ မျှော်မှန်းချက်- ခရီးသွားများသည် ကမ္ဘာတစ်ဝှမ်းရှိ မမေ့နိုင်သော အတွေ့အကြုံများကို လွယ်ကူစွာ ရှာဖွေရန်၊ ချိတ်ဆက်ရန်နှင့် ဘွတ်ကင်လုပ်နိုင်သော အယုံကြည်ရဆုံးနှင့် အပြည့်စုံဆုံး ခရီးသွားဂေဟစနစ် ဖြစ်လာရန်။"
+
+#: templates/trip/about.html:73
+msgid "How It Works"
+msgstr "အလုပ်လုပ်ဆောင်ပုံ"
+
+#: templates/trip/about.html:76
+msgid "Whether you need instant inspiration from our AI chatbot or a complete tour package, booking your next getaway takes just a few clicks:"
+msgstr "ကျွန်ုပ်တို့၏ AI ချတ်ဘော့မှ ချက်ချင်းလှုံ့ဆော်မှု လိုအပ်သည်ဖြစ်စေ၊ ပြီးပြည့်စုံသော ခရီးစဉ်ပက်ကေ့ဂျ် လိုအပ်သည်ဖြစ်စေ သင့်ခရီးစဉ်အတွက် ဘွတ်ကင်လုပ်ရန် ကလစ်အနည်းငယ်သာ လိုပါသည်-"
+
+#: templates/trip/about.html:79
+msgid "Discover & Ask: Explore seasonal highlights or simply chat with our AI bot to get personalized recommendations.<br>"
+msgstr "ရှာဖွေပါနှင့် မေးမြန်းပါ- ရာသီအလိုက် အထူးအချက်များကို လေ့လာပါ သို့မဟုတ် ပုဂ္ဂိုလ်ရေးသီးသန့် အကြံပြုချက်များရယူရန် ကျွန်ုပ်တို့၏ AI ဘော့တ်နှင့် စကားပြောပါ။<br>"
+
+#: templates/trip/about.html:80
+msgid "Choose & Review: Browse through our curated packages, check real user reviews, and pick the ideal trip for you.<br>"
+msgstr "ရွေးချယ်ပါနှင့် သုံးသပ်ပါ- ကျွန်ုပ်တို့၏ စီစဉ်ထားသော ပက်ကေ့ဂျ်များကို ကြည့်ရှုပါ၊ အသုံးပြုသူများ၏ စစ်မှန်သော သုံးသပ်ချက်များကို စစ်ဆေးပြီး သင့်အတွက် အသင့်တော်ဆုံး ခရီးစဉ်ကို ရွေးချယ်ပါ။<br>"
+
+#: templates/trip/about.html:81
+msgid "Book & Go: Secure your booking instantly through our platform, pack your bags, and enjoy a stress-free adventure!<br>"
+msgstr "ဘွတ်ကင်လုပ်ပြီး ထွက်ခွာပါ- ကျွန်ုပ်တို့၏ ပလပ်ဖောင်းမှတစ်ဆင့် ဘွတ်ကင်ကို ချက်ချင်းလုံခြုံစွာပြုလုပ်ပါ၊ ခရီးဆောင်အိတ်ပြင်ပြီး စိတ်ဖိစီးမှုကင်းသော စွန့်စားခန်းကို ခံစားလိုက်ပါ။<br>"
+
+#: templates/trip/about.html:90
+msgid "Join Us on the Journey"
+msgstr "ခရီးစဉ်တွင် ပါဝင်လိုက်ပါ"
+
+#: templates/trip/about.html:93
+msgid "Ready to explore Myanmar the smarter way?"
+msgstr "မြန်မာနိုင်ငံကို ပိုမိုစမတ်ကျသောနည်းလမ်းဖြင့် ရှာဖွေရန် အဆင်သင့်ဖြစ်ပြီလား။"
+
+#: templates/trip/terms.html:12
+msgid "Terms and Conditions Cover"
+msgstr "စည်းမျဉ်းနှင့် အခြေအနေများ ခြုံငုံပုံ"
+
+#: templates/trip/terms.html:25
+msgid "Myanmar Travel / Packages and Assistant"
+msgstr "မြန်မာခရီးသွား / ခရီးစဉ်ပက်ကေ့ဂျ်များနှင့် အကူအညီပေးသူ"
+
+#: templates/trip/terms.html:25
+msgid "We provide travel services throughout Myanmar, covering popular destinations like"
+msgstr "ကျွန်ုပ်တို့သည် မြန်မာနိုင်ငံတစ်ဝှမ်းတွင် ခရီးသွားဝန်ဆောင်မှုများကို ပံ့ပိုးပေးနေပြီး လူကြိုက်များသောနေရာများကို လွှမ်းခြုံထားပါသည်"
+
+#: templates/trip/terms.html:26
+msgid "Naypyitaw, Yangon, Bagan, and"
+msgstr "နေပြည်တော်၊ ရန်ကုန်၊ ပုဂံ "
+
+#: templates/trip/terms.html:26
+msgid "more"
+msgstr "အခြားနေရာများ"
+
+#: templates/trip/terms.html:32
+msgid "Confirmation of any reservation signifies complete comprehension and binding acceptance of these terms, conditions, and specific itinerary requirements. Throughout this document, Myanmar Travel designates the operating entity and its subsidiaries; Client refers to all individuals listed on a reservation; and Tour denotes the reserved travel arrangements."
+msgstr "မည်သည့်ဘွတ်ကင်ကိုမဆို အတည်ပြုခြင်းသည် ဤစည်းမျဉ်းများ၊ အခြေအနေများနှင့် သီးသန့်ခရီးစဉ်လိုအပ်ချက်များကို အပြည့်အစုံနားလည်သဘောပေါက်ပြီး တရားဝင်လက်ခံသဘောတူကြောင်း သက်သေခံပါသည်။ ဤစာတမ်းတစ်လျှောက်တွင် Myanmar Travel ဆိုသည်မှာ လုပ်ငန်းလည်ပတ်နေသည့်အဖွဲ့အစည်းနှင့် ၎င်း၏လုပ်ငန်းခွဲများကို ဆိုလိုပြီး၊ Client ဆိုသည်မှာ ဘွတ်ကင်စာရင်းတွင် ပါရှိသူအားလုံးကို ဆိုလိုကာ၊ Tour ဆိုသည်မှာ ကြိုတင်မှာယူထားသော ခရီးစဉ်စီစဉ်မှုများကို ညွှန်းဆိုပါသည်။"
+
+#: templates/trip/terms.html:37
+msgid "These terms and conditions apply to bookings you make with our travel consultants (over phone or by email) as well as online bookings you make on our websites."
+msgstr "ဤစည်းမျဉ်းနှင့် အခြေအနေများသည် ကျွန်ုပ်တို့၏ ခရီးသွားအတိုင်ပင်ခံများထံတွင် (ဖုန်း သို့မဟုတ် အီးမေးလ်ဖြင့်) ပြုလုပ်သော ဘွတ်ကင်များအပြင် ကျွန်ုပ်တို့၏ ဝက်ဘ်ဆိုက်များတွင် အွန်လိုင်းမှ ပြုလုပ်သော ဘွတ်ကင်များနှင့်လည်း သက်ဆိုင်ပါသည်။"
+
+#: templates/trip/terms.html:42
+msgid "1. PRICING & SERVICES"
+msgstr "၁။ ဈေးနှုန်းနှင့် ဝန်ဆောင်မှုများ"
+
+#: templates/trip/terms.html:45
+msgid "Myanmar Travel offers confidential rates based on market research, competition analysis, strategic negotiation and in-depth information for each specific season in each destination. These rates are offered under the condition that they cannot be displayed in any way to third parties."
+msgstr "Myanmar Travel အနေဖြင့် ခရီးစဉ်ဒေသအသီးသီး၏ ရာသီအလိုက် အချက်အလက်များ၊ ဈေးကွက်သုတေသနနှင့် ပြိုင်ဆိုင်မှုများကို လေ့လာဆန်းစစ်ကာ အထူးနှုန်းထားများကို စီစဉ်ပေးထားပါသည်။ ဤနှုန်းထားများသည် လျို့ဝှက်သီးသန့်ဖြစ်ပြီး မည်သည့်နည်းလမ်းဖြင့်မျှ ပြင်ပတတိယလူထံသို့ ဖော်ပြခြင်း/ပေါက်ကြားခြင်း မပြုလုပ်ရန် သတ်မှတ်ချက်ဖြင့် ပေးအပ်ခြင်း ဖြစ်ပါသည်။"
+

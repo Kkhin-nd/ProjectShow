@@ -1,0 +1,72 @@
+{% extends 'trip/base.html' %}
+{% load static %}
+{% block title %}Customer Reviews - Myanmar Travel{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="flex justify-between items-center mb-8">
+        <h1 class="text-3xl font-extrabold text-gray-900">Customer Reviews</h1>
+    </div>
+
+    <!-- Review Form Section (Review အသစ်ရေးရန်) -->
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 mb-12">
+        <h3 class="text-lg font-bold mb-4">Write a Review</h3>
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Rating (1 to 5)</label>
+                <input type="number" name="rating" min="1" max="5" value="5" class="w-full border border-gray-300 rounded-xl px-4 py-2 outline-none focus:border-orange-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Comment</label>
+                <textarea name="comment" rows="4" placeholder="Share your experience..." class="w-full border border-gray-300 rounded-xl px-4 py-2 outline-none focus:border-orange-500"></textarea>
+            </div>
+            <button type="submit" class="bg-orange-500 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-orange-600 transition">
+                Submit Review
+            </button>
+        </form>
+    </div>
+
+    <!-- Reviews List Section (သူများရေးထားသည်များကို ပြရန်) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {% for review in reviews %}
+        <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-6 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center mb-2">
+                    <h4 class="font-bold text-gray-900">
+                        {% if review.user.first_name or review.user.last_name %}
+                            {{ review.user.first_name }} {{ review.user.last_name }}
+                        {% else %}
+                            {{ review.user.username }}
+                        {% endif %}
+                    </h4>
+                    <span class="text-yellow-500 text-sm">
+                        {% if review.rating == 5 %}★★★★★
+                        {% elif review.rating == 4 %}★★★★☆
+                        {% elif review.rating == 3 %}★★★☆☆
+                        {% elif review.rating == 2 %}★★☆☆☆
+                        {% else %}★☆☆☆☆
+                        {% endif %}
+                    </span>
+                </div>
+                <p class="text-gray-600 text-sm mb-4">{{ review.comment }}</p>
+            </div>
+
+            <!-- အောက်ခြေ (Date နဲ့ ကိုယ်ပိုင် Review ဖြစ်မှပေါ်မည့် Edit/Delete ခလုတ်များ) -->
+            <div class="flex justify-between items-center pt-2 border-t border-gray-500/10">
+                <span class="text-xs text-gray-400">{{ review.created_at|date:"M d, Y" }}</span>
+                
+                {% if request.user == review.user %}
+                <div class="space-x-2">
+                    <a href="{% url 'edit_review' review.id %}" class="text-xs bg-blue-50 text-blue-600 px-3 py-1 rounded-lg font-semibold hover:bg-blue-100 transition">Edit</a>
+                    <a href="{% url 'delete_review' review.id %}" onclick="return confirm('ဒီ Review ကို ဖျက်မှာ သေချာပါသလား?');" class="text-xs bg-red-50 text-red-600 px-3 py-1 rounded-lg font-semibold hover:bg-red-100 transition">Delete</a>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        {% empty %}
+        <p class="text-gray-500">No reviews yet. Be the first to write one!</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

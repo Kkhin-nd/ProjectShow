@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Admin Dashboard - Myanmar Travel{% endblock %}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+<body class="bg-gray-100 font-sans text-gray-800 m-0 p-0" x-data="{ sidebarOpen: true, showAddModal: false }">
+
+    <!-- ဤနေရာတွင် h-screen နှင့် overflow-hidden ကို သေချာချိန်ပေးပါ -->
+    <div class="flex h-screen w-screen overflow-hidden">
+
+        <!-- Sidebar -->
+        <aside :class="sidebarOpen ? 'w-64' : 'w-20'" class="bg-slate-900 text-slate-300 transition-all duration-300 flex flex-col h-full flex-shrink-0 z-30">
+            <div class="h-20 flex items-center justify-between px-6 bg-slate-950 flex-shrink-0">
+    <div class="flex items-center space-x-3" x-show="sidebarOpen">
+        <img src="{% static 'trip/sticker.webp' %}" alt="Logo" class="w-10 h-10 object-contain rounded-full">
+        <span class="text-white font-bold text-lg tracking-wide">
+            <span class="text-white">Travel</span><span class="text-[#f97316]">Bot</span>
+        </span>
+    </div>
+    <span class="text-white font-bold text-xl" x-show="!sidebarOpen">🔥</span>
+    <button @click="sidebarOpen = !sidebarOpen" class="text-slate-400 hover:text-white">☰</button>
+</div>
+            
+            <nav class="flex-1 px-4 py-6 space-y-2 text-sm overflow-y-auto">
+                <a href="{% url 'admin_dashboard' %}" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition text-left {% if request.resolver_match.url_name == 'admin_dashboard' %}bg-orange-600 text-white{% else %}hover:bg-slate-800{% endif %}">
+                    <span>📊</span> <span x-show="sidebarOpen">Dashboard</span>
+                </a>
+                <a href="{% url 'admin_packages' %}" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition text-left {% if request.resolver_match.url_name == 'admin_packages' %}bg-orange-600 text-white{% else %}hover:bg-slate-800{% endif %}">
+                    <span>📁</span> <span x-show="sidebarOpen">Packages Management</span>
+                </a>
+                <a href="{% url 'admin_agencies' %}" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition text-left {% if request.resolver_match.url_name == 'admin_agencies' %}bg-orange-600 text-white{% else %}hover:bg-slate-800{% endif %}">
+    <span>🏢</span> <span x-show="sidebarOpen">Travel Agencies</span>
+</a>
+               <a href="{% url 'admin_bookings' %}" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition text-left {% if request.resolver_match.url_name == 'admin_bookings' %}bg-orange-600 text-white{% else %}hover:bg-slate-800{% endif %}">
+    <span>💰</span> <span x-show="sidebarOpen">Bookings & Payments</span>
+</a>
+                <a href="{% url 'admin_reviews' %}" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition text-left {% if request.resolver_match.url_name == 'admin_reviews' %}bg-orange-600 text-white{% else %}hover:bg-slate-800{% endif %}">
+                    <span>⭐</span> <span x-show="sidebarOpen">Customer Reviews</span>
+                </a>
+                <a href="{% url 'admin_users' %}" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition text-left {% if request.resolver_match.url_name == 'admin_users' %}bg-orange-600 text-white{% else %}hover:bg-slate-800{% endif %}">
+    <span>👥</span> <span x-show="sidebarOpen">Users Management</span>
+</a>
+<a href="{% url 'trip_plan_management_list' %}" class="w-full flex items-center space-x-3 px-4 py-3 rounded-xl font-semibold transition text-left {% if 'trip_plan' in request.resolver_match.url_name %}bg-orange-600 text-white{% else %}hover:bg-slate-800{% endif %}">
+        <span>🗺️</span> <span x-show="sidebarOpen">Trip Plan Management</span>
+    </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Wrapper -->
+        <div class="flex-1 flex flex-col h-full overflow-hidden">
+            
+            <!-- Top Header (အပေါ်ဆုံးက Header တန်းညီစေရန် h-20 နှင့် flex ကို သေချာစေခြင်း) -->
+            <header class="h-20 bg-white shadow-sm flex items-center justify-between px-8 flex-shrink-0 z-20 w-full">
+                <h1 class="text-xl font-bold text-slate-800">{% block header_title %}Dashboard Overview{% endblock %}</h1>
+                <div class="flex items-center space-x-4">
+                    <span class="text-xs bg-orange-100 text-orange-600 font-bold px-3 py-1.5 rounded-full">Admin User</span>
+                </div>
+            </header>
+
+            <!-- Dashboard Body Content -->
+            <main class="flex-1 p-8 overflow-y-auto bg-gray-100">
+                {% block content %}
+                {% endblock %}
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal နေရာများကို ဆက်ထားပါ -->

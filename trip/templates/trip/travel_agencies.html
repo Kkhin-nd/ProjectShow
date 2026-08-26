@@ -1,0 +1,98 @@
+{% extends 'trip/base.html' %}
+
+{% block title %}Travel Agencies - Myanmar Travel{% endblock %}
+
+{% block content %}
+<div style="background-color: #ffffff; min-height: 100vh; padding-bottom: 5rem;">
+    
+    <!-- Header Section -->
+    <div style="max-width: 48rem; margin: 0 auto; text-align: center; padding: 3.5rem 1rem 2rem 1rem;">
+        <h1 style="font-size: 2.25rem; font-weight: 700; color: #1e293b; margin-bottom: 1rem;">
+            {% if request.LANGUAGE_CODE == 'my' %}
+                ပူးပေါင်းဆောင်ရွက်ထားသော <span style="color: #ef4444;">အေဂျင်စီများ</span>
+            {% else %}
+                Our Collaborated <span style="color: #ef4444;">Agencies</span>
+            {% endif %}
+        </h1>
+        <div style="width: 100%; height: 1px; background-color: #e2e8f0; margin: 0 auto 1.25rem auto;"></div>
+        <p style="font-size: 0.875rem; color: #64748b;">
+            {% if request.LANGUAGE_CODE == 'my' %}
+                ကျွန်ုပ်တို့နှင့် လက်တွဲလိုပါက 
+                <a href="{% url 'contact_us' %}" style="color: #ef4444; text-decoration: none; font-weight: 500;">ဆက်သွယ်ရန်</a> 
+                ကို နှိပ်၍ စတင်လိုက်ပါ။
+            {% else %}
+                We'd love to partner with you simply click 
+                <a href="{% url 'contact_us' %}" style="color: #ef4444; text-decoration: none; font-weight: 500;">Contact Us</a> 
+                to start our journey together!
+            {% endif %}
+        </p>
+    </div>
+
+    <!-- Cards Grid Container (3 Columns Layout) -->
+    <div style="max-width: 85rem; margin: 0 auto; padding: 0 1.5rem;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); justify-content: center; gap: 2rem;" class="md:grid-cols-2 lg:grid-cols-3">
+            
+            {% for agency in agencies %}
+            <!-- Single Agency Card with Hover & Smooth Transition Effects -->
+            <div style="background-color: #ffffff; border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05); overflow: hidden; display: flex; flex-direction: column; width: 100%; transition: all 0.3s ease; cursor: pointer;"
+                 onmouseover="this.style.transform='translateY(-6px)'; this.style.boxShadow='0 12px 20px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)';"
+                 onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 6px -1px rgba(0, 0, 0, 0.05)';">
+                
+                <!-- Image Container -->
+                <div style="position: relative; width: 100%; height: 13rem; background-color: #f1f5f9; overflow: hidden;">
+                    
+                    {% if agency.image %}
+                        <img src="{{ agency.image.url }}" alt="{{ agency.name }}" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                    {% else %}
+                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80" alt="Default Agency Image" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;" onmouseover="this.style.transform='scale(1.05)';" onmouseout="this.style.transform='scale(1)';">
+                    {% endif %}
+                    
+                    <!-- Circular Logo/Icon Badge -->
+                    <div style="position: absolute; bottom: 0.75rem; left: 0.75rem; width: 3.25rem; height: 3.25rem; border-radius: 9999px; border: 2px solid #ffffff; background-color: #0f172a; overflow: hidden; display: flex; align-items: center; justify-content: center; z-index: 30; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);">
+                        {% if agency.logo %}
+                            <img src="{{ agency.logo.url }}" alt="Logo" style="width: 100%; height: 100%; object-fit: cover;">
+                        {% else %}
+                            <span style="color: #ffffff; font-size: 1.1rem;">🏢</span>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Card Body Content -->
+                <div style="padding: 1.25rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
+                    <div>
+                        <!-- Agency Name (English / Myanmar Check) -->
+                        <h3 style="font-size: 1rem; font-weight: 700; color: #1e293b; margin-bottom: 0.5rem;">
+                            {% if request.LANGUAGE_CODE == 'my' and agency.name_my %}
+                                {{ agency.name_my }}
+                            {% else %}
+                                {{ agency.name }}
+                            {% endif %}
+                        </h3>
+
+                        <!-- Agency Description (Displaying full text by removing line clamp limitation) -->
+                        <p style="font-size: 0.75rem; color: #64748b; line-height: 1.5;">
+                            {% if request.LANGUAGE_CODE == 'my' and agency.description_my %}
+                                {{ agency.description_my }}
+                            {% else %}
+                                {{ agency.description }}
+                            {% endif %}
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+            {% empty %}
+            <div style="grid-column: 1 / -1; padding: 3rem; text-align: center; color: #64748b; font-size: 0.875rem;">
+                {% if request.LANGUAGE_CODE == 'my' %}
+                    လက်ရှိတွင် ပူးပေါင်းဆောင်ရွက်ထားသော အေဂျင်စီများ မရှိသေးပါ။
+                {% else %}
+                    No collaborated agencies found at the moment.
+                {% endif %}
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}

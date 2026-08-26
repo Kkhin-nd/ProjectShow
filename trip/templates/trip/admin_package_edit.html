@@ -1,0 +1,249 @@
+{% extends 'trip/admin_base.html' %}
+{% load static %}
+
+{% block title %}Edit Tour Package - Admin Panel{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 flex p-8 justify-center items-center">
+    <div class="bg-white w-full max-w-4xl rounded-3xl shadow-2xl p-6 sm:p-8 relative my-auto">
+        
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-xl font-bold text-gray-900">Edit Tour Package: {{ package.title }}</h3>
+            <a href="{% url 'admin_packages' %}" class="text-gray-400 hover:text-gray-600 text-lg font-bold">✕</a>
+        </div>
+
+        <!-- Edit Form -->
+        <form method="POST" enctype="multipart/form-data" class="space-y-6">
+            {% csrf_token %}
+
+            <!-- Basic Info & Travel Style -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                
+                <!-- Travel Style -->
+                <div class="sm:col-span-2">
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Travel Style (Category) *</label>
+                    <select name="travel_style" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white" required>
+                        <option value="Beach & Island" {% if package.travel_style == "Beach & Island" %}selected{% endif %}>Beach & Island</option>
+                        <option value="Cultural & Heritage" {% if package.travel_style == "Cultural & Heritage" %}selected{% endif %}>Cultural & Heritage</option>
+                        <option value="Nature & Adventure" {% if package.travel_style == "Nature & Adventure" %}selected{% endif %}>Nature & Adventure</option>
+                        <option value="Luxury Escape" {% if package.travel_style == "Luxury Escape" %}selected{% endif %}>Luxury Escape</option>
+                        <option value="Family Holiday" {% if package.travel_style == "Family Holiday" %}selected{% endif %}>Family Holiday</option>
+                        <option value="Honeymoon Special" {% if package.travel_style == "Honeymoon Special" %}selected{% endif %}>Honeymoon Special</option>
+                        <option value="Pilgrimage Tour" {% if package.travel_style == "Pilgrimage Tour" %}selected{% endif %}>Pilgrimage Tour</option>
+                    </select>
+                </div>
+
+                <!-- Title (EN & MY) -->
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Package Title (English) *</label>
+                    <input type="text" name="title" value="{{ package.title }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Package Title (မြန်မာလို)</label>
+                    <input type="text" name="title_my" value="{{ package.title_my|default:'' }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                </div>
+
+                <!-- Tagline (EN & MY) -->
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Tagline (English)</label>
+                    <input type="text" name="tagline" value="{{ package.tagline|default:'' }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Tagline (မြန်မာလို)</label>
+                    <input type="text" name="tagline_my" value="{{ package.tagline_my|default:'' }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                </div>
+
+                <!-- Duration (EN & MY) -->
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Duration (English) *</label>
+                    <input type="text" name="duration" value="{{ package.duration }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none" required>
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Duration (မြန်မာလို ဥပမာ - ၂ရက် ၁ည)</label>
+                    <input type="text" name="duration_my" value="{{ package.duration_my|default:'' }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                </div>
+
+                <!-- Start Location (EN & MY) -->
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Start Location (English)</label>
+                    <input type="text" name="start_location" value="{{ package.start_location }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">Start Location (မြန်မာလို)</label>
+                    <input type="text" name="start_location_my" value="{{ package.start_location_my|default:'' }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                </div>
+
+                <!-- End Location (EN & MY) -->
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">End Location (English)</label>
+                    <input type="text" name="end_location" value="{{ package.end_location }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-medium text-gray-700 mb-1">End Location (မြန်မာလို)</label>
+                    <input type="text" name="end_location_my" value="{{ package.end_location_my|default:'' }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                </div>
+            </div>
+
+            <!-- HOTEL PRICES (2, 3, 4, 5 Stars) -->
+            <div class="bg-blue-50/50 p-4 rounded-2xl border border-blue-100 space-y-4">
+                <h4 class="text-xs font-bold text-gray-800 uppercase">Hotel Category Pricing (Per Person) * [MMK]</h4>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">2-Star Price (MMK)</label>
+                        <input type="number" step="1" name="price_2star" value="{{ package.price_2star }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">3-Star Price (MMK)</label>
+                        <input type="number" step="1" name="price_3star" value="{{ package.price_3star }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">4-Star Price (MMK)</label>
+                        <input type="number" step="1" name="price_4star" value="{{ package.price_4star }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">5-Star Price (MMK)</label>
+                        <input type="number" step="1" name="price_5star" value="{{ package.price_5star }}" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Descriptions & Includes/Excludes (EN & MY) -->
+            <div class="space-y-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Overview Description (English) *</label>
+                        <textarea name="description" rows="3" class="w-full border rounded-xl px-3 py-2 text-sm outline-none" required>{{ package.description }}</textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Overview Description (မြန်မာလို)</label>
+                        <textarea name="description_my" rows="3" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">{{ package.description_my|default:'' }}</textarea>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Price Includes (English)</label>
+                        <textarea name="price_includes" rows="3" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-green-50/30">{{ package.price_includes|default:'' }}</textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Price Includes (မြန်မာလို)</label>
+                        <textarea name="price_includes_my" rows="3" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-green-50/30">{{ package.price_includes_my|default:'' }}</textarea>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Price Excludes (English)</label>
+                        <textarea name="price_excludes" rows="3" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-red-50/30">{{ package.price_excludes|default:'' }}</textarea>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Price Excludes (မြန်မာလို)</label>
+                        <textarea name="price_excludes_my" rows="3" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-red-50/30">{{ package.price_excludes_my|default:'' }}</textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SIMPLIFIED DYNAMIC ITINERARY BUILDER (Only Title for English & Myanmar) -->
+            <div class="bg-orange-50/50 p-4 rounded-2xl border border-orange-100 space-y-4" x-data="{ 
+                itineraries: [
+                    {% for itin in package.itineraries.all %}
+                    { 
+                        day: '{{ itin.day_number }}', 
+                        title: '{{ itin.title|escapejs }}', 
+                        title_my: '{{ itin.title_my|default:""|escapejs }}'
+                    },
+                    {% empty %}
+                    { day: '1', title: '', title_my: '' }
+                    {% endfor %}
+                ],
+                addItinerary() {
+                    this.itineraries.push({ day: this.itineraries.length + 1, title: '', title_my: '' });
+                },
+                removeItinerary(index) {
+                    this.itineraries.splice(index, 1);
+                    this.itineraries.forEach((item, idx) => { item.day = idx + 1; });
+                }
+            }">
+                <div class="flex justify-between items-center">
+                    <h4 class="text-xs font-bold text-gray-800 uppercase">Tour Itinerary Schedule (English & မြန်မာလို) *</h4>
+                    <button type="button" @click="addItinerary()" class="bg-[#ff7715] hover:bg-[#e0650f] text-white text-[11px] font-bold px-3 py-1.5 rounded-xl transition shadow-sm">
+                        + Add Day
+                    </button>
+                </div>
+
+                <template x-for="(item, index) in itineraries" :key="index">
+                    <div class="bg-white p-4 rounded-xl border border-orange-200 space-y-3 relative shadow-sm">
+                        <button type="button" @click="removeItinerary(index)" x-show="itineraries.length > 1" class="absolute top-3 right-3 text-rose-500 hover:text-rose-700 text-[10px] font-bold">
+                            ✕ Remove
+                        </button>
+
+                        <div class="flex gap-3 items-center">
+                            <div class="w-16">
+                                <label class="block text-[11px] font-medium text-gray-700 mb-1">Day</label>
+                                <input type="text" :name="'itinerary_day_' + index" x-model="item.day" class="w-full border rounded-lg px-3 py-2 text-xs outline-none bg-gray-50 text-center font-bold" readonly>
+                            </div>
+                            <div class="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-3 pt-5">
+                                <div>
+                                    <label class="block text-[10px] font-medium text-gray-600 mb-0.5">Itinerary Title (English)</label>
+                                    <input type="text" :name="'itinerary_title_' + index" x-model="item.title" placeholder="e.g. Day 1: Arrival & Sightseeing" class="w-full border rounded-lg px-3 py-2 text-xs outline-none" required>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-medium text-gray-600 mb-0.5">Itinerary Title (မြန်မာလို)</label>
+                                    <input type="text" :name="'itinerary_title_my_' + index" x-model="item.title_my" placeholder="ဥပမာ - ပထမနေ့ ခရီးစဉ်" class="w-full border rounded-lg px-3 py-2 text-xs outline-none">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Image Upload Section -->
+            <div class="bg-orange-50/50 p-4 rounded-2xl border border-orange-100 space-y-4">
+                <h4 class="text-xs font-bold text-gray-800 uppercase">Package Images</h4>
+                
+                <div class="border-b border-orange-200 pb-3">
+                    <label class="block text-xs font-semibold text-gray-700 mb-1">Main Cover Image</label>
+                    {% if package.main_image %}
+                        <p class="text-xs text-gray-500 mb-2">Current Image: <a href="{{ package.main_image.url }}" target="_blank" class="text-sky-600 underline">View</a></p>
+                    {% endif %}
+                    <input type="file" name="main_image" class="w-full text-xs border rounded-xl p-2 bg-white">
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                    <div>
+                        <label class="block text-[11px] font-medium text-gray-700 mb-1">Image 1</label>
+                        {% if package.image_1 %}<p class="text-[10px] text-gray-500 mb-1">Current: <a href="{{ package.image_1.url }}" target="_blank" class="text-sky-600 underline">View</a></p>{% endif %}
+                        <input type="file" name="image_1" class="w-full text-xs border rounded-xl p-2 bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-medium text-gray-700 mb-1">Image 2</label>
+                        {% if package.image_2 %}<p class="text-[10px] text-gray-500 mb-1">Current: <a href="{{ package.image_2.url }}" target="_blank" class="text-sky-600 underline">View</a></p>{% endif %}
+                        <input type="file" name="image_2" class="w-full text-xs border rounded-xl p-2 bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-medium text-gray-700 mb-1">Image 3</label>
+                        {% if package.image_3 %}<p class="text-[10px] text-gray-500 mb-1">Current: <a href="{{ package.image_3.url }}" target="_blank" class="text-sky-600 underline">View</a></p>{% endif %}
+                        <input type="file" name="image_3" class="w-full text-xs border rounded-xl p-2 bg-white">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-medium text-gray-700 mb-1">Image 4</label>
+                        {% if package.image_4 %}<p class="text-[10px] text-gray-500 mb-1">Current: <a href="{{ package.image_4.url }}" target="_blank" class="text-sky-600 underline">View</a></p>{% endif %}
+                        <input type="file" name="image_4" class="w-full text-xs border rounded-xl p-2 bg-white">
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex space-x-3 pt-2">
+                <a href="{% url 'admin_packages' %}" class="w-1/3 bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 rounded-xl font-bold tracking-wider transition text-xs text-center block">
+                    Cancel
+                </a>
+                <button type="submit" class="w-2/3 bg-[#ff7715] hover:bg-[#e0650f] text-white py-3 rounded-xl font-bold tracking-wider transition shadow-md text-xs">
+                    Update Package
+                </button>
+            </div>
+        </form>
+    </div>
+</div> 
+{% endblock %}

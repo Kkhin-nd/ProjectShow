@@ -1,0 +1,206 @@
+{% extends 'trip/base.html' %}
+{% block title %}User Profile - Myanmar Travel{% endblock %}
+
+{% block content %}
+<div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-10" x-data="{ tab: 'info' }">
+    
+    <!-- Header Section -->
+    <div class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 sm:p-8 mb-8 flex flex-col sm:flex-row items-center justify-between gap-6">
+        
+        <!-- Profile Info with Clickable Image Upload -->
+        <div class="flex items-center space-x-4">
+            <form method="POST" enctype="multipart/form-data" id="profilePicForm" class="relative group cursor-pointer">
+                {% csrf_token %}
+                <input type="file" name="profile_picture" id="profilePicInput" class="hidden" accept="image/*" onchange="document.getElementById('profilePicForm').submit();">
+                
+                <label for="profilePicInput" class="cursor-pointer block relative">
+                    {% if user_profile.profile_picture %}
+                        <img src="{{ user_profile.profile_picture.url }}" class="w-20 h-20 rounded-full object-cover border-2 border-orange-500 shadow-inner">
+                    {% else %}
+                        <div class="w-20 h-20 bg-orange-100 text-orange-600 font-bold text-3xl flex items-center justify-center rounded-full shadow-inner">
+                            {{ request.user.first_name|slice:":1"|upper|default:"U" }}
+                        </div>
+                    {% endif %}
+                    
+                    <!-- Hover Overlay effect -->
+                    <div class="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition text-white text-xs font-semibold">
+                        Change
+                    </div>
+                </label>
+            </form>
+
+            <div>
+                <h1 class="text-2xl font-extrabold text-slate-900">{{ request.user.first_name|default:request.user.username }}</h1>
+                <p class="text-sm text-slate-500">{{ request.user.email }}</p>
+                
+                {% if user_profile.profile_picture %}
+                <form method="POST" action="" class="mt-1">
+                    {% csrf_token %}
+                    <input type="hidden" name="remove_picture" value="true">
+                    <button type="submit" class="text-xs text-red-500 hover:underline">Remove Picture</button>
+                </form>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Tabs Navigation -->
+        <div class="flex bg-slate-100 p-1.5 rounded-2xl">
+            <button @click="tab = 'info'" :class="tab === 'info' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'" class="px-5 py-2.5 rounded-xl text-sm font-semibold transition">
+                Personal Info
+            </button>
+            <button @click="tab = 'bookings'" :class="tab === 'bookings' ? 'bg-white text-slate-900 shadow-sm' : 'text-slate-500 hover:text-slate-900'" class="px-5 py-2.5 rounded-xl text-sm font-semibold transition">
+                Booking History
+            </button>
+        </div>
+    </div>
+
+    <!-- TAB 1: PERSONAL INFORMATION -->
+<div x-show="tab === 'info'" x-data="{ editing: false }" class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 sm:p-8">
+    <div class="flex justify-between items-center mb-6">
+        <h2 class="text-lg font-bold text-slate-900 flex items-center gap-2">
+            <span>👤</span> Personal Information & Security
+        </h2>
+        
+        <button type="button" @click="editing = true" x-show="!editing" class="px-4 py-2 bg-orange-100 text-orange-600 hover:bg-orange-200 font-semibold rounded-xl transition text-sm">
+            Update Profile
+        </button>
+    </div>
+    
+    <form method="POST" enctype="multipart/form-data" class="space-y-6">
+        {% csrf_token %}
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+            
+            <!-- Full Name -->
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Full Name</label>
+                <p x-show="!editing" class="text-slate-800 font-bold text-base mt-1">{{ request.user.first_name }}</p>
+                <input type="text" name="first_name" value="{{ request.user.first_name }}" x-show="editing" class="w-full bg-transparent text-slate-800 font-bold text-base outline-none border-b border-orange-500 mt-1" required>
+            </div>
+
+            <!-- Email Address -->
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Email Address</label>
+                <p x-show="!editing" class="text-slate-800 font-bold text-base mt-1">{{ request.user.email }}</p>
+                <input type="email" name="email" value="{{ request.user.email }}" x-show="editing" class="w-full bg-transparent text-slate-800 font-bold text-base outline-none border-b border-orange-500 mt-1" required>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Phone Number</label>
+                <p x-show="!editing" class="text-slate-800 font-bold text-base mt-1">{{ user_profile.phone|default:"Not Provided" }}</p>
+                <input type="text" name="phone" value="{{ user_profile.phone|default:'' }}" placeholder="ဖုန်းနံပါတ် ထည့်ရန်..." x-show="editing" class="w-full bg-transparent text-slate-800 font-bold text-base outline-none border-b border-orange-500 mt-1">
+            </div>
+
+            <!-- Age -->
+            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Age</label>
+                <p x-show="!editing" class="text-slate-800 font-bold text-base mt-1">{{ user_profile.age|default:"Not Provided" }}</p>
+                <input type="number" name="age" value="{{ user_profile.age|default:'' }}" placeholder="အသက် ထည့်ရန်..." x-show="editing" class="w-full bg-transparent text-slate-800 font-bold text-base outline-none border-b border-orange-500 mt-1">
+            </div>
+
+            <!-- Address -->
+            <div class="col-span-1 md:col-span-2 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Address</label>
+                <p x-show="!editing" class="text-slate-800 font-bold text-base mt-1">{{ user_profile.address|default:"Not Provided" }}</p>
+                <textarea name="address" rows="2" placeholder="လိပ်စာ ထည့်ရန်..." x-show="editing" class="w-full bg-transparent text-slate-800 font-bold text-base outline-none border-b border-orange-500 mt-1">{{ user_profile.address|default:'' }}</textarea>
+            </div>
+
+            <!-- Password Fields -->
+            <div x-show="editing" class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">New Password (Optional)</label>
+                <input type="password" name="new_password" placeholder="create new password" class="w-full bg-transparent text-slate-800 font-bold text-base outline-none border-b border-orange-500 mt-1">
+            </div>
+
+            <div x-show="editing" class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <label class="block text-xs font-semibold text-slate-400 uppercase mb-1">Confirm New Password</label>
+                <input type="password" name="confirm_password" placeholder="Confirm new password" class="w-full bg-transparent text-slate-800 font-bold text-base outline-none border-b border-orange-500 mt-1">
+            </div>
+
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="mt-6 flex justify-between items-center pt-6 border-t border-slate-100">
+            <div x-show="editing" class="flex gap-3">
+                <button type="submit" class="px-6 py-3 bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-xl transition text-sm shadow-md">
+                    Save Changes
+                </button>
+                <button type="button" @click="editing = false" class="px-6 py-3 bg-slate-200 hover:bg-slate-300 text-slate-700 font-semibold rounded-xl transition text-sm">
+                    Cancel
+                </button>
+            </div>
+
+            <a href="{% url 'logout' %}" x-show="!editing" onclick="return confirm('Are you sure you want to log out?');" class="px-6 py-3 bg-red-50 hover:bg-red-100 text-red-600 font-semibold rounded-xl transition flex items-center gap-2 text-sm ml-auto">
+                <span>🚪</span> Log Out
+            </a>
+        </div>
+    </form>
+</div>
+
+<!-- TAB 2: BOOKING HISTORY -->
+    <div x-show="tab === 'bookings'" class="bg-white rounded-3xl shadow-sm border border-slate-100 p-6 sm:p-8" style="display: none;">
+        <h2 class="text-lg font-bold text-slate-900 mb-6 flex items-center gap-2">
+            <span>✈️</span> My Booking History
+        </h2>
+
+        <div class="space-y-4">
+            {% if bookings %}
+                {% for booking in bookings %}
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between p-5 bg-slate-50 rounded-2xl border border-slate-100 gap-4 hover:border-orange-200 transition">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="text-xs font-bold px-2.5 py-1 bg-orange-100 text-orange-600 rounded-lg">{{ booking.package.title }}</span>
+                                <span class="text-xs text-slate-400">Booked on: {{ booking.created_at|date:"M d, Y" }}</span>
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-base">Travel Date: {{ booking.travel_date }}</h3>
+                            <p class="text-xs text-slate-500">Traveller Name: <span class="font-medium text-slate-700">{{ booking.full_name }}</span></p>
+                        </div>
+                        
+                        <div class="flex flex-col sm:items-end justify-between w-full sm:w-auto gap-3">
+                            <div class="flex items-center gap-3">
+                                <span class="text-sm font-extrabold text-orange-600">Hotel: {{ booking.hotel_category }}</span>
+                                
+                                <!-- Status Badge -->
+                                {% if booking.status == 'Confirmed' %}
+                                    <span class="px-3 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full">Confirmed</span>
+                                {% elif booking.status == 'Cancelled' %}
+                                    <span class="px-3 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full">Cancelled</span>
+                                {% elif booking.status == 'Completed' %}
+                                    <span class="px-3 py-1 bg-blue-100 text-blue-700 text-xs font-bold rounded-full">Completed</span>
+                                {% else %}
+                                    <span class="px-3 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded-full">Pending</span>
+                                {% endif %}
+                            </div>
+
+                            <!-- User ဘက်မှ Cancel လုပ်ရန် ခလုတ် (Pending သို့မဟုတ် Confirmed ဖြစ်နေမှသာ ပေါ်မည်) -->
+                            {% if booking.status == 'Pending' or booking.status == 'Confirmed' %}
+                                <a href="{% url 'cancel_booking' booking.id %}" 
+                                   onclick="return confirm('ဒီခရီးစဉ်ကို ဖျက်သိမ်းမှာ သေချာပါသလား? ဖျက်သိမ်းပါက total price ၏ 20% ဆုံးရှုံးမည်ဖြစ်ပါသည်။');"
+                                   class="px-3 py-1.5 bg-rose-500 hover:bg-rose-600 text-white text-xs font-semibold rounded-lg transition shadow-sm">
+                                   Cancel Booking
+                                </a>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <div class="text-center py-12 px-4 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                    <div class="text-4xl mb-3">📭</div>
+                    <h3 class="text-base font-bold text-slate-800 mb-1">No Bookings Yet</h3>
+                    <p class="text-xs text-slate-500 mb-4">You haven't booked any tours yet. Explore our available tours and start your journey!</p>
+                    <a href="{% url 'home' %}" class="inline-block px-5 py-2.5 bg-orange-500 hover:bg-orange-600 text-white text-xs font-semibold rounded-xl transition shadow-sm">
+                        Explore Tours
+                    </a>
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="mt-8 pt-6 border-t border-slate-100 flex justify-end">
+            <a href="{% url 'logout' %}" onclick="return confirm('Are you sure you want to log out?');" class="px-6 py-3 bg-red-50 hover:bg-red-100 text-red-600 font-semibold rounded-xl transition flex items-center gap-2 text-sm">
+                <span>🚪</span> Log Out
+            </a>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,109 @@
+{% extends 'trip/admin_base.html' %}
+
+{% block title %}Manage Travel Agencies - Admin Dashboard{% endblock %}
+
+{% block header_title %}Manage Travel Agencies{% endblock %}
+
+{% block content %}
+<div class="max-w-7xl mx-auto" x-data="{ showAddModal: false }">
+    
+    <!-- Top Action Bar -->
+    <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-4 mb-8">
+        <div>
+            <h2 class="text-base font-bold text-gray-900">Collaborated Agencies List</h2>
+            <p class="text-xs text-gray-500 mt-0.5">Add, edit, or remove travel agencies and their logos.</p>
+        </div>
+        <button @click="showAddModal = true" class="bg-[#ff7715] hover:bg-[#e0650f] text-white px-5 py-2.5 rounded-xl font-bold text-xs transition shadow-md w-full sm:w-auto text-center">
+            + Add Agency
+        </button>
+    </div>
+
+    <!-- Agencies Table -->
+    <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-50 text-[11px] font-bold text-gray-500 uppercase tracking-wider border-b border-gray-200">
+                        <th class="py-3 px-6">Agency</th>
+                        <th class="py-3 px-6">Logo</th>
+                        <th class="py-3 px-6">Description</th>
+                        <th class="py-3 px-6 text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 text-xs">
+                    {% for agency in agencies %}
+                    <tr class="hover:bg-gray-50/50 transition">
+                        <td class="py-4 px-6 flex items-center gap-3">
+                            {% if agency.image %}
+                                <img src="{{ agency.image.url }}" alt="" class="w-10 h-10 rounded-xl object-cover border">
+                            {% endif %}
+                            <span class="font-bold text-gray-900">{{ agency.name }}</span>
+                        </td>
+                        <td class="py-4 px-6">
+                            {% if agency.logo %}
+                                <img src="{{ agency.logo.url }}" alt="" class="w-8 h-8 rounded-full object-cover border">
+                            {% else %}
+                                <span class="text-gray-400 text-[10px]">No Logo</span>
+                            {% endif %}
+                        </td>
+                        <td class="py-4 px-6 text-gray-600 max-w-xs truncate">
+                            {{ agency.description }}
+                        </td>
+                        <td class="py-4 px-6 text-center" style="white-space: nowrap;">
+    <!-- Edit Button -->
+    <a href="{% url 'admin_edit_agency' agency.id %}" class="text-blue-600 hover:text-blue-800 font-semibold text-xs" style="margin-right: 1rem;">Edit</a>
+    
+    <!-- Delete Button -->
+    <a href="{% url 'admin_delete_agency' agency.id %}" class="text-red-500 hover:text-red-700 font-semibold text-xs">Delete</a>
+</td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center py-12 text-gray-400 text-xs">
+                            No agencies found. Click "+ Add Agency" to create one.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Add Agency Modal -->
+    <div x-show="showAddModal" style="display: none;" class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 p-4">
+        <div @click.away="showAddModal = false" class="bg-white rounded-3xl max-w-lg w-full p-8 shadow-2xl relative">
+            <h3 class="text-lg font-bold text-gray-900 mb-4">Add New Travel Agency</h3>
+            
+            <form action="" method="POST" enctype="multipart/form-data" class="space-y-4 text-xs">
+                {% csrf_token %}
+                <div>
+                    <label class="block font-medium text-gray-700 mb-1">Agency Name</label>
+                    <input type="text" name="name" placeholder="Enter agency name" class="w-full border rounded-xl px-3 py-2.5 outline-none bg-gray-50" required>
+                </div>
+
+                <div>
+                    <label class="block font-medium text-gray-700 mb-1">Description</label>
+                    <textarea name="description" rows="3" placeholder="Enter details..." class="w-full border rounded-xl px-3 py-2.5 outline-none bg-gray-50" required></textarea>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1">Main Image</label>
+                        <input type="file" name="image" class="w-full text-[11px] text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-orange-50 file:text-orange-600 hover:file:bg-orange-100" required>
+                    </div>
+                    <div>
+                        <label class="block font-medium text-gray-700 mb-1">Logo (Circular)</label>
+                        <input type="file" name="logo" class="w-full text-[11px] text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-xl file:border-0 file:text-xs file:font-bold file:bg-orange-50 file:text-orange-600 hover:file:bg-orange-100">
+                    </div>
+                </div>
+
+                <div class="flex justify-end gap-3 mt-6">
+                    <button type="button" @click="showAddModal = false" class="px-4 py-2 bg-gray-100 text-gray-700 rounded-xl font-bold hover:bg-gray-200 transition">Cancel</button>
+                    <button type="submit" class="px-5 py-2 bg-[#ff7715] text-white rounded-xl font-bold hover:bg-[#e0650f] transition">Save Agency</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,221 @@
+{% extends 'trip/base.html' %}
+{% load static %}
+
+{% block title %}Myanmar Travel Styles & Holiday Packages{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="relative bg-cover bg-center min-h-[300px] flex flex-col justify-center text-white px-6 py-12" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('{% static 'trip/TourBg.jpg' %}');">
+    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl md:text-4xl font-extrabold">
+            {% if request.LANGUAGE_CODE == 'my' %}ခရီးသွားဟန်များနှင့် ခရီးစဉ်ပက်ကေ့ဂျ်များ{% else %}Travel Styles & Tour Packages{% endif %}
+        </h1>
+    </div>
+</section>
+
+<!-- Main Container with Sidebar & Tour Listings -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+        
+        <!-- Sidebar Filters & Sorting Form -->
+        <div class="lg:col-span-1 space-y-6">
+            <form method="GET" action="" class="space-y-6">
+                
+                <!-- Sorting Dropdown -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-3">
+                    <label for="sort" class="block text-xs font-bold text-gray-700 uppercase tracking-wider">
+                        {% if request.LANGUAGE_CODE == 'my' %}စီစစ်ရန်{% else %}Sort By{% endif %}
+                    </label>
+                    <select name="sort" id="sort" onchange="this.form.submit()" class="w-full text-xs border border-gray-300 rounded-xl p-2.5 bg-white text-gray-700 focus:ring-orange-500 focus:border-orange-500">
+                        <option value="popular" {% if request.GET.sort == 'popular' %}selected{% endif %}>
+                            {% if request.LANGUAGE_CODE == 'my' %}လူကြိုက်အများဆုံး{% else %}Popularity: Most popular first{% endif %}
+                        </option>
+                        <option value="title_az" {% if request.GET.sort == 'title_az' %}selected{% endif %}>
+                            {% if request.LANGUAGE_CODE == 'my' %}ခေါင်းစဉ် (A-Z){% else %}Title: A-Z{% endif %}
+                        </option>
+                        <option value="title_za" {% if request.GET.sort == 'title_za' %}selected{% endif %}>
+                            {% if request.LANGUAGE_CODE == 'my' %}ခေါင်းစဉ် (Z-A){% else %}Title: Z-A{% endif %}
+                        </option>
+                        <option value="price_low" {% if request.GET.sort == 'price_low' %}selected{% endif %}>
+                            {% if request.LANGUAGE_CODE == 'my' %}ဈေးနှုန်း - အနည်းဆုံးမှ အများဆုံး{% else %}Price/person: Lowest first{% endif %}
+                        </option>
+                        <option value="price_high" {% if request.GET.sort == 'price_high' %}selected{% endif %}>
+                            {% if request.LANGUAGE_CODE == 'my' %}ဈေးနှုန်း - အများဆုံးမှ အနည်းဆုံး{% else %}Price/person: Highest first{% endif %}
+                        </option>
+                        <option value="duration_short" {% if request.GET.sort == 'duration_short' %}selected{% endif %}>
+                            {% if request.LANGUAGE_CODE == 'my' %}ကြာချိန် - အတိုဆုံးမှ အရှည်ဆုံး{% else %}Duration: Shortest first{% endif %}
+                        </option>
+                        <option value="duration_long" {% if request.GET.sort == 'duration_long' %}selected{% endif %}>
+                            {% if request.LANGUAGE_CODE == 'my' %}ကြာချိန် - အရှည်ဆုံးမှ အတိုဆုံး{% else %}Duration: Longest first{% endif %}
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Travel Styles Checkbox Filters -->
+                <div class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm space-y-4">
+                    <div class="flex items-center justify-between border-b pb-3">
+                        <h3 class="font-bold text-gray-900 text-sm">
+                            {% if request.LANGUAGE_CODE == 'my' %}ခရီးသွားဟန်များ{% else %}Travel Styles{% endif %}
+                        </h3>
+                        <a href="{% url 'travel_styles' %}" class="text-xs text-orange-500 hover:underline font-medium">
+                            {% if request.LANGUAGE_CODE == 'my' %}မူလအတိုင်း{% else %}Reset{% endif %}
+                        </a>
+                    </div>
+
+                    <div class="space-y-2.5 text-xs text-gray-700">
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" name="style" value="Beach & Island" {% if "Beach & Island" in request.GET.getlist.style %}checked{% endif %} class="rounded text-orange-500 focus:ring-orange-400">
+                            <span>Beach & Island</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" name="style" value="Cultural & Heritage" {% if "Cultural & Heritage" in request.GET.getlist.style %}checked{% endif %} class="rounded text-orange-500 focus:ring-orange-400">
+                            <span>Cultural & Heritage</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" name="style" value="Nature & Adventure" {% if "Nature & Adventure" in request.GET.getlist.style %}checked{% endif %} class="rounded text-orange-500 focus:ring-orange-400">
+                            <span>Nature & Adventure</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" name="style" value="Luxury Escape" {% if "Luxury Escape" in request.GET.getlist.style %}checked{% endif %} class="rounded text-orange-500 focus:ring-orange-400">
+                            <span>Luxury Escape</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" name="style" value="Family Holiday" {% if "Family Holiday" in request.GET.getlist.style %}checked{% endif %} class="rounded text-orange-500 focus:ring-orange-400">
+                            <span>Family Holiday</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" name="style" value="Honeymoon Special" {% if "Honeymoon Special" in request.GET.getlist.style %}checked{% endif %} class="rounded text-orange-500 focus:ring-orange-400">
+                            <span>Honeymoon Special</span>
+                        </label>
+                        <label class="flex items-center space-x-2.5 cursor-pointer">
+                            <input type="checkbox" name="style" value="Pilgrimage Tour" {% if "Pilgrimage Tour" in request.GET.getlist.style %}checked{% endif %} class="rounded text-orange-500 focus:ring-orange-400">
+                            <span>Pilgrimage Tour</span>
+                        </label>
+                    </div>
+
+                    <button type="submit" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white font-medium py-2.5 px-4 rounded-xl shadow text-xs transition mt-4">
+                        {% if request.LANGUAGE_CODE == 'my' %}စစ်ထုတ်မည်{% else %}Apply Filters{% endif %}
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Tour Listings Content (Dynamic Loop) -->
+        <div class="lg:col-span-3 space-y-6">
+            {% for pkg in packages %}
+            <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden grid grid-cols-1 md:grid-cols-3">
+                
+                <!-- Package Main Image -->
+                <div class="md:col-span-1 relative bg-gray-100 flex flex-col justify-between">
+                    {% if pkg.main_image %}
+                        <img src="{{ pkg.main_image.url }}" alt="{{ pkg.title }}" class="h-56 w-full object-cover">
+                    {% else %}
+                        <img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=600&q=80" alt="Default Tour" class="h-56 w-full object-cover">
+                    {% endif %}
+                </div>
+
+                <!-- Package Info Details -->
+                <div class="md:col-span-2 p-6 flex flex-col justify-between">
+                    <div>
+                        <h2 class="text-xl font-bold text-gray-900">
+                            {% if request.LANGUAGE_CODE == 'my' and pkg.title_my %}
+                                {{ pkg.title_my }}
+                            {% else %}
+                                {{ pkg.title }}
+                            {% endif %}
+                        </h2>
+                        <span class="inline-block text-xs text-sky-600 bg-sky-50 px-2.5 py-0.5 rounded-full font-medium mt-1">{{ pkg.travel_style }}</span>
+                        <p class="text-sm text-gray-600 mt-2">
+                            {% if request.LANGUAGE_CODE == 'my' and pkg.description_my %}
+                                {{ pkg.description_my|truncatewords:25 }}
+                            {% else %}
+                                {{ pkg.description|truncatewords:25 }}
+                            {% endif %}
+                        </p>
+                    </div>
+
+                    <div class="mt-6 pt-4 border-t border-gray-100 flex flex-wrap items-center justify-between gap-4">
+                        <div class="flex items-center space-x-6 text-xs text-gray-600">
+                            <div>
+                                <span class="flex items-center text-orange-500 font-semibold mb-0.5">
+                                    <span class="w-2 h-2 rounded-full bg-orange-500 inline-block mr-1.5"></span> 
+                                    {% if request.LANGUAGE_CODE == 'my' %}စတင်ရာ:{% else %}Start:{% endif %} 
+                                    {% if request.LANGUAGE_CODE == 'my' and pkg.start_location_my %}
+                                        {{ pkg.start_location_my }}
+                                    {% else %}
+                                        {{ pkg.start_location|default:"Yangon" }}
+                                    {% endif %}
+                                </span>
+                                <span class="flex items-center text-orange-500 font-semibold">
+                                    <span class="w-2 h-2 rounded-full bg-orange-500 inline-block mr-1.5"></span> 
+                                    {% if request.LANGUAGE_CODE == 'my' %}ပြီးဆုံးရာ:{% else %}End:{% endif %} 
+                                    {% if request.LANGUAGE_CODE == 'my' and pkg.end_location_my %}
+                                        {{ pkg.end_location_my }}
+                                    {% else %}
+                                        {{ pkg.end_location|default:"Yangon" }}
+                                    {% endif %}
+                                </span>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-400 uppercase tracking-wider">
+                                    {% if request.LANGUAGE_CODE == 'my' %}စတင်ဈေးနှုန်း{% else %}PACKAGE PRICE{% endif %}
+                                </p>
+                                <p class="text-lg font-bold text-gray-900">
+                                    <span class="price-text">{{ pkg.price_2star|default:"0"|floatformat:0 }}</span> 
+                                    <span class="text-xs font-normal">
+                                        {% if request.LANGUAGE_CODE == 'my' %}ကျပ်{% else %}MMK{% endif %}
+                                    </span>
+                                </p>
+                            </div>
+                            <div>
+                                <p class="text-[10px] text-gray-400 uppercase tracking-wider">
+                                    {% if request.LANGUAGE_CODE == 'my' %}ကြာချိန်{% else %}DURATION{% endif %}
+                                </p>
+                                <p class="text-lg font-bold text-gray-900 text-center">
+                                    {% if request.LANGUAGE_CODE == 'my' and pkg.duration_my %}
+                                        {{ pkg.duration_my }}
+                                    {% else %}
+                                        {{ pkg.duration }}
+                                    {% endif %}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- View Package Detail Button (Language-aware translation added) -->
+                        <div class="flex flex-col space-y-2 w-full sm:w-auto">
+                            <a href="{% url 'package_detail' pkg.id %}" class="bg-[#ff7715] hover:bg-[#e0650f] text-white text-center px-6 py-2 rounded-xl text-sm font-semibold shadow transition">
+                                {% if request.LANGUAGE_CODE == 'my' %}ပက်ကေ့ဂျ် ကြည့်ရန်{% else %}VIEW PACKAGE{% endif %}
+                            </a>                    
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% empty %}
+            <div class="bg-white p-12 text-center rounded-2xl border border-gray-200 shadow-sm">
+                <p class="text-sm text-gray-500 italic">
+                    {% if request.LANGUAGE_CODE == 'my' %}သင်ရွေးချယ်ထားသော စစ်ထုတ်မှုနှင့် ကိုက်ညီသော ခရီးစဉ်ပက်ကေ့ဂျ် မတွေ့ရှိပါ။{% else %}No tour packages found matching your filter criteria.{% endif %}
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        if ("{{ request.LANGUAGE_CODE }}" === "my") {
+            const enNumbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            const myNumbers = ['၀', '၁', '၂', '၃', '၄', '၅', '၆', '၇', '၈', '၉'];
+            
+            document.querySelectorAll('.price-text').forEach(function(el) {
+                let text = el.innerText;
+                for (let i = 0; i < 10; i++) {
+                    text = text.replaceAll(enNumbers[i], myNumbers[i]);
+                }
+                el.innerText = text;
+            });
+        }
+    });
+</script>
+{% endblock %}

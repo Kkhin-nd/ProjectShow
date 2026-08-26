@@ -1,0 +1,311 @@
+{% extends 'trip/admin_base.html' %}
+{% load static %}
+
+{% block title %}Packages Management - Admin Panel{% endblock %}
+
+{% block header_title %}Packages Management{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gray-50 flex" x-data="{ 
+    showAddModal: false, 
+    searchQuery: '{{ request.GET.q }}', 
+    selectedStyle: '{{ request.GET.q }}',
+    styles: [
+        'Beach & Island', 
+        'Cultural & Heritage', 
+        'Nature & Adventure', 
+        'Luxury Escape', 
+        'Family Holiday', 
+        'Honeymoon Special', 
+        'Pilgrimage Tour'
+    ],
+    selectStyle(style) {
+        this.selectedStyle = style;
+        this.searchQuery = style;
+    }
+}">
+    
+    <!-- Main Content Area -->
+    <div class="flex-1">
+        <!-- Search Bar & Travel Style Dropdown & Add Button -->
+        <div class="bg-white p-4 rounded-2xl border border-gray-200 shadow-sm flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+            
+            <!-- Search Box with Travel Styles Dropdown -->
+            <form method="GET" action="{% url 'admin_packages' %}" class="relative flex items-center w-full sm:w-96 border rounded-xl overflow-hidden bg-white">
+                <input type="text" 
+                       name="q"
+                       x-model="searchQuery" 
+                       placeholder="Search packages or select style..." 
+                       class="w-full px-4 py-2.5 text-xs outline-none">
+                
+                <select x-model="selectedStyle" 
+                        @change="selectStyle($event.target.value); $nextTick(() => $el.form.submit())" 
+                        class="bg-gray-50 text-xs border-l px-3 py-2.5 outline-none text-gray-700 cursor-pointer font-medium">
+                    <option value="">All Styles</option>
+                    <template x-for="style in styles" :key="style">
+                        <option :value="style" x-text="style"></option>
+                    </template>
+                </select>
+            </form>
+            
+            <!-- Add New Package Button -->
+            <button @click="showAddModal = true" class="bg-[#ff7715] hover:bg-[#e0650f] text-white px-5 py-2.5 rounded-xl font-bold text-xs transition shadow-md w-full sm:w-auto text-center">
+                + Add New Package
+            </button>
+        </div>
+
+        <!-- Packages Table -->
+        <div class="bg-white rounded-2xl border border-gray-200 shadow-sm overflow-hidden">
+            <table class="w-full text-left border-collapse">
+                <thead>
+                    <tr class="bg-gray-50/50 border-b border-gray-200 text-[11px] font-bold text-gray-400 uppercase tracking-wider">
+                        <th class="py-4 px-6">Package Title</th>
+                        <th class="py-4 px-6">Duration</th>
+                        <th class="py-4 px-6">Category</th>
+                        <th class="py-4 px-6">Base Price</th>
+                        <th class="py-4 px-6">Status</th>
+                        <th class="py-4 px-6 text-right">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-gray-100 text-xs text-gray-700">
+                    {% for pkg in packages %}
+                    <tr class="hover:bg-gray-50/50 transition">
+                        <!-- Package Title & Cover Image -->
+                        <td class="py-4 px-6 flex items-center space-x-3">
+                            {% if pkg.main_image %}
+                                <img src="{{ pkg.main_image.url }}" alt="{{ pkg.title }}" class="w-12 h-10 rounded-lg object-cover shadow-sm">
+                            {% else %}
+                                <div class="w-12 h-10 rounded-lg bg-gray-200 flex items-center justify-center text-[10px] text-gray-400 font-bold shadow-sm">No Img</div>
+                            {% endif %}
+                            <span class="font-bold text-gray-900">{{ pkg.title }}</span>
+                        </td>
+
+                        <!-- Duration -->
+                        <td class="py-4 px-6 font-medium text-gray-600">
+                            {{ pkg.duration }}
+                        </td>
+
+                        <!-- Category / Travel Style -->
+                        <td class="py-4 px-6">
+                            <span class="text-sky-600 font-medium">{{ pkg.travel_style }}</span>
+                        </td>
+
+                        <!-- Price (Base Price) -->
+                        <td class="py-4 px-6 font-bold text-orange-600">
+                            {{ pkg.price_2star|default:"0" }} <span class="text-[10px] font-normal text-gray-500">MMK</span>
+                        </td>
+
+                        <!-- Status -->
+                        <td class="py-4 px-6">
+                            <span class="bg-emerald-50 text-emerald-600 px-2.5 py-1 rounded-full text-[10px] font-semibold">Active</span>
+                        </td>
+
+                        <!-- Actions -->
+                        <td class="py-4 px-6 text-right space-x-2 font-medium">
+                            <a href="{% url 'admin_package_edit' pkg.id %}" class="text-sky-600 hover:underline">Edit</a>
+                            <a href="{% url 'admin_package_delete' pkg.id %}" class="text-rose-600 hover:underline">Delete</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="6" class="text-center py-10 text-gray-400 italic">
+                            No tour packages found.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- POPUP MODAL (Create Tour Package Form)     -->
+    <!-- ========================================== -->
+    <div x-show="showAddModal" 
+         class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm p-4 overflow-hidden"
+         style="display: none;">
+        
+        <div class="bg-white w-full max-w-3xl rounded-3xl shadow-2xl p-6 sm:p-8 relative my-auto max-h-[90vh] overflow-y-auto"
+             @click.away="showAddModal = false">
+            
+            <!-- Close Button -->
+            <button @click="showAddModal = false" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 text-lg font-bold">
+                ✕
+            </button>
+
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Create New Tour Package</h3>
+
+            <!-- Form -->
+            <form action="{% url 'admin_package_create' %}" method="POST" enctype="multipart/form-data" class="space-y-6">
+                {% csrf_token %}
+
+                <!-- Basic Info -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    
+                    <!-- Travel Style (Category) -->
+                    <div class="sm:col-span-2">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Travel Style (Category) *</label>
+                        <select name="travel_style" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white" required>
+                            <option value="" disabled selected>Select a travel style</option>
+                            <option value="Beach & Island">Beach & Island</option>
+                            <option value="Cultural & Heritage">Cultural & Heritage</option>
+                            <option value="Nature & Adventure">Nature & Adventure</option>
+                            <option value="Luxury Escape">Luxury Escape</option>
+                            <option value="Family Holiday">Family Holiday</option>
+                            <option value="Honeymoon Special">Honeymoon Special</option>
+                            <option value="Pilgrimage Tour">Pilgrimage Tour</option>
+                        </select>
+                    </div>
+
+                    <!-- Package Title (Name) -->
+                    <div class="sm:col-span-2">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Package Name / Title *</label>
+                        <input type="text" name="title" placeholder="e.g. Inle Lake & Kakku Explorer" class="w-full border rounded-xl px-3 py-2 text-sm outline-none" required>
+                    </div>
+
+                    <!-- Tagline -->
+                    <div class="sm:col-span-2">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Tagline</label>
+                        <input type="text" name="tagline" placeholder="e.g. Discover the golden land with luxury experiences" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                    </div>
+
+                    <!-- Duration -->
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Duration (Days & Nights) *</label>
+                        <input type="text" name="duration" placeholder="e.g. 5 Days / 4 Nights" class="w-full border rounded-xl px-3 py-2 text-sm outline-none" required>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Start Location</label>
+                        <input type="text" name="start_location" value="Yangon" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                    </div>
+                    <div class="sm:col-span-2">
+                        <label class="block text-xs font-medium text-gray-700 mb-1">End Location</label>
+                        <input type="text" name="end_location" value="Yangon" class="w-full border rounded-xl px-3 py-2 text-sm outline-none">
+                    </div>
+                </div>
+
+                <!-- HOTEL PRICES PER PERSON -->
+                <div class="bg-blue-50/50 p-4 rounded-2xl border border-blue-100 space-y-4">
+                    <h4 class="text-xs font-bold text-gray-800 uppercase">Hotel Category Pricing (Per Person) * [MMK]</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">2-Star Hotel Price (MMK) *</label>
+                            <input type="number" step="1" name="price_2star" placeholder="e.g. 350000" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">3-Star Hotel Price (MMK) *</label>
+                            <input type="number" step="1" name="price_3star" placeholder="e.g. 500000" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">4-Star Hotel Price (MMK) *</label>
+                            <input type="number" step="1" name="price_4star" placeholder="e.g. 750000" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">5-Star / Luxury Hotel Price (MMK) *</label>
+                            <input type="number" step="1" name="price_5star" placeholder="e.g. 1200000" class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-white" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Description & Inclusions/Exclusions -->
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-gray-700 mb-1">Overview Description *</label>
+                        <textarea name="description" rows="3" placeholder="Enter package overview details..." class="w-full border rounded-xl px-3 py-2 text-sm outline-none" required></textarea>
+                    </div>
+                    
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Price Includes (အပါအဝင်များ)</label>
+                            <textarea name="price_includes" rows="3" placeholder="e.g. Hotel, Breakfast, Tour Guide, Transport..." class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-green-50/30"></textarea>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Price Excludes (မပါဝင်သောအရာများ)</label>
+                            <textarea name="price_excludes" rows="3" placeholder="e.g. Flight tickets, Personal expenses, Insurance..." class="w-full border rounded-xl px-3 py-2 text-sm outline-none bg-red-50/30"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ITINERARY BUILDER SECTION -->
+                <div class="bg-orange-50/50 p-4 rounded-2xl border border-orange-100 space-y-4" x-data="{ 
+                    itineraries: [{ day: 1, title: '' }],
+                    addItinerary() {
+                        this.itineraries.push({ day: this.itineraries.length + 1, title: '' });
+                    },
+                    removeItinerary(index) {
+                        this.itineraries.splice(index, 1);
+                        this.itineraries.forEach((item, idx) => { item.day = idx + 1; });
+                    }
+                }">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-xs font-bold text-gray-800 uppercase">Tour Itinerary Schedule *</h4>
+                        <button type="button" @click="addItinerary()" class="bg-[#ff7715] hover:bg-[#e0650f] text-white text-[11px] font-bold px-3 py-1.5 rounded-xl transition shadow-sm">
+                            + Add Day
+                        </button>
+                    </div>
+
+                    <template x-for="(item, index) in itineraries" :key="index">
+                        <div class="bg-white p-4 rounded-xl border border-orange-200 space-y-3 relative shadow-sm">
+                            <!-- Delete Day Button -->
+                            <button type="button" @click="removeItinerary(index)" x-show="itineraries.length > 1" class="absolute top-3 right-3 text-rose-500 hover:text-rose-700 text-[10px] font-bold">
+                                ✕ Remove
+                            </button>
+
+                            <div class="flex gap-3">
+                                <!-- Day Number -->
+                                <div class="w-16">
+                                    <label class="block text-[11px] font-medium text-gray-700 mb-1">Day</label>
+                                    <input type="text" :name="'itinerary_day_' + index" x-model="item.day" class="w-full border rounded-lg px-3 py-1.5 text-xs outline-none bg-gray-50 text-center font-bold" readonly>
+                                </div>
+                                <!-- Day Title -->
+                                <div class="flex-1">
+                                    <label class="block text-[11px] font-medium text-gray-700 mb-1">Itinerary Title *</label>
+                                    <input type="text" :name="'itinerary_title_' + index" x-model="item.title" placeholder="e.g. Visit Shwedagon Pagoda" class="w-full border rounded-lg px-3 py-1.5 text-xs outline-none" required>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+
+                <!-- Images Upload (Total 5 Images) -->
+                <div class="bg-orange-50/50 p-4 rounded-2xl border border-orange-100 space-y-4">
+                    <h4 class="text-xs font-bold text-gray-800 uppercase">Images Upload (Max 5 Images)</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div class="sm:col-span-2">
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Main Cover Image *</label>
+                            <input type="file" name="main_image" class="w-full text-xs border rounded-xl p-2 bg-white" required>
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Gallery Image 1</label>
+                            <input type="file" name="image_1" class="w-full text-xs border rounded-xl p-2 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Gallery Image 2</label>
+                            <input type="file" name="image_2" class="w-full text-xs border rounded-xl p-2 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Gallery Image 3</label>
+                            <input type="file" name="image_3" class="w-full text-xs border rounded-xl p-2 bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-gray-700 mb-1">Gallery Image 4</label>
+                            <input type="file" name="image_4" class="w-full text-xs border rounded-xl p-2 bg-white">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="flex space-x-3 pt-2">
+                    <button type="button" @click="showAddModal = false" class="w-1/3 bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 rounded-xl font-bold tracking-wider transition text-xs">
+                        Cancel
+                    </button>
+                    <button type="submit" class="w-2/3 bg-[#ff7715] hover:bg-[#e0650f] text-white py-3 rounded-xl font-bold tracking-wider transition shadow-md text-xs">
+                        Save Package
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

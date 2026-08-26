@@ -1,0 +1,49 @@
+{% extends 'trip/base.html' %}
+{% block content %}
+<div class="max-w-3xl mx-auto py-10 px-4">
+    
+    <!-- Packages အချက်အလက်တွေ (Title/Image) ကို ဖယ်လိုက်ပါပြီ -->
+
+    <!-- Review Section ကိုပဲ အဓိကထားပြပါ -->
+    <div class="bg-white p-8 rounded-3xl shadow-lg border border-gray-100">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">Customer Reviews</h2>
+
+        <!-- Review Form -->
+        {% if user.is_authenticated %}
+        <form method="POST" action="{% url 'add_review' package.id %}" class="mb-10 bg-gray-50 p-6 rounded-2xl">
+            {% csrf_token %}
+            <h4 class="font-bold mb-3">Leave a Review</h4>
+            <select name="rating" class="w-full p-2 border rounded-lg mb-3">
+                <option value="5">⭐⭐⭐⭐⭐ (5 Stars)</option>
+                <option value="4">⭐⭐⭐⭐ (4 Stars)</option>
+                <option value="3">⭐⭐⭐ (3 Stars)</option>
+                <option value="2">⭐⭐ (2 Stars)</option>
+                <option value="1">⭐ (1 Star)</option>
+            </select>
+            <textarea name="comment" rows="3" required class="w-full p-2 border rounded-lg mb-3" placeholder="Share your experience..."></textarea>
+            <button type="submit" class="bg-orange-500 text-white px-6 py-2 rounded-xl font-bold">Submit</button>
+        </form>
+        {% else %}
+        <p class="mb-6 text-gray-500">Please <a href="{% url 'login' %}" class="text-orange-500 underline">Login</a> to leave a review.</p>
+        {% endif %}
+
+        <!-- Review List -->
+        <div class="space-y-6">
+            {% for review in package.reviews.all %}
+            <div class="border-b border-gray-100 pb-4">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="font-bold text-gray-900">{{ review.user.username }}</span>
+                    <span class="text-xs text-gray-400">{{ review.created_at|date:"M d, Y" }}</span>
+                </div>
+                <div class="text-sm text-yellow-500 mb-2">
+                    {% if review.rating == 5 %}⭐⭐⭐⭐⭐{% elif review.rating == 4 %}⭐⭐⭐⭐{% elif review.rating == 3 %}⭐⭐⭐{% else %}⭐{% endif %}
+                </div>
+                <p class="text-gray-700">{{ review.comment }}</p>
+            </div>
+            {% empty %}
+            <p class="text-gray-500">No reviews yet.</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

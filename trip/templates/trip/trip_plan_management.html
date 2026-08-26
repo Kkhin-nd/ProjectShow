@@ -1,0 +1,74 @@
+{% extends 'trip/admin_base.html' %}
+
+{% block title %}Trip Plan Management - Myanmar Travel{% endblock %}
+{% block header_title %}Trip Plan Management{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h3 class="text-base font-bold text-slate-900">Approved Trip Plans</h3>
+                <p class="text-xs text-slate-400 mt-0.5">List of approved custom trip plans ready for management.</p>
+            </div>
+            <span class="px-3 py-1 bg-emerald-100 text-emerald-700 rounded-full text-xs font-bold">
+                {{ approved_plans.count|default:0 }} Approved Plans
+            </span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-slate-50 text-slate-500 uppercase border-b border-slate-100">
+                        <th class="p-3 font-semibold">Name</th>
+                        <th class="p-3 font-semibold">Email</th>
+                        <th class="p-3 font-semibold">Phone</th>
+                        <th class="p-3 font-semibold">Travel Style</th>
+                        <th class="p-3 font-semibold">Destination</th>
+                        <th class="p-3 font-semibold">Duration</th>
+                        <th class="p-3 font-semibold">Travel Budget</th>
+                        <th class="p-3 font-semibold">Status</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for plan in approved_plans %}
+                    <tr class="hover:bg-slate-50">
+                        <!-- Name -->
+                        <td class="p-3 font-bold text-slate-800">{{ plan.full_name }}</td>
+                        
+                        <!-- Email -->
+                        <td class="p-3 text-slate-600">{{ plan.email }}</td>
+                        
+                        <!-- Phone -->
+                        <td class="p-3 text-orange-600 font-semibold">{{ plan.phone_number }}</td>
+                        
+                        <!-- Travel Style -->
+                        <td class="p-3 font-medium text-slate-700">{{ plan.travel_style|default:"-" }}</td>
+                        
+                        <!-- Destination (Place နေရာတွင် အစားထိုးပြီး) -->
+                        <td class="p-3 text-slate-700 font-medium">{{ plan.destination|default:"-" }}</td>
+                        
+                        <!-- Duration -->
+                        <td class="p-3 text-slate-600">{{ plan.duration|default:"-" }}</td>
+                        
+                        <!-- Travel Budget -->
+                        <td class="p-3 font-bold text-emerald-600">{{ plan.budget|default:"-" }}</td>
+                        
+                        <!-- Status -->
+                        <td class="p-3">
+                            <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">{{ plan.status }}</span>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center p-8 text-slate-400">
+                            No approved trip plans available yet. Please approve requests from the Dashboard.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

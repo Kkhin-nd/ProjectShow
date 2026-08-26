@@ -1,0 +1,154 @@
+{% extends 'trip/admin_base.html' %}
+
+{% block title %}Dashboard Overview - Myanmar Travel{% endblock %}
+{% block header_title %}Dashboard Overview{% endblock %}
+
+{% block content %}
+<div class="space-y-8">
+    <!-- Stat Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <p class="text-xs font-semibold text-slate-400 uppercase">Total Packages</p>
+            <h3 class="text-2xl font-extrabold text-slate-900 mt-1">{{ total_packages }}</h3>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <p class="text-xs font-semibold text-slate-400 uppercase">Total Bookings</p>
+            <h3 class="text-2xl font-extrabold text-slate-900 mt-1">{{ total_bookings }}</h3>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <p class="text-xs font-semibold text-slate-400 uppercase">Pending Bookings</p>
+            <h3 class="text-2xl font-extrabold text-emerald-600 mt-1">{{ pending_bookings }}</h3>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100">
+            <p class="text-xs font-semibold text-slate-400 uppercase">Registered Users</p>
+            <h3 class="text-2xl font-extrabold text-slate-900 mt-1">{{ registered_users }}</h3>
+        </div>
+        <!-- Clickable Customer Reviews Card -->
+        <a href="{% url 'admin_reviews' %}" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 cursor-pointer hover:border-orange-500 hover:shadow-md transition group block">
+            <p class="text-xs font-semibold text-slate-400 uppercase">Customer Reviews</p>
+            <div class="flex justify-between items-end mt-1">
+                <h3 class="text-2xl font-extrabold text-indigo-600">{{ total_reviews }}</h3>
+                <span class="text-xs text-orange-600 font-semibold group-hover:underline">Manage →</span>
+            </div>
+        </a>
+    </div>
+
+    <!-- Recent Bookings Table Section -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-base font-bold text-slate-900">Recent Bookings & Deposit Slips</h3>
+            <a href="{% url 'admin_bookings' %}" class="text-xs text-orange-600 font-semibold hover:underline">View All</a>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-slate-50 text-slate-500 uppercase border-b border-slate-100">
+                        <th class="p-3 font-semibold">Booking ID</th>
+                        <th class="p-3 font-semibold">Customer Name</th>
+                        <th class="p-3 font-semibold">Package Title</th>
+                        <th class="p-3 font-semibold">Hotel Category</th>
+                        <th class="p-3 font-semibold">Traveller No</th>
+                        <th class="p-3 font-semibold">Travel Date</th>
+                        <th class="p-3 font-semibold">Payment Option</th>
+                        <th class="p-3 font-semibold">Transaction No</th>
+                        <th class="p-3 font-semibold">Slip Image</th>
+                        <th class="p-3 font-semibold">Status</th>
+                        <th class="p-3 font-semibold text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for booking in recent_bookings %}
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">#BK-{{ booking.id }}</td>
+                        <td class="p-3">{{ booking.full_name }}</td>
+                        <td class="p-3">{{ booking.package.title }}</td>
+                        <td class="p-3">{{ booking.hotel_category }}</td>
+                        <td class="p-3">{{ booking.travelers_count }}</td>
+                        <td class="p-3">{{ booking.travel_date }}</td>
+                        <td class="p-3">{{ booking.payment_option }}</td>
+                        <td class="p-3">{{ booking.transaction_id }}</td>
+                        <td class="p-3">
+                            {% if booking.pay_slip %}
+                                <a href="{{ booking.pay_slip.url }}" target="_blank" class="text-orange-600 underline font-medium">View Slip</a>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        <td class="p-3">
+                            <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-medium">{{ booking.status }}</span>
+                        </td>
+                        <td class="p-3 text-center space-x-1 whitespace-nowrap">
+                            <a href="{% url 'approve_booking' booking.id %}" class="bg-emerald-500 text-white px-2 py-1 rounded font-semibold hover:bg-emerald-600 inline-block">Approve</a>
+                            <a href="{% url 'reject_booking' booking.id %}" class="bg-rose-500 text-white px-2 py-1 rounded font-semibold hover:bg-rose-600 inline-block">Reject</a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="11" class="text-center p-6 text-slate-400">No pending bookings recent.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Plan My Trip Requests Table Section -->
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6 mt-8">
+        <div class="flex justify-between items-center mb-6">
+            <div>
+                <h3 class="text-base font-bold text-slate-900">Plan My Trip Requests</h3>
+                <p class="text-xs text-slate-400 mt-0.5">User custom trip requests requiring admin approval.</p>
+            </div>
+            <span class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-xs font-bold">
+                {{ custom_plans.count|default:0 }} Requests
+            </span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-slate-50 text-slate-500 uppercase border-b border-slate-100">
+                        <th class="p-3 font-semibold">User Name</th>
+                        <th class="p-3 font-semibold">Email</th>
+                        <th class="p-3 font-semibold">Phone</th>
+                        <th class="p-3 font-semibold">Travel Style</th>
+                        <th class="p-3 font-semibold">Destination</th>
+                        <th class="p-3 font-semibold">Duration</th>
+                        <th class="p-3 font-semibold">Travel Budget</th>
+                        <th class="p-3 font-semibold">Status</th>
+                        <th class="p-3 font-semibold text-center">Action</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for plan in custom_plans %}
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3 font-bold text-slate-800">{{ plan.full_name }}</td>
+                        <td class="p-3 text-slate-600">{{ plan.email }}</td>
+                        <td class="p-3 text-orange-600 font-semibold">{{ plan.phone_number }}</td>
+                        <td class="p-3 font-medium text-slate-700">{{ plan.travel_style|default:"-" }}</td>
+                        <td class="p-3 text-slate-700 font-medium">{{ plan.destination|default:"-" }}</td>
+                        <td class="p-3 text-slate-600">{{ plan.duration|default:"-" }}</td>
+                        <td class="p-3 font-bold text-emerald-600">{{ plan.budget|default:"-" }}</td>
+                        <td class="p-3">
+                            <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-medium">{{ plan.status }}</span>
+                        </td>
+                        <td class="p-3 text-center">
+                            <a href="{% url 'approve_trip_plan' plan.id %}" class="bg-emerald-500 text-white px-3 py-1.5 rounded font-semibold hover:bg-emerald-600 inline-block shadow-sm transition">
+                                Approve
+                            </a>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="9" class="text-center p-6 text-slate-400">
+                            No custom trip requests found.
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

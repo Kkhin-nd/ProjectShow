@@ -1,0 +1,86 @@
+{% extends 'trip/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}Seasonal Trips Ideas - Myanmar Travel{% endblock %}
+
+{% block content %}
+<!-- Main Container with Solid White Background -->
+<div class="relative bg-white pt-10 pb-28 px-6 sm:px-10 lg:px-16 min-h-screen">
+    
+    <!-- Header Section -->
+    <div class="max-w-5xl mx-auto text-center mb-20">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-black text-[#1e293b] tracking-tight">
+            {% trans "Seasonal Trips Ideas" %}
+        </h1>
+    </div>
+
+    <!-- Cards Section -->
+    <div class="max-w-5xl mx-auto flex flex-col gap-28">
+        
+        <!-- 1. Spring Card -->
+        <div class="relative flex flex-col md:flex-row items-center">
+            <!-- Image Box -->
+            <div class="w-full md:w-7/12 h-[340px] overflow-hidden rounded-[25px] shadow-lg z-10">
+                <img src="{% static 'trip/S_Spring.jpg' %}" alt="Spring" class="w-full h-full object-cover">
+            </div>
+            <!-- Floating Text Box -->
+            <div class="w-full md:w-6/12 bg-white/95 backdrop-blur-md p-8 rounded-[25px] shadow-2xl border border-gray-100 z-20 md:-ml-20 mt-6 md:mt-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-3xl">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">{%trans "(Transitional Shoulder Season - October to November)"%}</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                     
+                     {% trans "As the monsoon winds down and the crisp breeze of the changing season approaches, destinations like Naypyitaw, Yangon, Sagaing, and Bagan offer the perfect balance of mild weather, clear skies, and lush post-monsoon greenery, making it an ideal time for urban exploration, sightseeing, and cultural heritage tours."%}
+                </p>
+            </div>
+        </div>
+
+        <!-- 2. Summer Card -->
+        <div class="relative flex flex-col md:flex-row-reverse items-center">
+            <!-- Image Box -->
+            <div class="w-full md:w-7/12 h-[340px] overflow-hidden rounded-[25px] shadow-lg z-10">
+                <img src="{% static 'trip/S_Summer.jpg' %}" alt="Summer" class="w-full h-full object-cover">
+            </div>
+            <!-- Floating Text Box -->
+            <div class="w-full md:w-6/12 bg-white/95 backdrop-blur-md p-8 rounded-[25px] shadow-2xl border border-gray-100 z-20 md:-mr-20 mt-6 md:mt-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-3xl">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">{%trans "Summer (March to May)"%}</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                    
+                   {%trans "When the tropical heat reaches its peak, travelers can beat the high temperatures by escaping to the refreshing coastal shores of Chaung Thar, Ngwe Saung, and Ngapali for cool sea breezes and relaxation, or seek refuge in the high-altitude, tree-shaded heights of Pyin Oo Lwin and Kalaw."%}
+                </p>
+            </div>
+        </div>
+
+        <!-- 3. Rainy Card -->
+        <div class="relative flex flex-col md:flex-row items-center">
+            <!-- Image Box -->
+            <div class="w-full md:w-7/12 h-[340px] overflow-hidden rounded-[25px] shadow-lg z-10">
+                <img src="{% static 'trip/S_Rainy.jpg' %}" alt="Rainy" class="w-full h-full object-cover">
+            </div>
+            <!-- Floating Text Box -->
+            <div class="w-full md:w-6/12 bg-white/95 backdrop-blur-md p-8 rounded-[25px] shadow-2xl border border-gray-100 z-20 md:-ml-20 mt-6 md:mt-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-3xl">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">{%trans "Rainy Season (June to October)"%}</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                    
+                   {%trans "The monsoon season transforms the landscape into a vibrant, emerald-green wonderland characterized by dramatic cloudscapes, active waterfalls, and misty mountain views, making places like Hpa-an, Mount Popa, Pyin Oo Lwin, Bago, and Inle Lake absolute paradises for nature and photography enthusiasts." %}
+                </p>
+            </div>
+        </div>
+
+        <!-- 4. Winter Card -->
+        <div class="relative flex flex-col md:flex-row-reverse items-center">
+            <!-- Image Box -->
+            <div class="w-full md:w-7/12 h-[340px] overflow-hidden rounded-[25px] shadow-lg z-10">
+                <img src="{% static 'trip/S_Winter.jpg' %}" alt="Winter" class="w-full h-full object-cover">
+            </div>
+            <!-- Floating Text Box -->
+            <div class="w-full md:w-6/12 bg-white/95 backdrop-blur-md p-8 rounded-[25px] shadow-2xl border border-gray-100 z-20 md:-mr-20 mt-6 md:mt-0 transition-all duration-300 hover:-translate-y-1 hover:shadow-3xl">
+                <h2 class="text-2xl font-bold text-gray-900 mb-3">{%trans "Winter (November to February)"%}</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-6">
+                  
+                {%trans "Cool, dry weather and crystal-clear skies create the absolute peak season for travel across Myanmar, offering ideal conditions to explore the ancient temples of Bagan and Mandalay, cruise the serene waters of Inle Lake, hike through the pine-covered hills of Kalaw and Loikaw, or experience the stunning high-altitude peaks, misty valleys, and chilly landscapes of Pyin Oo Lwin, Pangwar, Putao, Hakha, and Kyaiktiyo."%}
+                </p>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

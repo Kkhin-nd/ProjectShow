@@ -1,0 +1,86 @@
+{% extends 'trip/admin_base.html' %}
+
+{% block title %}Bookings & Payments - Myanmar Travel{% endblock %}
+{% block header_title %}Bookings & Payments Management{% endblock %}
+
+{% block content %}
+<div class="space-y-6">
+    <div class="bg-white rounded-2xl shadow-sm border border-slate-100 p-6">
+        <div class="flex justify-between items-center mb-6">
+            <h3 class="text-base font-bold text-slate-900">All Customer Bookings & Payment Slips</h3>
+            <!-- bookings.count ကို သုံးနိုင်ရန် view နဲ့ variable နာမည်ကို ညီပေးထားပါသည် -->
+            <span class="text-xs text-slate-400">Total Bookings: {{ bookings.count }}</span>
+        </div>
+
+        <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-xs">
+                <thead>
+                    <tr class="bg-slate-50 text-slate-500 uppercase border-b border-slate-100">
+                        <th class="p-3 font-semibold">Booking ID</th>
+                        <th class="p-3 font-semibold">Customer Name</th>
+                        <th class="p-3 font-semibold">Package Title</th>
+                        <th class="p-3 font-semibold">Hotel Category</th>
+                        <th class="p-3 font-semibold">Travellers</th>
+                        <th class="p-3 font-semibold">Travel Date</th>
+                        <th class="p-3 font-semibold">Payment Option</th>
+                        <th class="p-3 font-semibold">Transaction No</th>
+                        <th class="p-3 font-semibold">Slip Image</th>
+                        <th class="p-3 font-semibold">Status</th>
+                        <th class="p-3 font-semibold text-center">Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100">
+                    {% for booking in bookings %} <!-- views.py မှ ပို့လိုက်သော bookings ကို သုံးရန် -->
+                    <tr class="hover:bg-slate-50">
+                        <td class="p-3">#BK-{{ booking.id }}</td>
+                        <td class="p-3">{{ booking.full_name }}</td>
+                        <td class="p-3">{{ booking.package.title }}</td>
+                        <td class="p-3">{{ booking.hotel_category }}</td>
+                        <td class="p-3">{{ booking.travelers_count }}</td>
+                        <td class="p-3">{{ booking.travel_date }}</td>
+                        <td class="p-3">{{ booking.payment_option }}</td>
+                        <td class="p-3">{{ booking.transaction_id }}</td>
+                        <td class="p-3">
+                            {% if booking.pay_slip %}
+                                <a href="{{ booking.pay_slip.url }}" target="_blank" class="text-orange-600 underline font-medium">View Slip</a>
+                            {% else %}
+                                -
+                            {% endif %}
+                        </td>
+                        
+                        <!-- Status Badge -->
+                        <td class="p-3">
+                            {% if booking.status == 'Confirmed' %}
+                                <span class="bg-emerald-100 text-emerald-700 px-2 py-1 rounded-full font-medium">Confirmed</span>
+                            {% elif booking.status == 'Completed' %}
+                                <span class="bg-blue-100 text-blue-700 px-2 py-1 rounded-full font-medium">Completed</span>
+                            {% elif booking.status == 'Pending' %}
+                                <span class="bg-amber-100 text-amber-700 px-2 py-1 rounded-full font-medium">Pending</span>
+                            {% else %}
+                                <span class="bg-rose-100 text-rose-700 px-2 py-1 rounded-full font-medium">{{ booking.status }}</span>
+                            {% endif %}
+                        </td>
+
+                        <!-- Actions -->
+                        <td class="p-3 text-center space-x-1 whitespace-nowrap">
+                            {% if booking.status == 'Confirmed' %}
+                                <a href="{% url 'complete_trip' booking.id %}" class="bg-blue-600 text-white px-2 py-1 rounded font-semibold hover:bg-blue-700 inline-block">Trip Done</a>
+                            {% elif booking.status == 'Pending' %}
+                                <a href="{% url 'approve_booking' booking.id %}" class="bg-emerald-500 text-white px-2 py-1 rounded font-semibold hover:bg-emerald-600 inline-block">Approve</a>
+                                <a href="{% url 'reject_booking' booking.id %}" class="bg-rose-500 text-white px-2 py-1 rounded font-semibold hover:bg-rose-600 inline-block">Reject</a>
+                            {% else %}
+                                <span class="text-slate-400 italic">No Action</span>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="11" class="text-center p-6 text-slate-400">Booking မှတ်တမ်းများ မရှိသေးပါ။</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'trip/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}Terms & Conditions - Myanmar Travel{% endblock %}
+
+{% block content %}
+<!-- Main Container -->
+<div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
+
+    <!-- Page Title -->
+    <div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">{%trans "Terms & Conditions"%}</h1>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="w-full h-72 sm:h-96 rounded-2xl overflow-hidden shadow-lg">
+        <!-- ပုံနာမည်ကို မိမိတို့ထံတွင်ရှိသော ပုံအမည်နှင့် လိုအပ်သလို အစားထိုးနိုင်ပါသည် -->
+        <img src="{% static 'trip/te.jpg' %}" alt="Terms and Conditions Cover" class="w-full h-full object-cover">
+    </div>
+
+    <!-- Content Section -->
+    <div class="prose prose-slate max-w-none space-y-6 text-slate-700 leading-relaxed text-sm sm:text-base">
+        
+        <p>
+            <strong class="text-slate-900">{%trans "Myanmar Travel / Packages and Assistant"%}</strong> –  {%trans "We provide travel services throughout Myanmar, covering popular destinations like"%}
+            <strong class="text-slate-900">{%trans "Naypyitaw, Yangon, Bagan, and"%}</strong>{%trans "and"%}<strong class="text-slate-900">{%trans "more"%}</strong>. 
+           
+        </p>
+
+        <p>
+
+            {%trans "Confirmation of any reservation signifies complete comprehension and binding acceptance of these terms, conditions, and specific itinerary requirements. Throughout this document, Myanmar Travel designates the operating entity and its subsidiaries; Client refers to all individuals listed on a reservation; and Tour denotes the reserved travel arrangements."%}
+            
+        </p>
+
+        <p>
+            {%trans "These terms and conditions apply to bookings you make with our travel consultants (over phone or by email) as well as online bookings you make on our websites."%}
+        </p>
+
+        <!-- Section 1 -->
+        <div class="pt-4 space-y-4">
+            <h2 class="text-xl sm:text-2xl font-bold text-slate-900">{%trans "1. PRICING & SERVICES"%}</h2>
+            
+            <p>
+               {%trans "Myanmar Travel offers confidential rates based on market research, competition analysis, strategic negotiation and in-depth information for each specific season in each destination. These rates are offered under the condition that they cannot be displayed in any way to third parties."%}
+            </p>
+
+        
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

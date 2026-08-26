@@ -1,0 +1,31 @@
+{% extends 'trip/base.html' %}
+{% load static %}
+{% block title %}Edit Review - Myanmar Travel{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
+        <h1 class="text-2xl font-extrabold text-gray-900 mb-6">Edit Your Review</h1>
+        
+        <form method="POST" class="space-y-4">
+            {% csrf_token %}
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Rating (1 to 5)</label>
+                <input type="number" name="rating" min="1" max="5" value="{{ review.rating }}" class="w-full border border-gray-300 rounded-xl px-4 py-2 outline-none focus:border-orange-500">
+            </div>
+            <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1">Comment</label>
+                <textarea name="comment" rows="4" class="w-full border border-gray-300 rounded-xl px-4 py-2 outline-none focus:border-orange-500">{{ review.comment }}</textarea>
+            </div>
+            <div class="flex space-x-4 pt-2">
+                <button type="submit" class="bg-orange-500 text-white px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-orange-600 transition">
+                    Update Review
+                </button>
+                <a href="{% url 'reviews' %}" class="bg-gray-100 text-gray-700 px-6 py-2.5 rounded-xl font-semibold text-sm hover:bg-gray-200 transition flex items-center">
+                    Cancel
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

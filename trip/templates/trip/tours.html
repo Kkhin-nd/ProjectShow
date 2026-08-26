@@ -1,0 +1,792 @@
+{% extends 'trip/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}Myanmar Tours & Holiday Packages{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section with Local Background Image -->
+<section class="relative bg-cover bg-center min-h-[350px] flex flex-col justify-center text-white px-6 py-12" style="background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.6)), url('{% static 'trip/TourBg.jpg' %}');">
+    <div class="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="text-3xl md:text-4xl font-extrabold">{%trans "Myanmar Tours & Holiday Packages"%}</h1>
+    </div>
+</section>
+
+<!-- Main Content Container -->
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-12">
+
+    <!-- Popular Destination Section -->
+    <section>
+        <h3 class="text-2xl font-bold mb-6 text-gray-900">{%trans "Popular Destination"%}</h3>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
+            
+            <!-- Destination 1 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Bagan.jpg' %}" alt="Bagan" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Bagan"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Ancient temples & stunning sunrises"%}</p>
+                    </div>
+                <button onclick="openModal('baganModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 2 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Kalaw.jpg' %}" alt="Kalaw" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Kalaw"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Scenic trekking & pine forests"%}</p>
+                    </div>
+                    <button onclick="openModal('kalawModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 3 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_NgweSaung.jpg' %}" alt="NgweSaung" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Ngwe Saung"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Serene waters & unique lifestyle"%}</p>
+                    </div>
+                    <button onclick="openModal('ngwesaungModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>                </div>
+            </div>
+
+            <!-- Destination 4 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Naypyitaw.jpg' %}" alt="Naypyitaw" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">Naypyitaw</h4>
+                        <p class="text-xs text-gray-500 mb-4">Pristine nature & viaduct views</p>
+                    </div>
+                    <button onclick="openModal('naypyitawModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>                </div>
+            </div>
+
+            <!-- Destination 5 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Yangon.jpg' %}" alt="Yangon" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Yangon"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Cultural heritage & golden pagodas"%}</p>
+                    </div>
+                    <button onclick="openModal('yangonModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 6 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Inle.jpg' %}" alt="Inle" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Inle Lake"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Floating gardens & leg-rowers"%}</p>
+                    </div>
+                    <button onclick="openModal('inleModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 7 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Napali.jpg' %}" alt="Napali" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Ngapali"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "White sands & crystal clear sea"%}</p>
+                    </div>
+                    <button onclick="openModal('ngapaliModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 8 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Madalay.jpg' %}" alt="Madalay" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Mandalay"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Royal palaces & sunset bridges"%}</p>
+                    </div>
+                    <button onclick="openModal('mandalayModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 9 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_PyinOoLwin.jpg' %}" alt="PyinOoLwin" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Pyin Oo Lwin"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Waterfalls & botanical gardens"%}</p>
+                    </div>
+                    <button onclick="openModal('pyinoolwinModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 10 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Hpa-An.jpg' %}" alt="Hpa-An" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Hpa-An"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Mystical caves & limestone karsts"%}</p>
+                    </div>
+                    <button onclick="openModal('hpaanModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 11 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Myeik.jpg' %}" alt="Myeik" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Myeik"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Island archipelagos & marine life"%}</p>
+                    </div>
+                    <button onclick="openModal('myeikModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 12 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Loikaw.jpg' %}" alt="Loikaw" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Loikaw"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Unique ethnic cultures & traditions"%}</p>
+                    </div>
+                    <button onclick="openModal('loikawModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 13 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_ChaungThar.jpg' %}" alt="ChaungThar" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Chaung Tha"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Relaxing beachside getaways"%}</p>
+                    </div>
+                    <button onclick="openModal('chaungthaModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 14 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Putao.jpg' %}" alt="Putao" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Putao"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Snow-capped mountains & adventures"%}</p>
+                    </div>
+                    <button onclick="openModal('putaoModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 15 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Kyaiktiyo.jpg' %}" alt="Kyaiktiyo" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Kyaiktiyo"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "The sacred Golden Rock pagoda"%}</p>
+                    </div>
+                    <button onclick="openModal('kyaiktiyoModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 16 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Bago.jpg' %}" alt="Bago" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Bago"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Ancient history & giant buddhas"%}</p>
+                    </div>
+                    <button onclick="openModal('bagoModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 17 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Sagaing.jpg' %}" alt="Sagaing" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Sagaing"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Ancient history & giant buddhas"%}</p>
+                    </div>
+                    <button onclick="openModal('sagaingModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 18 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Popa.jpg' %}" alt="Popa" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Popa"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Ancient history & giant buddhas"%}</p>
+                    </div>
+                    <button onclick="openModal('popaModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 19 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Pangwar.jpg' %}" alt="Pangwar" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Pangwar"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Snow-capped mountains & adventures"%}</p>
+                    </div>
+                    <button onclick="openModal('pangwarModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+            <!-- Destination 20 -->
+            <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 flex flex-col justify-between transition-all duration-300 hover:-translate-y-2 hover:shadow-xl">
+                <img src="{% static 'trip/T_Hakha.jpg' %}" alt="Hakha" class="h-48 w-full object-cover">
+                <div class="p-4 flex flex-col justify-between flex-grow">
+                    <div>
+                        <h4 class="font-bold text-lg text-gray-900">{%trans "Hakha"%}</h4>
+                        <p class="text-xs text-gray-500 mb-4">{%trans "Snow-capped mountains & adventures"%}</p>
+                    </div>
+                    <button onclick="openModal('hakhaModal')" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-2 rounded-xl text-sm font-semibold transition">{%trans "Browse"%}</button>
+                </div>
+            </div>
+
+        </div> <!-- grid container ပိတ်ရန် -->
+    </section>
+
+    <!-- 1. Bagan Modal -->
+    <div id="baganModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('baganModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Bagan1.jpg' %}" alt="Bagan Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Bagan2.jpg' %}" alt="Bagan Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Bagan.jpg' %}" alt="Bagan Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Bagan"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                   {%trans "Bagan, located in central Myanmar along the banks of the Ayeyarwady River, is one of Southeast Asia’s most extraordinary historical and cultural destinations. As an ancient UNESCO World Heritage site, it is world-renowned for its vast architectural landscape featuring over 2,000 remarkably preserved temples, pagodas, and stupas dating back to the 9th to 13th centuries. Visitors can explore the ancient complex by bicycle, e-bike, or tuk-tuk, immersing themselves in centuries of Buddhist heritage, intricate mural paintings, and legendary lacquerware craftsmanship. Beyond its rich history, Bagan offers breathtaking sunrise and sunset views across the temple-dotted plains, making it an unforgettable journey for culture enthusiasts, photographers, and travelers seeking a truly magical experience."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2. Kalaw Modal -->
+    <div id="kalawModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('kalawModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Kalaw1.jpg' %}" alt="Kalaw Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Kalaw2.jpg' %}" alt="Kalaw Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Kalaw.jpg' %}" alt="Kalaw Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Kalaw"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Kalaw, a charming hill station nestled in the Shan State of Myanmar, is famous for its cool climate, pine-scented air, and breathtaking highland landscapes. Originally established as a hill resort during the British colonial era, it offers a peaceful escape filled with colonial-style cottages, vibrant flower gardens, and colorful local markets reflecting the region's rich ethnic diversity. Renowned as Myanmar's premier trekking hub, Kalaw serves as the starting point for popular multi-day hikes to Inle Lake, guiding travelers through scenic tea plantations, rolling hills, and traditional ethnic minority villages."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. Ngwe Saung Modal -->
+    <div id="ngwesaungModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('ngwesaungModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_NgweSaung1.jpg' %}" alt="Ngwe Saung Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_NgweSaung2.jpg' %}" alt="Ngwe Saung Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_NgweSaung.jpg' %}" alt="Ngwe Saung Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Ngwe Saung"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {% trans "Ngapali's twin destination on the Bay of Bengal, Ngwe Saung Beach, is one of Myanmar’s premier coastal getaways, famous for its 15-kilometer stretch of white sand, clear blue waters, and laid-back atmosphere. Located in the Ayeyarwady Region just a 5 to 6-hour drive from Yangon, it serves as an accessible retreat where visitors can enjoy fresh seafood, scenic palm-fringed coastlines, and pristine island surroundings."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4. Naypyitaw Modal -->
+    <div id="naypyitawModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('naypyitawModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Naypyitaw1.jpg' %}" alt="Naypyitaw Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Naypyitaw2.jpg' %}" alt="Naypyitaw Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Naypyitaw.jpg' %}" alt="Naypyitaw Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Naypyitaw"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                  {%trans "Naypyidaw, the modern capital of Myanmar since 2005, is known for its impressive scale, grand architecture, and peaceful, orderly atmosphere. Built on a vast geographic footprint, the city features wide multi-lane highways, beautifully manicured green spaces, and distinct functional zones, offering visitors a unique contrast to the historical and bustling coastal destinations of the country."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5. Yangon Modal -->
+    <div id="yangonModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('yangonModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Yangon1.jpg' %}" alt="Yangon Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Yangon2.jpg' %}" alt="Yangon Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Yangon.jpg' %}" alt="Yangon Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Yangon"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                   {%trans "As Myanmar’s commercial hub and former capital, Yangon is a vibrant metropolis that seamlessly blends rich Buddhist heritage, colonial-era architecture, and energetic city life. Surrounded by lush tropical lakes, bustling street markets, and tree-lined avenues, the city serves as the primary cultural and gateway destination for travelers exploring the country."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 6. Inle Lake Modal -->
+    <div id="inleModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('inleModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Inle1.jpg' %}" alt="Inle Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Inle2.jpg' %}" alt="Inle Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Inle.jpg' %}" alt="Inle Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Inle Lake"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                   {%trans "Nestled in the Shan Hills of Myanmar, Inle Lake is a vast, serene freshwater lake famous for its iconic leg-rowing fishermen, floating gardens, and unique stilt-house villages. Inhabited primarily by the Intha people, the lake region offers a captivating glimpse into rural highland life, traditional handicrafts, and centuries-old Buddhist heritage set against a backdrop of rolling mist-covered mountains."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 7. Ngapali Modal -->
+    <div id="ngapaliModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('ngapaliModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Napali1.jpg' %}" alt="Ngapali Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Napali2.jpg' %}" alt="Ngapali Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Napali.jpg' %}" alt="Ngapali Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Ngapali"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                   {%trans "Located on the Bay of Bengal near Thandwe in Rakhine State, Ngapali is Myanmar’s premier beach destination, world-renowned for its turquoise waters, miles of soft, white sand, and towering coconut palms. Unlike many heavily commercialized tropical resorts, Ngapali maintains a peaceful, pristine charm where visitors can enjoy luxury beachfront stays, authentic fishing village culture, and exceptionally fresh seafood."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 8. Mandalay Modal -->
+    <div id="mandalayModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('mandalayModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Madalay1.jpg' %}" alt="Mandalay Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Madalay2.jpg' %}" alt="Mandalay Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Madalay.jpg' %}" alt="Mandalay Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Mandalay"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                {%trans "As the last royal capital of Myanmar, Mandalay is the country’s cultural and spiritual heartland. Situated on the banks of the Ayeyarwady River, the city is renowned for its grand royal history, traditional artisan workshops, and sacred Buddhist pilgrimage sites set against the backdrop of scenic hills."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 9. Pyin Oo Lwin Modal -->
+    <div id="pyinoolwinModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('pyinoolwinModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_PyinOoLwin1.jpg' %}" alt="Pyin Oo Lwin Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_PyinOoLwin2.jpg' %}" alt="Pyin Oo Lwin Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_PyinOoLwin.jpg' %}" alt="Pyin Oo Lwin Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Pyin Oo Lwin"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Pyin Oo Lwin, a charming hill station nestled in the Shan Hills of Myanmar, is a tranquil escape known for its pleasant weather, scenic beauty, and rich colonial heritage. Situated at an altitude of over 1,000 meters, this picturesque town offers a refreshing breeze and cooler temperatures year-round. Visitors are drawn to its iconic attractions, including the lush National Kandawgyi Gardens, breathtaking waterfalls like Anisakan and Pwe Kauk, and well-preserved colonial-era architecture. Beyond its natural and historical sights, Pyin Oo Lwin is famous for its fresh strawberries, local coffee, and colorful horse-drawn carriages, making it a perfect destination for relaxation and sightseeing."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 10. Hpa-An Modal -->
+    <div id="hpaanModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('hpaanModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Hpa-An1.jpg' %}" alt="Hpa-An Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Hpa-An2.jpg' %}" alt="Hpa-An Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Hpa-An.jpg' %}" alt="Hpa-An Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Hpa-An"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Hpa-An, the serene capital of Kayin State in Myanmar, is a breathtaking destination famed for its dramatic limestone karst mountains, serene rivers, and magnificent natural caves. Rising grandly above the lush countryside, iconic peaks like Mount Zwegabin provide stunning panoramic vistas, while sacred sites such as Kyaut Ka Latt Pagoda—perched dramatically atop a sheer rock formation in the middle of a lake—offer unforgettable sights. Adventure seekers and culture enthusiasts alike are drawn to its vast caverns, including Sadan Cave with its hidden lake and Kawgun Cave filled with seventh-century terracotta Buddha reliefs. With its peaceful rural landscapes, rich ethnic culture, and vibrant local markets, Hpa-An offers an enchanting escape for travelers looking to explore Myanmar's raw natural beauty."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 11. Myeik Modal -->
+    <div id="myeikModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('myeikModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Myeik1.jpg' %}" alt="Myeik Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Myeik2.jpg' %}" alt="Myeik Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Myeik.jpg' %}" alt="Myeik Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Myeik"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Myeik is a charming coastal city in southern Myanmar and the gateway to the stunning Mergui Archipelago's 800 tropical islands. Travelers can explore crystal-clear waters, pristine beaches, and vibrant marine life alongside the unique culture of the indigenous Moken sea nomads. On land, the town offers historic colonial architecture, bustling local markets, and world-class fresh seafood like the famous Myeik Kat Kyat noodles."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 12. Loikaw Modal -->
+    <div id="loikawModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('loikawModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Loikaw1.jpg' %}" alt="Loikaw Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Loikaw2.jpg' %}" alt="Loikaw Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Loikaw.jpg' %}" alt="Loikaw Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Loikaw"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Loikaw, the capital of Kayah State, is a picturesque town famed for its dramatic limestone landscapes and rich cultural heritage. Its iconic landmark, Taung Kwe Pagoda, offers stunning panoramic views from atop split limestone crags. Visitors can connect with local ethnic communities, including the iconic Kayan people known for their traditional brass neck rings. Beyond its unique cultural appeal, Loikaw features serene spots like Seven Stages Lake and delicious local specialties like authentic Kayah sausage."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 13. Chaung Tha Modal -->
+    <div id="chaungthaModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('chaungthaModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_ChaungThar1.jpg' %}" alt="Chaung Tha Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_ChaungThar2.jpg' %}" alt="Chaung Tha Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_ChaungThar.jpg' %}" alt="Chaung Tha Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Chaung Tha"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                   {%trans "Chaung Tha is one of Myanmar's most popular coastal getaways, famous for its long sandy beach, lively atmosphere, and easy accessibility from Yangon. Visitors can enjoy fresh seafood, scenic boat trips to nearby islands like Pokala Island, and fun beach activities ranging from horse riding to speedboating. It is an ideal, budget-friendly destination for travelers looking for a quick tropical seaside escape."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 14. Putao Modal -->
+    <div id="putaoModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('putaoModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Putao1.jpg' %}" alt="Putao Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Putao2.jpg' %}" alt="Putao Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Putao.jpg' %}" alt="Putao Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Putao"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                   {%trans "Putao, located in northernmost Kachin State, is a tranquil town framed by the majestic snow-capped Himalayas. Famous for its untouched wilderness, pristine rivers, and rare flora like the Black Orchid, it is Myanmar's ultimate haven for trekking and white-water rafting. Visitors can explore vibrant local ethnic villages and experience a serene, off-the-grid mountain adventure."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 15. Kyaiktiyo Modal -->
+    <div id="kyaiktiyoModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('kyaiktiyoModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Kyaiktiyo1.jpg' %}" alt="Kyaiktiyo Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Kyaiktiyo2.jpg' %}" alt="Kyaiktiyo Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Kyaiktiyo.jpg' %}" alt="Kyaiktiyo Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Kyaiktiyo"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Kyaiktiyo, famous for the iconic Golden Rock, is one of Myanmar's most sacred Buddhist pilgrimage sites perched dramatically atop Mount Kyaiktiyo. The massive gold-leaf-covered boulder balances precariously on a cliff edge, defying gravity and attracting travelers and pilgrims from around the world. Surrounded by breathtaking mountain views and vibrant night-time chanting rituals, it offers an unforgettable spiritual and scenic adventure."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 16. Bago Modal -->
+    <div id="bagoModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('bagoModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Bago1.jpg' %}" alt="Bago Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Bago2.jpg' %}" alt="Bago Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Bago.jpg' %}" alt="Bago Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Bago"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Bago, a historic city rich in ancient Mon heritage, is famous for its massive sacred monuments and lush greenery just north of Yangon. Visitors can marvel at the giant Shwethalyaung Reclining Buddha, the soaring Shwemawdaw Pagoda, and the reconstructed 16th-century Kanbawzathadi Palace. Its close proximity to the capital makes it a fascinating, easily accessible destination for culture and history enthusiasts."%}
+            </div>
+        </div>
+    </div>
+
+    <!-- 17. Sagaing Modal -->
+    <div id="sagaingModal"class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('sagaingModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Sagaing1.jpg' %}" alt="Sagaing Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Sagaing2.jpg' %}" alt="Sagaing Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Sagaing.jpg' %}" alt="Sagaing Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Sagaing"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                   {%trans "Sagaing is a peaceful spiritual hill-town along the Ayeyarwady River, dotted with hundreds of white and gold pagodas. Visitors can enjoy sweeping river views from Sagaing Hill and explore remarkable sites like the giant Kaunghmudaw Pagoda and U Min Thonze's 45 Buddha statues. Located right next to Mandalay, it is a perfect short trip for history, architecture, and tranquil views."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 18. Popa Modal -->
+    <div id="popaModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('popaModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Popa1.jpg' %}" alt="Popa Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Popa2.jpg' %}" alt="Popa Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Popa.jpg' %}" alt="Popa Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Popa"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Mount Popa is a dramatic extinct volcano famous for Taung Kalat, a steep volcanic plug topped with a sacred monastery. Perched high above the Myingyan plains, it is the spiritual home of Myanmar's 37 traditional Nat spirits and a major pilgrimage site. Visitors can climb the 777 covered steps—shared with resident monkeys—for breathtaking panoramic views of the surrounding countryside."%}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 19. Pangwar Modal -->
+    <div id="pangwarModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('pangwarModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Pangwar1.jpg' %}" alt="Pangwar Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Pangwar2.jpg' %}" alt="Pangwar Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Pangwar.jpg' %}" alt="Pangwar Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Pangwar"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Pang Wa (Pangwar) is a scenic highland border town in northern Kachin State, sitting along the Chinese frontier. Famed for its cool climate, misty pine-covered hills, and mountain views, it offers a unique frontier charm. Visitors can experience a fascinating mix of local ethnic cultures, cross-border markets, and peaceful mountain scenery."%}              </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 20. Hakha Modal -->
+    <div id="hakhaModal" class="fixed top-[-50px] inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-white rounded-[35px] max-w-xl w-full p-6 sm:p-8 relative shadow-2xl max-h-[90vh] overflow-y-auto text-center">
+            <button onclick="closeModal('hakhaModal')" class="absolute top-5 right-5 bg-gray-100 hover:bg-gray-200 text-gray-700 w-9 h-9 rounded-full flex items-center justify-center font-bold text-base transition z-30">✕</button>
+            <div class="relative w-full h-48 sm:h-56 flex justify-center items-center mb-6 pt-2">
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform -translate-x-14 sm:-translate-x-20 -rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Hakha2.jpg' %}" alt="Hakha Gallery 1" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-32 h-44 sm:w-36 sm:h-48 rounded-2xl overflow-hidden shadow-lg border-2 border-white transform translate-x-14 sm:translate-x-20 rotate-6 transition duration-300 hover:scale-105 z-10">
+                    <img src="{% static 'trip/T_Hakha1.jpg' %}" alt="Hakha Gallery 2" class="w-full h-full object-cover">
+                </div>
+                <div class="absolute w-36 h-48 sm:w-40 sm:h-52 rounded-2xl overflow-hidden shadow-xl border-2 border-white transform translate-y-1 z-20 transition duration-300 hover:scale-105">
+                    <img src="{% static 'trip/T_Hakha.jpg' %}" alt="Hakha Main" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900">{%trans "Hakha"%}</h2>
+                <p class="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+                    {%trans "Hakha is the capital and largest city of Chin State in western Myanmar, located in the mountainous region of northern Chin State at an elevation of roughly 1,860 meters (6,100 feet) above sea level.Renowned for its cool mountain air, vibrant rhododendron blossoms, and rich tribal heritage, it offers travelers stunning pine-covered landscapes and warm Chin hospitality. It serves as an exceptional gateway for exploring traditional Chin culture, colorful handwoven textiles, and scenic highland trekking."%}           </p>
+            </div>
+        </div>
+    </div> 
+
+</div>
+
+   <script>
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+            // Modal ပွင့်လာတဲ့အခါ Header ကို အောက်သို့ရောက်စေရန် z-index ကို ဖြုတ်/လျှော့ချသည်
+            const header = document.querySelector('header');
+            if (header) header.style.zIndex = '10';
+        }
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            // Modal ပိတ်သွားရင် Header ကို မူလ z-index (50) ပြန်ပေးသည်
+            const header = document.querySelector('header');
+            if (header) header.style.zIndex = '50';
+        }
+    }
+
+    // Esc ခလုတ်နှိပ်၍ ပိတ်သည့်အခါ
+    window.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            const modals = document.querySelectorAll('[id$="Modal"]');
+            modals.forEach(modal => {
+                if (!modal.classList.contains('hidden')) {
+                    modal.classList.add('hidden');
+                    document.body.style.overflow = 'auto';
+                    const header = document.querySelector('header');
+                    if (header) header.style.zIndex = '50';
+                }
+            });
+        }
+    });
+
+    // အပြင်ဘက် Backdrops များကို နှိပ်၍ ပိတ်သည့်အခါ
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('bg-black/60')) {
+            event.target.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            const header = document.querySelector('header');
+            if (header) header.style.zIndex = '50';
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends 'trip/base.html' %}
+{% load static %}
+{% load i18n %}
+{% block title %}About Us - Myanmar Travel{% endblock %}
+
+{% block content %}
+<div style="background-color: #ffffff; min-height: 100vh; overflow-x: hidden; font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;">
+    
+    <!-- Hero Banner Section (Light orange background with angled bottom edge) -->
+    <div style="position: relative; background-color: #ffedd5; padding: 5rem 1rem 10rem 1rem; text-align: center; clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);">
+        <div style="position: relative; z-index: 10; max-width: 48rem; margin: 0 auto;">
+            <h1 style="font-size: 2.5rem; font-weight: 800; color: #0f172a; margin-bottom: 0.75rem;">{%trans "About us"%}</h1>
+            <p style="font-size: 0.95rem; color: #334155; max-width: 32rem; margin: 0 auto; line-height: 1.5;">
+                {%trans "At TravelNest Myanmar, we make travel effortless. From seasonal guides and exclusive packages to instant bookings and a 24/7 AI chatbot, we bring everything you need into one smart platform."%}
+        </div>
+    </div>
+
+    <!-- Image Showcase Grid (Staggered / High-Low effect with Hover Zoom & Lift) -->
+    <div style="max-width: 64rem; margin: -7rem auto 3rem auto; padding: 0 1rem; position: relative; z-index: 20;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; align-items: start;">
+            
+            <!-- Image 1 -->
+            <div style="border-radius: 1rem; overflow: hidden; height: 180px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transform: translateY(1rem); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(0.5rem) scale(1.05)'; this.style.boxShadow='0 20px 25px -5px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(1rem) scale(1)'; this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1)';">
+                <img src="{% static 'trip/A_pic1.jpg' %}" alt="Team collaborating" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+            </div>
+            
+            <!-- Image 2 -->
+            <div style="border-radius: 1rem; overflow: hidden; height: 180px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transform: translateY(-1.5rem); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-2rem) scale(1.05)'; this.style.boxShadow='0 20px 25px -5px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(-1.5rem) scale(1)'; this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1)';">
+                <img src="{% static 'trip/A_pic2.jpg' %}" alt="Working on laptop" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+            </div>
+            
+            <!-- Image 3 -->
+            <div style="border-radius: 1rem; overflow: hidden; height: 180px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transform: translateY(1.5rem); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(1rem) scale(1.05)'; this.style.boxShadow='0 20px 25px -5px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(1.5rem) scale(1)'; this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1)';">
+                <img src="{% static 'trip/A_pic3.jpg' %}" alt="Naypyitaw Gallery 1" class="w-full h-full object-cover">
+            </div>
+            
+            <!-- Image 4 -->
+            <div style="border-radius: 1rem; overflow: hidden; height: 180px; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); transform: translateY(0rem); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-0.5rem) scale(1.05)'; this.style.boxShadow='0 20px 25px -5px rgba(0,0,0,0.2)';" onmouseout="this.style.transform='translateY(0rem) scale(1)'; this.style.boxShadow='0 10px 15px -3px rgba(0,0,0,0.1)';">
+                <img src="{% static 'trip/A_pic5.jpg' %}" alt="Meeting discussion" style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Section: We make sure your idea & creation delivered properly -->
+    <div style="max-width: 64rem; margin: 1rem auto; padding: 2rem 1rem; background-color: #ffffff;">
+        <h2 style="font-size: 2rem; font-weight: 800; color: #0f172a; margin-bottom: 2rem; max-width: 36rem;">
+           {%trans "Our Mission & Vision"%}
+        </h2>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+            <div>
+                <p>{%trans "Our Mission: To revolutionize the way people travel by providing an all-in-one, AI-powered platform that simplifies planning, booking, and discovering breathtaking destinations."%}</p>
+            </div>
+            <div>
+                <p>{%trans "Our Vision: To be the most trusted and comprehensive travel ecosystem where travelers can effortlessly explore, connect, and book unforgettable experiences worldwide."%}</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: We empower small business owners -->
+    <div style="position: relative; padding: 3rem 1rem; background-color: #ffffff; margin: 1rem 0;">
+        <div style="max-width: 64rem; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; align-items: center;">
+            
+            <!-- Left: Rotated Image -->
+            <div style="display: flex; justify-content: center;">
+                <div style="position: relative; border-radius: 1.5rem; overflow: hidden; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); width: 100%; max-width: 400px; height: 320px; transform: rotate(-3deg); transition: transform 0.3s ease;">
+                    <img src="{% static 'trip/A_pic4.jpg' %}" alt="Business Owner" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
+            </div>
+
+            <!-- Right: Content -->
+            <div>
+                <h2 style="font-size: 2rem; font-weight: 800; color: #0f172a; margin-bottom: 1.5rem;">
+                    {%trans "How It Works"%}
+                </h2>
+                <p style="color: #475569; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
+                    {%trans "Whether you need instant inspiration from our AI chatbot or a complete tour package, booking your next getaway takes just a few clicks:"%}
+                </p>
+                <blockquote style="border-left: 4px solid #f97316; padding-left: 1rem; font-style: italic; color: #334155; font-size: 0.9rem; line-height: 1.5; background-color: #fff7ed; padding-top: 0.5rem; padding-bottom: 0.5rem; border-radius: 0 0.375rem 0.375rem 0;">
+                    {%trans "Discover & Ask: Explore seasonal highlights or simply chat with our AI bot to get personalized recommendations."%}<br>
+                    {%trans "Choose & Review: Browse through our curated packages, check real user reviews, and pick the ideal trip for you."%}<br>
+                    {%trans "Book & Go: Secure your booking instantly through our platform, pack your bags, and enjoy a stress-free adventure!"%}<br>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section: We help business to grow faster and bigger -->
+    <div style="max-width: 48rem; margin: 2rem auto 2rem auto; padding: 0 1rem; text-align: center; background-color: #ffffff;">
+        <h2 style="font-size: 2rem; font-weight: 800; color: #0f172a; margin-bottom: 1rem;">
+            {%trans "Join Us on the Journey"%}
+        </h2>
+        <p style="color: #475569; font-size: 0.95rem; line-height: 1.5;">
+            {%trans "Ready to explore Myanmar the smarter way?"%}
+        </p>
+    </div>
+
+</div>
+{% endblock %}
