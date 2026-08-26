@@ -79,11 +79,11 @@ WSGI_APPLICATION = 'Travel.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tour_db',          
-        'USER': 'root',            
-        'PASSWORD': 'knkk', 
-        'HOST': 'localhost',        
-        'PORT': '3306',
+        'NAME': os.environ.get('MYSQLDATABASE', 'tour_db'),
+        'USER': os.environ.get('MYSQLUSER', 'root'),
+        'PASSWORD': os.environ.get('MYSQLPASSWORD', 'knkk'),
+        'HOST': os.environ.get('MYSQLHOST', 'localhost'),
+        'PORT': os.environ.get('MYSQLPORT', '3306'),
     }
 }
 
