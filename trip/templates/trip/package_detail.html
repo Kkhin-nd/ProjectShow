@@ -337,102 +337,126 @@
                 <div class="flex items-center space-x-2 text-orange-600"><span>✔</span> <span>{% if request.LANGUAGE_CODE == 'my' %}ပြောင်းလဲနိုင်သော လိုက်လျောညီထွေမှုများ{% else %}FLEXIBILITY{% endif %}</span></div>
             </div>
 
-            <!-- BOOK THIS TOUR FORM -->
-            <div class="bg-[#1e293b] p-6 rounded-3xl shadow-lg text-white space-y-4">
-                <h3 class="text-center font-bold text-lg tracking-wide pb-2 border-b border-gray-700">{% if request.LANGUAGE_CODE == 'my' %}ဤခရီးစဉ်ကို ဘွတ်ကင်လုပ်ရန်{% else %}BOOK THIS TOUR{% endif %}</h3>
-                <div class="bg-slate-800 p-3.5 rounded-2xl border border-orange-500/30 text-xs space-y-1">
-        <p class="font-semibold text-orange-400">
-            {% if request.LANGUAGE_CODE == 'my' %}ငွေလွှဲရန် အကောင့်အချက်အလက်{% else %}Payment Transfer Info{% endif %}:
-        </p>
-        <p class="text-gray-300"> <span class="font-bold text-white">TravelMyanmar</span></p>
-        <p class="text-gray-300"> <span class="font-bold text-orange-300">09671987824</span></p>
-    </div>
-                
-                <form id="bookingForm" class="space-y-3.5 text-xs" action="{{ request.path }}" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
-                    {% csrf_token %}
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ဟိုတယ်အမျိုးအစား{% else %}Hotel category?{% endif %}</label>
-                        <select name="hotel_category" x-model="hotelCategory" @change="calculatePrice()" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
-                            <option value="">{% if request.LANGUAGE_CODE == 'my' %}အမျိုးအစား ရွေးချယ်ပါ...{% else %}Select Category...{% endif %}</option>
-                            <option value="2 Star">2 {% if request.LANGUAGE_CODE == 'my' %}Star{% else %}Star{% endif %}</option>
-                            <option value="3 Star">3 {% if request.LANGUAGE_CODE == 'my' %}Star{% else %}Star{% endif %}</option>
-                            <option value="4 Star">4 {% if request.LANGUAGE_CODE == 'my' %}Star{% else %}Star{% endif %}</option>
-                            <option value="5 Star Luxury">5 Star Luxury{% if request.LANGUAGE_CODE == 'my' %} {% else %}5 Star Luxury{% endif %}</option>
-                        </select>
-                    </div>
+           <!-- BOOK THIS TOUR SECTION -->
+<div class="bg-[#1e293b] p-6 rounded-3xl shadow-lg text-white space-y-4">
+    <h3 class="text-center font-bold text-lg tracking-wide pb-2 border-b border-gray-700">
+        {% if request.LANGUAGE_CODE == 'my' %}ဤခရီးစဉ်ကို ဘွတ်ကင်လုပ်ရန်{% else %}BOOK THIS TOUR{% endif %}
+    </h3>
 
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}လူဦးရေမည်မျှလဲ?{% else %}How many people?{% endif %}</label>
-                        <input type="number" name="travelers_count" x-model="travelersCount" @input="calculatePrice()" min="1" value="1" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ခရီးသွားမည့်ရက်စွဲ{% else %}Travel date{% endif %}</label>
-                        <input type="date" name="travel_date" min="2026-08-09" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}အမည်အပြည့်အစုံ{% else %}Full name{% endif %}</label>
-                        <input type="text" name="full_name" value="{% if request.user.is_authenticated %}{{ request.user.get_full_name|default:request.user.username }}{% endif %}" placeholder="{% if request.LANGUAGE_CODE == 'my' %}သင့်အမည်အပြည့်အစုံ{% else %}Your full name{% endif %}" class="w-full bg-white text-gray-800 placeholder-gray-400 rounded-xl px-3 py-2.5 outline-none" required>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}အီးမေးလ်{% else %}Email{% endif %}</label>
-                        <input type="email" id="email" name="email" value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}" placeholder="example@mail.com" class="w-full bg-white text-gray-800 placeholder-gray-400 rounded-xl px-3 py-2.5 outline-none" required>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}အီးမေးလ်ကို အတည်ပြုပါ{% else %}Confirm email{% endif %}</label>
-                        <input type="email" id="confirm_email" name="confirm_email" value="{% if request.user.is_authenticated %}{{ request.user.email }}{% endif %}" placeholder="example@mail.com" class="w-full bg-white text-gray-800 placeholder-gray-400 rounded-xl px-3 py-2.5 outline-none" required>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ဖုန်းနံပါတ် *{% else %}Phone number *{% endif %}</label>
-                        <div class="flex items-center bg-white rounded-xl overflow-hidden px-2">
-                            <span class="text-gray-700 text-xs mr-1">🇲🇲 +95</span>
-                            <input type="text" id="phone_number" name="phone_number" value="{% if request.user.is_authenticated %}{{ request.user.profile.phone_number }}{% endif %}" placeholder="09xxxxxxxxx" maxlength="11" class="w-full text-gray-800 placeholder-gray-400 py-2.5 outline-none bg-transparent" required>
-                        </div>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ငွေပေးချေသည့်နည်းလမ်း *{% else %}Payment Method *{% endif %}</label>
-                        <select name="payment_method" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
-                            <option value="">{% if request.LANGUAGE_CODE == 'my' %}ငွေပေးချေမည့် နည်းလမ်း ရွေးချယ်ပါ...{% else %}Select Payment Method...{% endif %}</option>
-                            <option value="KBZ Pay">KBZ Pay</option>
-                            <option value="AYA Pay">AYA Pay</option>
-                            <option value="CB Pay">CB Pay</option>
-                            <option value="Wave Money">Wave Money</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300 flex justify-between items-center">
-                            <span>{% if request.LANGUAGE_CODE == 'my' %}ငွေပေးချေမှု ပုံစံ *{% else %}Payment Option *{% endif %}</span>
-                            <span class="text-orange-400 font-bold text-xs">
-                                (<span x-text="calculatedPrice"></span> MMK)
-                            </span>
-                        </label>
-                        <select name="payment_option" x-model="paymentOption" @change="calculatePrice()" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
-                            <option value="Full Payment">{% if request.LANGUAGE_CODE == 'my' %}ငွေအပြည့်ချေမည် (Full Payment){% else %}Full Payment{% endif %}</option>
-                            <option value="Deposit">{% if request.LANGUAGE_CODE == 'my' %}စရန်ငွေပေးမည် (50% Deposit){% else %}Deposit (50%){% endif %}</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ငွေလွှဲကုဒ် (Transaction ID) *{% else %}Transaction ID *{% endif %}</label>
-                        <input type="text" name="transaction_id" placeholder="{% if request.LANGUAGE_CODE == 'my' %}ငွေလွှဲကိုးကားနံပါတ် ထည့်ပါ{% else %}Enter transaction reference{% endif %}" class="w-full bg-white text-gray-800 placeholder-gray-400 rounded-xl px-3 py-2.5 outline-none" required>
-                    </div>
-
-                    <div>
-                        <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ငွေလွှဲပြေစာ တင်ရန် *{% else %}Upload Pay Slip *{% endif %}</label>
-                        <input type="file" name="pay_slip" class="w-full bg-white text-gray-800 text-[11px] rounded-xl px-2 py-1.5 outline-none file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-orange-50 file:text-orange-600 hover:file:bg-orange-100 cursor-pointer" required>
-                    </div>
-
-                    <button type="submit" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-3 rounded-xl font-bold tracking-wider transition shadow-md mt-2">
-                        {% if request.LANGUAGE_CODE == 'my' %}ဘွတ်ကင်တင်မည်{% else %}SEND BOOKING{% endif %}
-                    </button>
-                </form>
+    {% if request.user.is_authenticated %}
+        <!-- ငွေလွှဲရန် အကောင့်အချက်အလက် -->
+        <div class="bg-slate-800 p-3.5 rounded-2xl border border-orange-500/30 text-xs space-y-1">
+            <p class="font-semibold text-orange-400">
+                {% if request.LANGUAGE_CODE == 'my' %}ငွေလွှဲရန် အကောင့်အချက်အလက်{% else %}Payment Transfer Info{% endif %}:
+            </p>
+            <p class="text-gray-300"><span class="font-bold text-white">TravelMyanmar</span></p>
+            <p class="text-gray-300"><span class="font-bold text-orange-300">09671987824</span></p>
+        </div>
+            
+        <!-- Booking Form -->
+        <form id="bookingForm" class="space-y-3.5 text-xs" action="{{ request.path }}" method="POST" enctype="multipart/form-data" onsubmit="return validateBookingForm()">
+            {% csrf_token %}
+            
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ဟိုတယ်အမျိုးအစား{% else %}Hotel category?{% endif %}</label>
+                <select name="hotel_category" x-model="hotelCategory" @change="calculatePrice()" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
+                    <option value="">{% if request.LANGUAGE_CODE == 'my' %}အမျိုးအစား ရွေးချယ်ပါ...{% else %}Select Category...{% endif %}</option>
+                    <option value="2 Star">2 Star</option>
+                    <option value="3 Star">3 Star</option>
+                    <option value="4 Star">4 Star</option>
+                    <option value="5 Star Luxury">5 Star Luxury</option>
+                </select>
             </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}လူဦးရေမည်မျှလဲ?{% else %}How many people?{% endif %}</label>
+                <input type="number" name="travelers_count" x-model="travelersCount" @input="calculatePrice()" min="1" value="1" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ခရီးသွားမည့်ရက်စွဲ{% else %}Travel date{% endif %}</label>
+                <input type="date" name="travel_date" min="2026-08-09" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}အမည်အပြည့်အစုံ{% else %}Full name{% endif %}</label>
+                <input type="text" name="full_name" value="{{ request.user.get_full_name|default:request.user.username }}" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none" required>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}အီးမေးလ်{% else %}Email{% endif %}</label>
+                <input type="email" id="booking_email" name="email" value="{{ request.user.email }}" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none" required>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}အီးမေးလ်ကို အတည်ပြုပါ{% else %}Confirm email{% endif %}</label>
+                <input type="email" id="booking_confirm_email" name="confirm_email" value="{{ request.user.email }}" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none" required>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ဖုန်းနံပါတ် *{% else %}Phone number *{% endif %}</label>
+                <div class="flex items-center bg-white rounded-xl overflow-hidden px-2">
+                    <span class="text-gray-700 text-xs mr-1">🇲🇲 +95</span>
+                    <input type="text" id="booking_phone_number" name="phone_number" value="{{ request.user.profile.phone_number }}" placeholder="09xxxxxxxxx" maxlength="11" class="w-full text-gray-800 py-2.5 outline-none bg-transparent" required>
+                </div>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ငွေပေးချေသည့်နည်းလမ်း *{% else %}Payment Method *{% endif %}</label>
+                <select name="payment_method" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
+                    <option value="">{% if request.LANGUAGE_CODE == 'my' %}ငွေပေးချေမည့် နည်းလမ်း ရွေးချယ်ပါ...{% else %}Select Payment Method...{% endif %}</option>
+                    <option value="KBZ Pay">KBZ Pay</option>
+                    <option value="AYA Pay">AYA Pay</option>
+                    <option value="CB Pay">CB Pay</option>
+                    <option value="Wave Money">Wave Money</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300 flex justify-between items-center">
+                    <span>{% if request.LANGUAGE_CODE == 'my' %}ငွေပေးချေမှု ပုံစံ *{% else %}Payment Option *{% endif %}</span>
+                    <span class="text-orange-400 font-bold text-xs">
+                        (<span x-text="calculatedPrice"></span> MMK)
+                    </span>
+                </label>
+                <select name="payment_option" x-model="paymentOption" @change="calculatePrice()" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
+                    <option value="Full Payment">{% if request.LANGUAGE_CODE == 'my' %}ငွေအပြည့်ချေမည် (Full Payment){% else %}Full Payment{% endif %}</option>
+                    <option value="Deposit">{% if request.LANGUAGE_CODE == 'my' %}စရန်ငွေပေးမည် (50% Deposit){% else %}Deposit (50%){% endif %}</option>
+                </select>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ငွေလွှဲကုဒ် (Transaction ID) *{% else %}Transaction ID *{% endif %}</label>
+                <input type="text" name="transaction_id" placeholder="Enter transaction reference" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none" required>
+            </div>
+
+            <div>
+                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ငွေလွှဲပြေစာ တင်ရန် *{% else %}Upload Pay Slip *{% endif %}</label>
+                <input type="file" name="pay_slip" class="w-full bg-white text-gray-800 text-[11px] rounded-xl px-2 py-1.5 outline-none file:mr-3 file:py-1 file:px-3 file:rounded-lg file:border-0 file:text-xs file:font-semibold file:bg-orange-50 file:text-orange-600 hover:file:bg-orange-100 cursor-pointer" required>
+            </div>
+
+            <button type="submit" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-3 rounded-xl font-bold tracking-wider transition shadow-md mt-2 cursor-pointer">
+                {% if request.LANGUAGE_CODE == 'my' %}ဘွတ်ကင်တင်မည်{% else %}SEND BOOKING{% endif %}
+            </button>
+        </form>
+
+    {% else %}
+        <!-- Login မဝင်ရသေးပါက base.html ထဲက Modal ကို ခေါ်မည် -->
+        <div class="text-center py-6 space-y-4">
+            <p class="text-gray-300 text-sm">
+                {% if request.LANGUAGE_CODE == 'my' %}
+                ဤခရီးစဉ်အတွက် ဘွတ်ကင်တင်ရန် ကျေးဇူးပြု၍ အကောင့်ဝင်ပါ။
+                {% else %}
+                Please log in to make a booking for this tour package.
+                {% endif %}
+            </p>
+            <button onclick="openAuthModal()" class="w-full bg-[#ff7715] hover:bg-[#e0650f] text-white py-3 rounded-xl font-bold tracking-wider transition shadow-md text-center cursor-pointer">
+                {% if request.LANGUAGE_CODE == 'my' %}အကောင့်ဝင်ရန် (Login){% else %}USER LOGIN{% endif %}
+            </button>
+        </div>
+    {% endif %}
+</div>
+
 
         </div>
 
@@ -441,25 +465,38 @@
 </div>
 
 <script>
-function validateForm() {
-    // 1. Email နှင့် Confirm Email တူမတူ စစ်ဆေးခြင်း
-    const email = document.getElementById('email').value;
-    const confirmEmail = document.getElementById('confirm_email').value;
+// 1. Email နှင့် Phone နံပါတ် မှန်ကန်မှု ရှိမရှိ စစ်ဆေးခြင်း
+function validateBookingForm() {
+    const email = document.getElementById('booking_email').value;
+    const confirmEmail = document.getElementById('booking_confirm_email').value;
     if (email !== confirmEmail) {
-        alert("Email must be same");
+        alert("Email addresses do not match!");
         return false;
     }
 
-    // 2. ဖုန်းနံပါတ် ၁၁ လုံး ဟုတ်မဟုတ် စစ်ဆေးခြင်း
-    const phone = document.getElementById('phone_number').value;
+    const phone = document.getElementById('booking_phone_number').value;
     if (phone.length !== 11) {
-        alert("Phone number is wrong");
+        alert("Phone number must be 11 digits (e.g., 09xxxxxxxxx)");
         return false;
     }
 
-    // 3. အောင်မြင်ကြောင်း Alert ပြသပြီး Submit လုပ်ခြင်း
-    alert("Booking Complete!");
     return true;
 }
+
+// 2. Login Modal ပွင့်လာတဲ့အခါ Details Page မှာပဲ ပြန်ရောက်ဖို့ ?next= ထည့်ပေးခြင်း
+const originalOpenAuthModal = window.openAuthModal;
+window.openAuthModal = function() {
+    if (typeof originalOpenAuthModal === 'function') {
+        originalOpenAuthModal();
+    } else {
+        document.getElementById('authModal').classList.remove('hidden');
+    }
+    
+    const loginForm = document.getElementById('loginForm');
+    if (loginForm) {
+        const currentPath = window.location.pathname + window.location.search;
+        loginForm.action = "{% url 'login' %}?next=" + encodeURIComponent(currentPath);
+    }
+};
 </script>
 {% endblock %}
