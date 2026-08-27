@@ -497,19 +497,26 @@
             
             if (data.status === 'success') {
                 let rawReply = data.reply;
-                let formattedReply = rawReply.replace(/(\d+[\.\。）]\s*)/g, '\n\n$1');
+                let formattedReply = rawReply;
 
+                // ၁။ ပထမဦးဆုံး /package/ID/ ပုံစံတွေ့တာနဲ့ HTML Link အဖြစ် အရင်ပြောင်းပါ
                 formattedReply = formattedReply.replace(
-                    /\/package\/(?!ID\/)([a-zA-Z0-9_-]+)\//g, 
-                    '<a href="/package/$1/" class="text-orange-600 underline font-bold hover:text-orange-800">ဒီမှာ နှိပ်ပြီး အသေးစိတ်ကြည့်ရန်</a>'
+                    /\/package\/(\d+)\//g, 
+                    '<a href="/package/$1/" style="color: #ea580c; font-weight: bold; text-decoration: underline;" target="_blank">ဒီမှာ နှိပ်ပြီး အသေးစိတ်ကြည့်ရန်</a>'
                 );
 
+                // ၂။ Markdown [text](url) ပုံစံပါလာရင်လည်း ပြောင်းပေးရန်
                 formattedReply = formattedReply.replace(
                     /\[([^\]]+)\]\(([^)]+)\)/g,
-                    '<a href="$2" class="text-orange-600 underline font-bold hover:text-orange-800" target="_blank">$1</a>'
+                    '<a href="$2" style="color: #ea580c; font-weight: bold; text-decoration: underline;" target="_blank">$1</a>'
                 );
 
+                // ၃။ ဂဏန်းနောက်မှာ Enter ခုန်တာတွေကို နောက်ဆုံးမှ ဖော်ဆောင်ပါ
+                formattedReply = formattedReply.replace(/(\d+[\.\。）]\s*)/g, '\n\n$1');
+
+                // ၄။ အားလုံးပြီးမှ Enter များကို <br> သို့ ပြောင်းပါ
                 formattedReply = formattedReply.replace(/\n/g, '<br>');
+
                 aiBubble.innerHTML = formattedReply;
             } else {
                 aiBubble.textContent = "ဝမ်းနည်းပါတယ်၊ အမှားအယွင်း ဖြစ်ပေါ်သွားပါသည်။ ထပ်မံကြိုးစားပေးပါ။";

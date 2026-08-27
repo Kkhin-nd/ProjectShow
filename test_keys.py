@@ -17,6 +17,16 @@ API_KEYS = [
     os.getenv("OPENROUTER_API_KEY_8"),
     os.getenv("OPENROUTER_API_KEY_9"),
     os.getenv("OPENROUTER_API_KEY_10"),
+    os.getenv("OPENROUTER_API_KEY_11"),
+        os.getenv("OPENROUTER_API_KEY_12"),
+        os.getenv("OPENROUTER_API_KEY_13"),
+        os.getenv("OPENROUTER_API_KEY_14"),
+        os.getenv("OPENROUTER_API_KEY_15"),
+        os.getenv("OPENROUTER_API_KEY_16"),
+        os.getenv("OPENROUTER_API_KEY_17"),
+        os.getenv("OPENROUTER_API_KEY_18"),
+        os.getenv("OPENROUTER_API_KEY_19"),
+        os.getenv("OPENROUTER_API_KEY_20"),
 ]
 
 print("=== OpenRouter API Keys Status Check ==-\n")
