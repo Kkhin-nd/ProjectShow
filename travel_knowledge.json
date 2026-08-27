@@ -310,48 +310,51 @@
   ],
 "festival_tours": [
     {
-      "id": "fest_01",
-      "title": "Inle Lake Tabaung Full Moon Celebration",
-      "title_my": "အင်းလေးကန် တပေါင်းလပြည့်ပွဲတော် အထူးခရီးစဉ်",
-      "duration": "4 Days/ 3 Nights",
-      "category": "Festival Tour",
-      "description": "အင်းလေးကန်၏ သဘာဝအလှများနှင့်အတူ တပေါင်းလပြည့်ပွဲတော်၏ စည်ကားသိုက်မြိုက်မှုကို ခံစားနိုင်သော အထူးခရီးစဉ်။",
-      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
-    },
-    {
-      "id": "fest_02",
-      "title": "Kyaiktiyo Light Festival & Pilgrimage",
-      "title_my": "ကျိုက်ထီးရိုး ဆီမီးထွန်းပွဲတော်နှင့် ဘုရားဖူးခရီးစဉ်",
-      "duration": "2 Days/ 1 Night",
-      "category": "Festival Tour",
-      "description": "ကျိုက်ထီးရိုး ဆံတော်ရှင်စေတီတော်မြတ်ကြီး၏ ဆီမီး (၉)သောင်းထွန်းပွဲတော်ကို ဖူးမြော်ကြည်ညိုနိုင်သော ခရီးစဉ်။",
-      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
-    },
-    {
-      "id": "fest_03",
-      "title": "Bagan Thadingyut & Tazaungdaing Light Festival",
-      "title_my": "ပုဂံ သီတင်းကျွတ်နှင့် တန်ဆောင်မုန်း မီးထွန်းပွဲတော် ခရီးစဉ်",
+      "id": 12,
+      "title": "Inle Lake: Floating Gardens & Cultural Heritage Journey",
+      "title_my": "အင်းလေးကန် ရေပေါ်ဥယျာဉ်နှင့် ယဉ်ကျေးမှုအမွေအနှစ် ခရီးစဉ်",
       "duration": "3 Days/ 2 Nights",
-      "category": "Festival Tour",
-      "description": "ရှေးဟောင်းပုဂံမြေတွင် ဆီမီးတန်ထောင်ပေါင်းများစွာ ထွန်းညှိပူဇော်ကြသည့် ပွဲတော်ကာလကို အထူးခံစားရမည့် ခရီးစဉ်။",
+      "category": "Cultural & Heritage",
       "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
     },
-    {
-      "id": "fest_04",
-      "title": "Taunggyi Tazaungdaing Hot Air Balloon Festival & Inle Lake",
-      "title_my": "တောင်ကြီး တန်ဆောင်တိုင် မီးပုံးပျံပွဲတော်နှင့် အင်းလေးကန် ခရီးစဉ်",
-      "duration": "4 Days/ 3 Nights",
-      "category": "Festival Tour",
-      "description": "နာမည်ကျော် တောင်ကြီး မီးပုံးပျံပွဲတော်ကြီးနှင့် အင်းလေးကန်အလှများကို တစ်ပါတည်း လည်ပတ်နိုင်သော ခရီးစဉ်။",
-      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
-    },
-    {
-      "id": "fest_05",
+   {
+      "id": 34,
       "title": "Mandalay Grand Thingyan Festival Escape",
-      "title_my": "မန္တလေး မဟာသင်္ကြန်ပွဲတော် အထူးခရီးစဉ်",
+      "title_my": "မန္တလေး မဟာသင်္ကြန်ပွဲတော် အထူးအပန်းဖြေခရီးစဉ်)",
       "duration": "4 Days/ 3 Nights",
-      "category": "Festival Tour",
-      "description": "ယဉ်ကျေးမှုမြို့တော် မန္တလေးမြို့၏ စည်ကားသိုက်မြိုက်လှသော မဟာသင်္ကြန်ပွဲတော် ရေကစားပွဲများကို ပါဝင်ဆင်နွှဲနိုင်သော ခရီးစဉ်။",
+      "category": "Cultural & Heritage",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+    {
+      "id": 46,
+      "title": "Inle Lake Tabaung Full Moon Celebration",
+      "title_my": "အင်းလေး တပေါင်းလပြည့် ပွဲတော်",
+      "duration": "4 Days/ 3 Nights",
+      "category": "Nature & Adventure",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+     {
+      "id": 48,
+      "title": "Kyaiktiyo Light Festival & Pilgrimage",
+      "title_my": "ကျိုက်ထို မီးထွန်းပွဲတော်နှင့် ဘုရားဖူးခရီးစဉ်",
+      "duration": "2 Days/ 1 Nights",
+      "category": "Cultural & Heritage",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+    {
+      "id": 49,
+      "title": " Bagan Thadingyut & Tazaungdaing Light Festival",
+      "title_my": "ပုဂံ သီတင်းကျွတ်နှင့် တန်ဆောင်တိုင် မီးထွန်းပွဲတော်",
+      "duration": "3 Days/ 2 Nights",
+      "category": "Pilgrimage Tour",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+    {
+      "id": 50,
+      "title": "Taunggyi Tazaungdaing Hot Air Balloon Festival/Inle Lake",
+      "title_my": "တောင်ကြီး တန်ဆောင်တိုင် မီးပုံးပျံပွဲတော်)",
+      "duration": "4 Days/ 3 Nights",
+      "category": "Family Holiday",
       "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
     }
  ],
@@ -566,11 +569,51 @@
       "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
     },
     {
+      "id": 34,
+      "title": "Mandalay Grand Thingyan Festival Escape",
+      "title_my": "မန္တလေး မဟာသင်္ကြန်ပွဲတော် အထူးအပန်းဖြေခရီးစဉ်)",
+      "duration": "4 Days/ 3 Nights",
+      "category": "Cultural & Heritage",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+    {
       "id": 45,
       "title": "Kalaw Summer Cool-Off Mountain Escape",
       "title_my": "ကလော နွေရာသီ တောင်ပေါ်အေးမြရာ အပန်းဖြေခရီးစဉ်",
       "duration": "4 Days/ 3 Nights",
       "category": "Nature & Adventure",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+     {
+      "id": 46,
+      "title": "Inle Lake Tabaung Full Moon Celebration",
+      "title_my": "အင်းလေး တပေါင်းလပြည့် ပွဲတော်",
+      "duration": "4 Days/ 3 Nights",
+      "category": "Nature & Adventure",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+     {
+      "id": 48,
+      "title": "Kyaiktiyo Light Festival & Pilgrimage",
+      "title_my": "ကျိုက်ထို မီးထွန်းပွဲတော်နှင့် ဘုရားဖူးခရီးစဉ်",
+      "duration": "2 Days/ 1 Nights",
+      "category": "Cultural & Heritage",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+     {
+      "id": 49,
+      "title": " Bagan Thadingyut & Tazaungdaing Light Festival",
+      "title_my": "ပုဂံ သီတင်းကျွတ်နှင့် တန်ဆောင်တိုင် မီးထွန်းပွဲတော်",
+      "duration": "3 Days/ 2 Nights",
+      "category": "Pilgrimage Tour",
+      "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
+    },
+      {
+      "id": 50,
+      "title": "Taunggyi Tazaungdaing Hot Air Balloon Festival/Inle Lake",
+      "title_my": "တောင်ကြီး တန်ဆောင်တိုင် မီးပုံးပျံပွဲတော်)",
+      "duration": "4 Days/ 3 Nights",
+      "category": "Family Holiday",
       "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
     },
     {
@@ -591,40 +634,28 @@
   "seasonal_packages": {
     "Spring (October-November)": [
       {
-        "id": "spring_01",
+        "id": "45",
         "title": "Kalaw Summer Cool-Off Mountain Escape",
         "duration": "4 Days / 3 Nights",
         "price_range": "300,000 - 2,000,000 MMK",
         "hotel_info": "ရွေးချယ်ထားသော hotel အမျိုးအစား (5 stars, 4 stars, 3 stars and 2 stars) ပေါ်မူတည်၍ ကွဲပြားသွားပါသည်။"
-      },
+      }
+      
+    ],
+    
+    "Summer (March to May)": [
+      
       {
-        "id": "spring_02",
-        "title": "Inle Lake Journey — Inle Lake Tabaung Full Moon Celebration",
+        "id": "46",
+        "title": "Inle Lake Tabaung Full Moon Celebration",
         "duration": "3 Days / 4 Nights",
         "price_range": "300,000 - 2,000,000 MMK",
         "hotel_info": "ရွေးချယ်ထားသော hotel အမျိုးအစား (5 stars, 4 stars, 3 stars and 2 stars) ပေါ်မူတည်၍ ကွဲပြားသွားပါသည်။"
       }
     ],
-    
-    "Summer (March to May)": [
-      {
-        "id": "summer_01",
-        "title": "Thingyan Festival / City Entertainment & Cultural Experience",
-        "duration": "4 Days / 3 Nights",
-        "price_range": "250,000 - 2,000,000 MMK",
-        "hotel_info": "ရွေးချယ်သော hotel အမျိုးအစား (5 stars, 4 stars, 3 stars and 2 stars) ပေါ်မူတည်၍ ကွဲပြားသွားပါသည်။"
-      },
-      {
-        "id": "summer_02",
-        "title": "Inle Lake Tabaung Full Moon Celebration",
-        "duration": "3 Days / 2 Nights",
-        "price_range": "250,000 - 2,000,000 MMK",
-        "hotel_info": "ရွေးချယ်သော hotel အမျိုးအစား (5 stars, 4 stars, 3 stars and 2 stars) ပေါ်မူတည်၍ ကွဲပြားသွားပါသည်။"
-      }
-    ],
     "Rainy (November to February)": [
       {
-        "id": "rainy_01",
+        "id": "52",
         "title": "Hpa-An Monsoon Greenery & Waterfall Adventure",
         "duration": "3 Days / 2 Nights",
         "price_range": "250,000 - 1,000,000 MMK",
@@ -633,21 +664,21 @@
     ],
     "Winter (November-February)": [
       {
-        "id": "winter_01",
+        "id": "48",
         "title": "Kyaiktiyo Light Festival & Pilgrimage",
         "duration": "2 Days / 1 Night",
         "price_range": "250,000 - 1,600,000 MMK",
         "hotel_info": "ရွေးချယ်ထားသော hotel အမျိုးအစား (5 stars, 4 stars, 3 stars and 2 stars) ပေါ်မူတည်၍ ကွဲပြားသွားပါသည်။"
       },
       {
-        "id": "winter_02",
+        "id": "49",
         "title": "Bagan Thadingyut & Tazaungdaing Light Festival",
         "duration": "3 Days / 2 Nights",
         "price_range": "250,000 - 1,600,000 MMK",
         "hotel_info": "ရွေးချယ်ထားသော hotel အမျိုးအစား (5 stars, 4 stars, 3 stars and 2 stars) ပေါ်မူတည်၍ ကွဲပြားသွားပါသည်။"
       },
       {
-        "id": "winter_03",
+        "id": "50",
         "title": "Taunggyi Tazaungdaing Hot Air Balloon Festival",
         "duration": "4 Days / 3 Nights",
         "price_range": "250,000 - 1,600,000 MMK",
@@ -657,7 +688,7 @@
   },
   "weekend_packages": [
     {
-      "id": "wk_01",
+      "id": "31",
       "title": "Mount Popa Ancient",
       "title_my": "ပုပ္ပားတောင် ရှေးဟောင်းနယ်မြေ",
       "duration": "2 Days / 1 Night",
@@ -666,7 +697,7 @@
       "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
     },
     {
-      "id": "wk_02",
+      "id": "30",
       "title": "Historic Bago Ancient Capital",
       "title_my": "သမိုင်းဝင်ရှေးဟောင်းမြို့တော် ပဲခူး",
       "duration": "1 Day / Weekend Trip",
@@ -675,7 +706,7 @@
       "hotel_info": "ဟိုတယ်များအနေဖြင့် ၂ ကြယ်ပွင့်မှ ၅ ကြယ်ပွင့် (Luxury) အထိ ရှိပြီး လူကြီးမင်းတို့၏ ရွေးချယ်မှုပေါ်မူတည်၍ ကွာခြားနိုင်ပါသည်။"
     },
     {
-      "id": "wk_03",
+      "id": "28",
       "title": "Kyaiktiyo Golden Rock",
       "title_my": "ကျိုက်ထီးရိုး ဆံတော်ရှင်ဘုရား",
       "duration": "2 Days / 1 Night",
