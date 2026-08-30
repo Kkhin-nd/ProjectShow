@@ -374,9 +374,9 @@
             </div>
 
             <div>
-                <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ခရီးသွားမည့်ရက်စွဲ{% else %}Travel date{% endif %}</label>
-                <input type="date" name="travel_date" min="2026-08-09" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
-            </div>
+    <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}ခရီးသွားမည့်ရက်စွဲ{% else %}Travel date{% endif %}</label>
+    <input type="date" id="travel_date" name="travel_date" class="w-full bg-white text-gray-800 rounded-xl px-3 py-2.5 outline-none font-medium" required>
+</div>
 
             <div>
                 <label class="block mb-1 font-medium text-gray-300">{% if request.LANGUAGE_CODE == 'my' %}အမည်အပြည့်အစုံ{% else %}Full name{% endif %}</label>
@@ -497,6 +497,13 @@ window.openAuthModal = function() {
         const currentPath = window.location.pathname + window.location.search;
         loginForm.action = "{% url 'login' %}?next=" + encodeURIComponent(currentPath);
     }
-};
+}
+document.addEventListener("DOMContentLoaded", function() {
+        const today = new Date().toISOString().split('T')[0];
+        const dateInput = document.getElementById('travel_date');
+        if (dateInput) {
+            dateInput.setAttribute('min', today);
+        }
+    });
 </script>
 {% endblock %}
