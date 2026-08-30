@@ -14,6 +14,15 @@
 </head>
 <body class="min-h-screen flex flex-col bg-slate-50">
 
+    <!-- Django Messages (Hidden block to pass messages to JavaScript) -->
+    {% if messages %}
+        <div style="display: none;">
+            {% for message in messages %}
+                <span class="django-message">{{ message }}</span>
+            {% endfor %}
+        </div>
+    {% endif %}
+
     <!-- 1. Navigation Bar -->
     <header class="bg-white shadow-sm sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
@@ -180,71 +189,79 @@
             </div>
             
             <form id="loginForm" method="POST" action="{% url 'login' %}" onsubmit="return validateLoginForm(event)" class="space-y-4">
-    {% csrf_token %}
-    <div>
-        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Email Address</label>
-        <!-- id="login_email" ထည့်ပေးပါ -->
-        <input type="email" id="login_email" name="email" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-600 focus:ring-2 focus:ring-orange-600/20 outline-none text-sm transition bg-slate-50">
-    </div>
-    <div>
-        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Password</label>
-        <input type="password" name="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-600 focus:ring-2 focus:ring-orange-600/20 outline-none text-sm transition bg-slate-50">
-    </div>
-    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition">Log In</button>
-    <p class="text-center text-sm text-slate-600 mt-4">
-        Don't have an account? <button type="button" onclick="switchToRegister()" class="text-orange-600 font-semibold hover:underline">Create an account</button>
-    </p>
-</form>
+                {% csrf_token %}
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Email Address</label>
+                    <input type="email" id="login_email" name="email" required placeholder="name@example.com" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-600 focus:ring-2 focus:ring-orange-600/20 outline-none text-sm transition bg-slate-50">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Password</label>
+                    <input type="password" name="password" required placeholder="••••••••" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-orange-600 focus:ring-2 focus:ring-orange-600/20 outline-none text-sm transition bg-slate-50">
+                </div>
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition">Log In</button>
+                <p class="text-center text-sm text-slate-600 mt-4">
+                    Don't have an account? <button type="button" onclick="switchToRegister()" class="text-orange-600 font-semibold hover:underline">Create an account</button>
+                </p>
+            </form>
 
             <form id="registerForm" method="POST" action="{% url 'register' %}" onsubmit="return validateRegisterForm(event)" class="space-y-3 hidden">
-    {% csrf_token %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div>
-            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Full Name</label>
-            <input type="text" name="name" required placeholder="John Alkins" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
-        </div>
-        <div>
-            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Age</label>
-            <input type="number" name="age" required placeholder="25" min="1" max="120" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
-        </div>
-    </div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div>
-            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Email</label>
-            <!-- id="email" ထည့်ပေးပါ -->
-            <input type="email" id="email" name="email" required placeholder="me@gmail.com" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
-        </div>
-        <div>
-            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Confirm Email</label>
-            <!-- id="confirm_email" ထည့်ပေးပါ -->
-            <input type="email" id="confirm_email" name="confirm_email" required placeholder="me@gmail.com" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
-        </div>
-    </div>
-    <!-- ကျန်ရှိသော input များနှင့် button များမှာ မူလအတိုင်း ဖြစ်သည် -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-        <div>
-            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Phone Number</label>
-            <input type="tel" name="phone" required placeholder="09123456789" pattern="[0-9]{11}" maxlength="11" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
-        </div>
-        <div>
-            <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Password</label>
-            <input type="password" name="password" required placeholder="Password" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
-        </div>
-    </div>
-    <div>
-        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Address</label>
-        <textarea name="address" rows="1.5" required placeholder="Your full address" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50 resize-none"></textarea>
-    </div>
-    <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition">Create Account</button>
-    <p class="text-center text-sm text-slate-600 mt-3">
-        Already have an account? <button type="button" onclick="switchToLogin()" class="text-orange-600 font-semibold hover:underline">Log in</button>
-    </p>
-</form>
+                {% csrf_token %}
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Full Name</label>
+                        <input type="text" name="name" required placeholder="John Alkins" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Age</label>
+                        <input type="number" name="age" required placeholder="25" min="1" max="120" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Email</label>
+                        <input type="email" id="email" name="email" required placeholder="me@gmail.com" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Confirm Email</label>
+                        <input type="email" id="confirm_email" name="confirm_email" required placeholder="me@gmail.com" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Phone Number</label>
+                        <input type="tel" name="phone" required placeholder="09123456789" pattern="[0-9]{11}" maxlength="11" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Password</label>
+                        <input type="password" name="password" required placeholder="Password" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-700 uppercase mb-1">Address</label>
+                    <textarea name="address" rows="1.5" required placeholder="Your full address" class="w-full px-3 py-2 rounded-xl border border-slate-200 focus:border-orange-600 text-sm bg-slate-50 resize-none"></textarea>
+                </div>
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-semibold py-3 px-4 rounded-xl shadow-lg transition">Create Account</button>
+                <p class="text-center text-sm text-slate-600 mt-3">
+                    Already have an account? <button type="button" onclick="switchToLogin()" class="text-orange-600 font-semibold hover:underline">Log in</button>
+                </p>
+            </form>
         </div>
     </div>
 
-    <!-- JavaScript for UI Controls & Chat Functionality -->
+    <!-- JavaScript Script Section -->
     <script>
+        // Django မှ လာသော မက်ဆေ့ချ်များကို alert ဖြင့် ပြသရန်
+        document.addEventListener("DOMContentLoaded", function() {
+            const djangoMessages = document.querySelectorAll('.django-message');
+            if (djangoMessages.length > 0) {
+                let messageText = "";
+                djangoMessages.forEach(msg => {
+                    messageText += msg.textContent + "\n";
+                });
+                alert(messageText.trim());
+            }
+        });
+
         function openAuthModal() {
             document.getElementById('authModal').classList.remove('hidden');
         }
@@ -383,44 +400,41 @@
             }
         }
 
+        function validateRegisterForm(event) {
+            const email = document.getElementById('email').value.trim();
+            const confirmEmail = document.getElementById('confirm_email').value.trim();
 
-    function validateRegisterForm(event) {
-    const email = document.getElementById('email').value.trim();
-    const confirmEmail = document.getElementById('confirm_email').value.trim();
+            // ၁။ အီးမေးလ် နှစ်ခု တူညီမှုရှိမရှိ စစ်ဆေးခြင်း
+            if (email !== confirmEmail) {
+                alert("အီးမေးလ် နှစ်ခု မတူညီပါ။ ကျေးဇူးပြု၍ ပြန်စစ်ပါ။");
+                event.preventDefault(); // Form ပို့ခြင်းကို တားဆီးသည်
+                return false;
+            }
 
-    // ၁။ အီးမေးလ် နှစ်ခု တူညီမှုရှိမရှိ စစ်ဆေးခြင်း
-    if (email !== confirmEmail) {
-        alert("အီးမေးလ် နှစ်ခု မတူညီပါ။ ကျေးဇူးပြု၍ ပြန်စစ်ပါ။");
-        event.preventDefault(); // Form ပို့ခြင်းကို တားဆီးသည်
-        return false;
-    }
+            // ၂။ .com တစ်ခုတည်းကို သေချာစစ်ဆေးခြင်း
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/i;
+            if (!emailRegex.test(email)) {
+                alert("ကျေးဇူးပြု၍ မှန်ကန်သော အီးမေးလ် ပုံစံ (ဥပမာ - .com) ကို ထည့်သွင်းပါ။");
+                event.preventDefault();
+                return false;
+            }
 
-    // ၂။ .com တစ်ခုတည်းကို သေချာစစ်ဆေးခြင်း (co နှင့် con ကို ပိတ်သည်)
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/i;
-    if (!emailRegex.test(email)) {
-        alert("ကျေးဇူးပြု၍ မှန်ကန်သော အီးမေးလ် ပုံစံ (ဥပမာ - .com) ကို ထည့်သွင်းပါ။");
-        event.preventDefault();
-        return false;
-    }
+            return true;
+        }
 
-    return true;
-}
+        function validateLoginForm(event) {
+            const email = document.getElementById('login_email').value.trim();
 
-function validateLoginForm(event) {
-    const email = document.getElementById('login_email').value.trim();
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/i;
+            
+            if (!emailRegex.test(email)) {
+                alert("ကျေးဇူးပြု၍ မှန်ကန်သော အီးမေးလ် ပုံစံ (ဥပမာ - .com) ကို ထည့်သွင်းပါ။");
+                event.preventDefault(); // Form ပို့ခြင်းကို တားဆီးသည်
+                return false;
+            }
 
-    // .com တစ်ခုတည်းကို သေချာစစ်ဆေးခြင်း (co နှင့် con ကို ပိတ်သည်)
-    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.com$/i;
-    
-    if (!emailRegex.test(email)) {
-        alert("ကျေးဇူးပြု၍ မှန်ကန်သော အီးမေးလ် ပုံစံ (ဥပမာ - .com) ကို ထည့်သွင်းပါ။");
-        event.preventDefault(); // Form ပို့ခြင်းကို တားဆီးသည်
-        return false;
-    }
-
-    return true;
-}
-
+            return true;
+        }
     </script>
 </body>
 </html>
